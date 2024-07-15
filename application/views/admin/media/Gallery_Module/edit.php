@@ -16,11 +16,11 @@
 </style>
 <script type="text/javascript"
 	src="https://maps.googleapis.com/maps/api/js?&sensor=false&libraries=places&key=AIzaSyAldYzpqTa00-GOjaz3_TTlawRJ2B8Isu4"></script>
-<script src="<?php echo MAINSITE; ?>map/src/js/jquery.placepicker.js"></script>
-<?php
+<script src="<?php  echo MAINSITE; ?>map/src/js/jquery.placepicker.js"></script>
+<?php 
 $page_module_name = "Tours";
 ?>
-<?
+<?php 
 $record_action = "Add New Record";
 $tour_id = 0;
 $tour_variant = 0;
@@ -81,25 +81,25 @@ if (!empty($tour_data)) {
 
 				<div class="col-sm-6">
 					<h1 class="m-0 text-dark">
-						<?= $page_module_name ?> </small>
+						<?php  echo  $page_module_name ?> </small>
 					</h1>
 				</div><!-- /.col -->
 
 				<div class="col-sm-6">
 					<ol class="breadcrumb float-sm-right">
-						<li class="breadcrumb-item"><a href="<?= MAINSITE_Admin . "wam" ?>">Home</a></li>
+						<li class="breadcrumb-item"><a href="<?php  echo  MAINSITE_Admin . "wam" ?>">Home</a></li>
 						<li class="breadcrumb-item"><a
-								href="<?= MAINSITE_Admin . $user_access->class_name . "/" . $user_access->function_name ?>">
-								<?= $user_access->module_name ?>
+								href="<?php  echo  MAINSITE_Admin . $user_access->class_name . "/" . $user_access->function_name ?>">
+								<?php  echo  $user_access->module_name ?>
 								List
 							</a></li>
-						<? if (!empty($tour_data)) { ?>
+						<?php  if (!empty($tour_data)) { ?>
 							<li class="breadcrumb-item"><a
-									href="<?= MAINSITE_Admin . $user_access->class_name . "/upcoming-tours-view/" . $tour_id ?>">View</a>
+									href="<?php  echo  MAINSITE_Admin . $user_access->class_name . "/upcoming-tours-view/" . $tour_id ?>">View</a>
 							</li>
-						<? } ?>
+						<?php  } ?>
 						<li class="breadcrumb-item">
-							<?= $record_action ?>
+							<?php  echo  $record_action ?>
 						</li>
 					</ol>
 				</div><!-- /.col -->
@@ -120,8 +120,8 @@ if (!empty($tour_data)) {
 					<!-- {{{{{form-header -->
 					<div class="card-header">
 						<h3 class="card-title">
-							<?= $name ?> <small>
-								<?= $record_action ?>
+							<?php  echo  $name ?> <small>
+								<?php  echo  $record_action ?>
 							</small>
 						</h3>
 					</div>
@@ -129,17 +129,17 @@ if (!empty($tour_data)) {
 
 
 					<!-- {{{{{ Main Form -->
-					<?php
+					<?php 
 					if ($user_access->view_module == 1 || true) {
 						?>
 
 						<!-- {{{{{ always echo the "alert_message" before the main "card-body"-->
-						<? echo $this->session->flashdata('alert_message'); ?>
+						<?php  echo $this->session->flashdata('alert_message'); ?>
 						<!-- }}}}} "alert_message" -->
 
 
 						<div class="card-body">
-							<?php echo form_open(
+							<?php  echo form_open(
 								MAINSITE_Admin . "$user_access->class_name/tourDoEdit",
 								array(
 									'method' => 'post',
@@ -151,7 +151,7 @@ if (!empty($tour_data)) {
 									'enctype' => 'multipart/form-data'
 								)
 							); ?>
-							<input type="hidden" name="tour_id" id="tour_id" value="<?= $tour_id ?>" />
+							<input type="hidden" name="tour_id" id="tour_id" value="<?php  echo  $tour_id ?>" />
 							<input type="hidden" name="redirect_type" id="redirect_type" value="" />
 
 
@@ -164,16 +164,16 @@ if (!empty($tour_data)) {
 										<select type="text" class="form-control form-control-sm" required id="tour_variant"
 											name="tour_variant">
 											<option value="">Select Tour Date</option>
-											<? foreach ($tour_variant_data as $item) {
+											<?php  foreach ($tour_variant_data as $item) {
 												$selected = "";
 												if ($item->tour_variant == $tour_variant) {
 													$selected = "selected";
 												}
 												?>
-												<option value="<?= $item->tour_variant ?>" <?= $selected ?>> <?= $item->tour_variant_name ?>
+												<option value="<?php  echo  $item->tour_variant ?>" <?php  echo  $selected ?>> <?php  echo  $item->tour_variant_name ?>
 
 												</option>
-											<? } ?>
+											<?php  } ?>
 										</select>
 
 									</div>
@@ -184,7 +184,7 @@ if (!empty($tour_data)) {
 											style="color:#f00;font-size: 22px;margin-top: 3px;">*</span></label>
 									<div class="col-sm-12">
 										<input type="text" class="form-control form-control-sm" required id="name" name="name"
-											value="<?= $name ?>" placeholder="Tour Name">
+											value="<?php  echo  $name ?>" placeholder="Tour Name">
 									</div>
 								</div>
 
@@ -197,7 +197,7 @@ if (!empty($tour_data)) {
 											style="color:#f00;font-size: 22px;margin-top: 3px;">*</span></label>
 									<div class="col-sm-12">
 										<input type="number" class="form-control form-control-sm" id="duration_day" name="duration_day"
-											value="<?= $duration_day ?>" placeholder="Days" min="0" step="1">
+											value="<?php  echo  $duration_day ?>" placeholder="Days" min="0" step="1">
 
 									</div>
 								</div>
@@ -206,7 +206,7 @@ if (!empty($tour_data)) {
 											style="color:#f00;font-size: 22px;margin-top: 3px;">*</span></label>
 									<div class="col-sm-12">
 										<input type="number" class="form-control form-control-sm" id="duration_night" name="duration_night"
-											value="<?= $duration_night ?>" placeholder="Nights" min="0" step="1">
+											value="<?php  echo  $duration_night ?>" placeholder="Nights" min="0" step="1">
 
 									</div>
 								</div>
@@ -215,7 +215,7 @@ if (!empty($tour_data)) {
 											style="color:#f00;font-size: 22px;margin-top: 3px;">*</span></label>
 									<div class="col-sm-12">
 										<input type="number" class="form-control form-control-sm" id="available_slots" name="available_slots"
-											value="<?= $available_slots ?>" placeholder="Available Slots" min="0" step="1">
+											value="<?php  echo  $available_slots ?>" placeholder="Available Slots" min="0" step="1">
 
 									</div>
 
@@ -231,7 +231,7 @@ if (!empty($tour_data)) {
 											style="color:#f00;font-size: 22px;margin-top: 3px;">*</span></label>
 									<div class="col-sm-12">
 										<input type="text" class="form-control form-control-sm" required id="minimum_age" name="minimum_age"
-											value="<?= $minimum_age ?>" placeholder="Minimum Age">
+											value="<?php  echo  $minimum_age ?>" placeholder="Minimum Age">
 									</div>
 								</div>
 								<div class="col-lg-3 col-md-4 col-sm-6">
@@ -239,7 +239,7 @@ if (!empty($tour_data)) {
 											style="color:#f00;font-size: 22px;margin-top: 3px;">*</span></label>
 									<div class="col-sm-12">
 										<input type="text" class="form-control form-control-sm" required id="tour_type" name="tour_type"
-											value="<?= $tour_type ?>" placeholder="Tour Type">
+											value="<?php  echo  $tour_type ?>" placeholder="Tour Type">
 									</div>
 								</div>
 								<div class="col-md-3 col-sm-6">
@@ -249,25 +249,25 @@ if (!empty($tour_data)) {
 									<div class="col-sm-12 d-flex">
 										<div class="input-group" style="width:90%">
 											<div class="custom-file">
-												<input type="file" name="banner_image" class="custom-file-input" id="banner_image" <? if (empty($tour_data->banner_image)) { ?> required <? } ?>>
+												<input type="file" name="banner_image" class="custom-file-input" id="banner_image" <?php  if (empty($tour_data->banner_image)) { ?> required <?php  } ?>>
 												<label class="custom-file-label form-control-sm" for="banner_image"></label>
 
 											</div>
 
 										</div>
 										<div class="custom-file-display custom-file-display0">
-											<? if (!empty($banner_image)) { ?>
+											<?php  if (!empty($banner_image)) { ?>
 												<span class="pip pip0">
-													<a target="_blank" href="<?= _uploaded_files_ . 'banner_image/' . $tour_data->banner_image ?>">
+													<a target="_blank" href="<?php  echo  _uploaded_files_ . 'banner_image/' . $tour_data->banner_image ?>">
 														<img class="imageThumb imageThumb0"
-															src="<?= _uploaded_files_ . 'banner_image/' . $tour_data->banner_image ?>" />
+															src="<?php  echo  _uploaded_files_ . 'banner_image/' . $tour_data->banner_image ?>" />
 													</a>
 												</span>
-											<? } else { ?>
+											<?php  } else { ?>
 												<span class="pip pip0">
-													<img class="imageThumb imageThumb0" src="<?= _uploaded_files_ ?>no-img.png" />
+													<img class="imageThumb imageThumb0" src="<?php  echo  _uploaded_files_ ?>no-img.png" />
 												</span>
-											<? } ?>
+											<?php  } ?>
 										</div>
 									</div>
 								</div>
@@ -278,25 +278,25 @@ if (!empty($tour_data)) {
 									<div class="col-sm-12 d-flex">
 										<div class="input-group" style="width:90%">
 											<div class="custom-file">
-												<input type="file" name="cover_image" class="custom-file-input" id="cover_image" <? if (empty($tour_data->cover_image)) { ?> required <? } ?>>
+												<input type="file" name="cover_image" class="custom-file-input" id="cover_image" <?php  if (empty($tour_data->cover_image)) { ?> required <?php  } ?>>
 												<label class="custom-file-label form-control-sm" for="cover_image"></label>
 
 											</div>
 
 										</div>
 										<div class="custom-file-display custom-file-display1">
-											<? if (!empty($cover_image)) { ?>
+											<?php  if (!empty($cover_image)) { ?>
 												<span class="pip pip1">
-													<a target="_blank" href="<?= _uploaded_files_ . 'cover_image/' . $tour_data->cover_image ?>">
+													<a target="_blank" href="<?php  echo  _uploaded_files_ . 'cover_image/' . $tour_data->cover_image ?>">
 														<img class="imageThumb imageThumb1"
-															src="<?= _uploaded_files_ . 'cover_image/' . $tour_data->cover_image ?>" />
+															src="<?php  echo  _uploaded_files_ . 'cover_image/' . $tour_data->cover_image ?>" />
 													</a>
 												</span>
-											<? } else { ?>
+											<?php  } else { ?>
 												<span class="pip pip1">
-													<img class="imageThumb imageThumb1" src="<?= _uploaded_files_ ?>no-img.png" />
+													<img class="imageThumb imageThumb1" src="<?php  echo  _uploaded_files_ ?>no-img.png" />
 												</span>
-											<? } ?>
+											<?php  } ?>
 										</div>
 
 									</div>
@@ -321,7 +321,7 @@ if (!empty($tour_data)) {
 												</tr>
 											</thead>
 											<tbody class="RFQDetailBody_tdate">
-												<? $this->load->view('admin/catalog/tour_Module/template/text_line_add_more_tdate', $this->data); ?>
+												<?php  $this->load->view('admin/catalog/tour_Module/template/text_line_add_more_tdate', $this->data); ?>
 											</tbody>
 											<tfoot>
 												<tr>
@@ -331,7 +331,7 @@ if (!empty($tour_data)) {
 												</tr>
 											</tfoot>
 										</table>
-										<?php if (!empty($tour_data->tour_date)) { ?>
+										<?php  if (!empty($tour_data->tour_date)) { ?>
 											<div class="card-body p-0 " style="width:90% !important">
 												<table class="table table-sm" style="width:100%">
 													<thead style="width:100%">
@@ -342,11 +342,11 @@ if (!empty($tour_data)) {
 														</tr>
 													</thead>
 													<tbody class="collapse" id="uploadImg_tdate" style="width:100%">
-														<?php foreach ($tour_data->tour_date as $tdate) { ?>
-															<tr id="quotation_enquiry_file_<?= $tdate->tour_date_id ?>" style="width:100%">
+														<?php  foreach ($tour_data->tour_date as $tdate) { ?>
+															<tr id="quotation_enquiry_file_<?php  echo  $tdate->tour_date_id ?>" style="width:100%">
 																<td>
 
-																	<?= $tdate->start_date_time ?> to <?= $tdate->end_date ?>
+																	<?php  echo  $tdate->start_date_time ?> to <?php  echo  $tdate->end_date ?>
 
 																</td>
 																<td>
@@ -354,20 +354,20 @@ if (!empty($tour_data)) {
 																	&nbsp; &nbsp; :
 																	&nbsp; &nbsp; &nbsp; &nbsp;
 																	<span class="text-bold p-1 ">
-																		<?php if (empty($tdate->is_discount)): ?>
+																		<?php  if (empty($tdate->is_discount)): ?>
 																			<span style="color: green;">
-																				₹<?= $tdate->actual_price ?></span>
-																		<?php else: ?>
+																				₹<?php  echo  $tdate->actual_price ?></span>
+																		<?php  else: ?>
 																			<span class="inline-block">
 																				<span class="text-muted ">
-																					<del>₹<?= $tdate->actual_price ?></del>
+																					<del>₹<?php  echo  $tdate->actual_price ?></del>
 																				</span>
 																				<span class=" font-weight-bold" style="font-weight:bold;color: green;">
-																					₹<?= $tdate->discounted_price ?>
+																					₹<?php  echo  $tdate->discounted_price ?>
 																				</span>
 																			</span>
 
-																		<?php endif; ?>
+																		<?php  endif; ?>
 
 
 																	</span>
@@ -375,17 +375,17 @@ if (!empty($tour_data)) {
 																</td>
 
 																<td><button class="btn btn-outline-danger btn-xs"
-																		onclick="return del_tdate('<?= $tdate->tour_date_id ?>')" title="remove"><i
+																		onclick="return del_tdate('<?php  echo  $tdate->tour_date_id ?>')" title="remove"><i
 																			class="fas fa-trash"></i></button></td>
 															</tr>
-														<?php } ?>
+														<?php  } ?>
 														<tr>
 															<td colspan="2"></td>
 														</tr>
 													</tbody>
 												</table>
 											</div>
-										<?php } ?>
+										<?php  } ?>
 									</div>
 
 								</div>
@@ -398,17 +398,17 @@ if (!empty($tour_data)) {
 											style="color:#f00;font-size: 22px;margin-top: 3px;">*</span></label>
 									<div class="col-sm-12">
 										<input type="text" class="form-control form-control-sm" required id="location" name="location"
-											value="<?= $location ?>" placeholder="Location Name">
+											value="<?php  echo  $location ?>" placeholder="Location Name">
 									</div>
 								</div>
 								<div class="col-md-8 row">
 									<label for="inputEmail3" class="col-sm-12 label_content px-2 py-0 ">Google MAP Address<span
 											style="color:#f00;font-size: 22px;margin-top: 3px;">*</span></label>
 									<div class="col-sm-12">
-										<input type="hidden" name="google_map_url" id="google_map_url" value="<? echo $google_map_url ?>" />
+										<input type="hidden" name="google_map_url" id="google_map_url" value="<?php  echo $google_map_url ?>" />
 										<input type="text" name="google_map_address" class="form-control form-control-sm" width="90%"
 											data-map-container-id="collapseTwo" id="google_map_address" required placeholder="Place or Location"
-											value="<?php echo $google_map_address; ?>">
+											value="<?php  echo $google_map_address; ?>">
 
 										<!-- <div id="" class="" style="display:block">
 											<div class="another-map-class thumbnail"></div>
@@ -427,7 +427,7 @@ if (!empty($tour_data)) {
 									</label>
 
 									<textarea class="search_textbox ckeditor" name="description" id="description" required
-										style="width: 576px; height: 200px;"><? echo $description; ?></textarea>
+										style="width: 576px; height: 200px;"><?php  echo $description; ?></textarea>
 
 									<span class="field-validation-valid" data-valmsg-for="description" data-valmsg-replace="true"></span>
 
@@ -443,7 +443,7 @@ if (!empty($tour_data)) {
 									</label>
 
 									<textarea class="search_textbox ckeditor" name="inclusion" id="inclusion" required
-										style="width: 576px; height: 200px;"><? echo $inclusion; ?></textarea>
+										style="width: 576px; height: 200px;"><?php  echo $inclusion; ?></textarea>
 
 									<span class="field-validation-valid" data-valmsg-for="inclusion" data-valmsg-replace="true"></span>
 
@@ -459,7 +459,7 @@ if (!empty($tour_data)) {
 									</label>
 
 									<textarea class="search_textbox ckeditor" name="exclusion" id="exclusion" required
-										style="width: 576px; height: 200px;"><? echo $exclusion; ?></textarea>
+										style="width: 576px; height: 200px;"><?php  echo $exclusion; ?></textarea>
 
 									<span class="field-validation-valid" data-valmsg-for="exclusion" data-valmsg-replace="true"></span>
 
@@ -475,7 +475,7 @@ if (!empty($tour_data)) {
 									</label>
 
 									<textarea class="search_textbox ckeditor" name="important_notes" id="important_notes" required
-										style="width: 576px; height: 200px;"><? echo $important_notes; ?></textarea>
+										style="width: 576px; height: 200px;"><?php  echo $important_notes; ?></textarea>
 
 									<span class="field-validation-valid" data-valmsg-for="important_notes"
 										data-valmsg-replace="true"></span>
@@ -492,7 +492,7 @@ if (!empty($tour_data)) {
 									</label>
 
 									<textarea class="search_textbox ckeditor" name="additional_info" id="additional_info" required
-										style="width: 576px; height: 200px;"><? echo $additional_info; ?></textarea>
+										style="width: 576px; height: 200px;"><?php  echo $additional_info; ?></textarea>
 
 									<span class="field-validation-valid" data-valmsg-for="additional_info"
 										data-valmsg-replace="true"></span>
@@ -516,7 +516,7 @@ if (!empty($tour_data)) {
 												</tr>
 											</thead>
 											<tbody class="RFQDetailBody_plan">
-												<? $this->load->view('admin/catalog/tour_Module/template/text_line_add_more_plan', $this->data); ?>
+												<?php  $this->load->view('admin/catalog/tour_Module/template/text_line_add_more_plan', $this->data); ?>
 											</tbody>
 											<tfoot>
 												<tr>
@@ -526,7 +526,7 @@ if (!empty($tour_data)) {
 												</tr>
 											</tfoot>
 										</table>
-										<?php if (!empty($tour_data->tour_plan)) { ?>
+										<?php  if (!empty($tour_data->tour_plan)) { ?>
 											<div class="card-body p-0 " style="width:90% !important">
 												<table class="table table-sm">
 													<thead>
@@ -538,27 +538,27 @@ if (!empty($tour_data)) {
 														</tr>
 													</thead>
 													<tbody class="collapse" id="uploadImg_plan">
-														<?php foreach ($tour_data->tour_plan as $plan) {
+														<?php  foreach ($tour_data->tour_plan as $plan) {
 															?>
-															<tr id="quotation_enquiry_file_<?= $plan->tour_plan_id ?>">
+															<tr id="quotation_enquiry_file_<?php  echo  $plan->tour_plan_id ?>">
 																<td>
 																	<div id="accordion" style="width:100%;">
 																		<div class="card " style="width:100%;">
 																			<div class="card-header ">
 																				<a class="card-title w-100" data-toggle="collapse"
-																					href="#collapseOne<?= $plan->tour_plan_id ?>" aria-expanded="true">
+																					href="#collapseOne<?php  echo  $plan->tour_plan_id ?>" aria-expanded="true">
 																					<span>Day
-																						<?= $plan->day_number ?>
+																						<?php  echo  $plan->day_number ?>
 																						:</span>
 																					<span class=" inline-block ">
-																						<?= $plan->day_name ?>
+																						<?php  echo  $plan->day_name ?>
 																					</span>
 																				</a>
 																			</div>
-																			<div id="collapseOne<?= $plan->tour_plan_id ?>" class="collapse show"
+																			<div id="collapseOne<?php  echo  $plan->tour_plan_id ?>" class="collapse show"
 																				data-parent="#accordion" style="">
 																				<div class="card-body">
-																					<?= $plan->day_plan ?>
+																					<?php  echo  $plan->day_plan ?>
 																				</div>
 																			</div>
 																		</div>
@@ -566,17 +566,17 @@ if (!empty($tour_data)) {
 
 																</td>
 																<td><button class="btn btn-outline-danger btn-xs"
-																		onclick="return del_plan('<?= $plan->tour_plan_id ?>')" title="remove"><i
+																		onclick="return del_plan('<?php  echo  $plan->tour_plan_id ?>')" title="remove"><i
 																			class="fas fa-trash"></i></button></td>
 															</tr>
-														<?php } ?>
+														<?php  } ?>
 														<tr>
 															<td colspan="2"></td>
 														</tr>
 													</tbody>
 												</table>
 											</div>
-										<?php } ?>
+										<?php  } ?>
 									</div>
 
 								</div>
@@ -595,7 +595,7 @@ if (!empty($tour_data)) {
 												</tr>
 											</thead>
 											<tbody class="RFQDetailBody_ttc">
-												<? $this->load->view('admin/catalog/tour_Module/template/text_line_add_more_ttc', $this->data); ?>
+												<?php  $this->load->view('admin/catalog/tour_Module/template/text_line_add_more_ttc', $this->data); ?>
 											</tbody>
 											<tfoot>
 												<tr>
@@ -605,7 +605,7 @@ if (!empty($tour_data)) {
 												</tr>
 											</tfoot>
 										</table>
-										<?php if (!empty($tour_data->things_to_carry)) { ?>
+										<?php  if (!empty($tour_data->things_to_carry)) { ?>
 											<div class="card-body p-0 " style="width:90% !important">
 												<table class="table table-sm">
 													<thead>
@@ -616,25 +616,25 @@ if (!empty($tour_data)) {
 														</tr>
 													</thead>
 													<tbody class="collapse" id="uploadImg_ttc">
-														<?php foreach ($tour_data->things_to_carry as $ttc) { ?>
-															<tr id="quotation_enquiry_file_<?= $ttc->things_to_carry_id ?>">
+														<?php  foreach ($tour_data->things_to_carry as $ttc) { ?>
+															<tr id="quotation_enquiry_file_<?php  echo  $ttc->things_to_carry_id ?>">
 																<td>
 
-																	<?= $ttc->name ?>
+																	<?php  echo  $ttc->name ?>
 
 																</td>
 																<td><button class="btn btn-outline-danger btn-xs"
-																		onclick="return del_ttc('<?= $ttc->things_to_carry_id ?>')" title="remove"><i
+																		onclick="return del_ttc('<?php  echo  $ttc->things_to_carry_id ?>')" title="remove"><i
 																			class="fas fa-trash"></i></button></td>
 															</tr>
-														<?php } ?>
+														<?php  } ?>
 														<tr>
 															<td colspan="2"></td>
 														</tr>
 													</tbody>
 												</table>
 											</div>
-										<?php } ?>
+										<?php  } ?>
 									</div>
 
 								</div>
@@ -655,7 +655,7 @@ if (!empty($tour_data)) {
 												</tr>
 											</thead>
 											<tbody class="RFQDetailBody_carousel">
-												<? $this->load->view('admin/catalog/tour_Module/template/file_line_add_more_carousel', $this->data); ?>
+												<?php  $this->load->view('admin/catalog/tour_Module/template/file_line_add_more_carousel', $this->data); ?>
 											</tbody>
 											<tfoot>
 												<tr>
@@ -665,7 +665,7 @@ if (!empty($tour_data)) {
 												</tr>
 											</tfoot>
 										</table>
-										<?php if (!empty($tour_data->carousel_image)) { ?>
+										<?php  if (!empty($tour_data->carousel_image)) { ?>
 											<div class="card-body p-0 " style="width:90% !important">
 												<table class="table table-sm">
 													<thead>
@@ -676,27 +676,27 @@ if (!empty($tour_data)) {
 														</tr>
 													</thead>
 													<tbody class="collapse" id="uploadImg_carousel">
-														<?php foreach ($tour_data->carousel_image as $item) { ?>
-															<tr id="gi<?= $item->carousel_image_id ?>">
-																<td><?= !empty($item->position) ? $item->position : 1 ?></td>
+														<?php  foreach ($tour_data->carousel_image as $item) { ?>
+															<tr id="gi<?php  echo  $item->carousel_image_id ?>">
+																<td><?php  echo  !empty($item->position) ? $item->position : 1 ?></td>
 																<td><span class="">
-																		<a target="_blank" href="<?= _uploaded_files_ . 'carousel_image/' . $item->file ?>">
+																		<a target="_blank" href="<?php  echo  _uploaded_files_ . 'carousel_image/' . $item->file ?>">
 																			<img class="imageThumb "
-																				src="<?= _uploaded_files_ . 'carousel_image/' . $item->file ?>" />
+																				src="<?php  echo  _uploaded_files_ . 'carousel_image/' . $item->file ?>" />
 																		</a>
 																	</span></td>
 																<td><button class=" btn btn-outline-danger btn-xs"
-																		onclick="return del_carousel('<?= $item->carousel_image_id ?>')" title="remove"><i
+																		onclick="return del_carousel('<?php  echo  $item->carousel_image_id ?>')" title="remove"><i
 																			class="fas fa-trash"></i></button></td>
 															</tr>
-														<?php } ?>
+														<?php  } ?>
 														<tr>
 															<td colspan="2"></td>
 														</tr>
 													</tbody>
 												</table>
 											</div>
-										<?php } ?>
+										<?php  } ?>
 									</div>
 
 								</div>
@@ -714,7 +714,7 @@ if (!empty($tour_data)) {
 												</tr>
 											</thead>
 											<tbody class="RFQDetailBody_gallery">
-												<? $this->load->view('admin/catalog/tour_Module/template/file_line_add_more_gallery', $this->data); ?>
+												<?php  $this->load->view('admin/catalog/tour_Module/template/file_line_add_more_gallery', $this->data); ?>
 											</tbody>
 											<tfoot>
 												<tr>
@@ -724,7 +724,7 @@ if (!empty($tour_data)) {
 												</tr>
 											</tfoot>
 										</table>
-										<?php if (!empty($tour_data->gallery_image)) { ?>
+										<?php  if (!empty($tour_data->gallery_image)) { ?>
 											<div class="card-body p-0 " style="width:90% !important">
 												<table class="table table-sm">
 													<thead>
@@ -735,27 +735,27 @@ if (!empty($tour_data)) {
 														</tr>
 													</thead>
 													<tbody class="collapse" id="uploadImg_gallery">
-														<?php foreach ($tour_data->gallery_image as $item) { ?>
-															<tr id="gi<?= $item->gallery_image_id ?>">
-																<td><?= !empty($item->position) ? $item->position : 1 ?></td>
+														<?php  foreach ($tour_data->gallery_image as $item) { ?>
+															<tr id="gi<?php  echo  $item->gallery_image_id ?>">
+																<td><?php  echo  !empty($item->position) ? $item->position : 1 ?></td>
 																<td><span class="">
-																		<a target="_blank" href="<?= _uploaded_files_ . 'gallery_image/' . $item->file ?>">
+																		<a target="_blank" href="<?php  echo  _uploaded_files_ . 'gallery_image/' . $item->file ?>">
 																			<img class="imageThumb imageThumb2"
-																				src="<?= _uploaded_files_ . 'gallery_image/' . $item->file ?>" />
+																				src="<?php  echo  _uploaded_files_ . 'gallery_image/' . $item->file ?>" />
 																		</a>
 																	</span></td>
 																<td><button class=" btn btn-outline-danger btn-xs"
-																		onclick="return del_gallery('<?= $item->gallery_image_id ?>')" title="remove"><i
+																		onclick="return del_gallery('<?php  echo  $item->gallery_image_id ?>')" title="remove"><i
 																			class="fas fa-trash"></i></button></td>
 															</tr>
-														<?php } ?>
+														<?php  } ?>
 														<tr>
 															<td colspan="2"></td>
 														</tr>
 													</tbody>
 												</table>
 											</div>
-										<?php } ?>
+										<?php  } ?>
 									</div>
 
 								</div>
@@ -771,7 +771,7 @@ if (!empty($tour_data)) {
 										<div class="form-check" style="margin-top:12px">
 											<div class="form-group clearfix">
 												<div class="icheck-success d-inline">
-													<input type="radio" name="status" <? if ($status == 1) {
+													<input type="radio" name="status" <?php  if ($status == 1) {
 														echo "checked";
 													} ?> value="1"
 														id="radioSuccess1">
@@ -780,7 +780,7 @@ if (!empty($tour_data)) {
 												</div>
 												&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 												<div class="icheck-danger d-inline">
-													<input type="radio" name="status" <? if ($status != 1) {
+													<input type="radio" name="status" <?php  if ($status != 1) {
 														echo "checked";
 													} ?> value="0"
 														id="radioSuccess2">
@@ -808,10 +808,10 @@ if (!empty($tour_data)) {
 							</div>
 							<!-- /.card-footer -->
 
-							<?php echo form_close() ?>
+							<?php  echo form_close() ?>
 							</table>
 						</div>
-					<? } else {
+					<?php  } else {
 						$this->data['no_access_flash_message'] = "You Dont Have Access To View " . $page_module_name;
 						$this->load->view('admin/template/access_denied', $this->data);
 					} ?>
@@ -940,10 +940,10 @@ if (!empty($tour_data)) {
 		append_id_carousel++;
 		Pace.restart();
 		$.ajax({
-			url: "<?= MAINSITE_Admin . $user_access->class_name . '/addNewLine_carousel' ?>",
+			url: "<?php  echo  MAINSITE_Admin . $user_access->class_name . '/addNewLine_carousel' ?>",
 			type: 'post',
 			dataType: "json",
-			data: { 'id_carousel': id_carousel, 'append_id_carousel': append_id_carousel, "<?= $csrf['name'] ?>": "<?= $csrf['hash'] ?>" },
+			data: { 'id_carousel': id_carousel, 'append_id_carousel': append_id_carousel, "<?php  echo  $csrf['name'] ?>": "<?php  echo  $csrf['hash'] ?>" },
 			success: function (response) {
 				$(".RFQDetailBody_carousel").append(response.template);
 				set_qe_sub_table_count_carousel();
@@ -952,7 +952,7 @@ if (!empty($tour_data)) {
 				set_input_element_functions_carousel();
 				// Initialize Summernote
 				$('.summernote').summernote({
-					<?= _summernote_ ?>
+					<?php  echo  _summernote_ ?>
 				});
 			},
 			error: function (request, error) {
@@ -997,7 +997,7 @@ if (!empty($tour_data)) {
 			var s = confirm('You want to delete this file?');
 			if (s) {
 				$.ajax({
-					url: "<?= MAINSITE_Admin . 'Ajax/del_any_file' ?>",
+					url: "<?php  echo  MAINSITE_Admin . 'Ajax/del_any_file' ?>",
 					type: 'post',
 					//dataType: "json",
 					data: {
@@ -1005,7 +1005,7 @@ if (!empty($tour_data)) {
 						"id_column": "carousel_image_id",
 						'id': $carousel_image_id,
 						"folder_name": "carousel_image",
-						"<?= $csrf['name'] ?>": "<?= $csrf['hash'] ?>"
+						"<?php  echo  $csrf['name'] ?>": "<?php  echo  $csrf['hash'] ?>"
 					},
 					success: function (response) {
 						toastrDefaultSuccessFunc("Record Deleted Successfully");
@@ -1034,10 +1034,10 @@ if (!empty($tour_data)) {
 		append_id_gallery++;
 		Pace.restart();
 		$.ajax({
-			url: "<?= MAINSITE_Admin . $user_access->class_name . '/addNewLine_gallery' ?>",
+			url: "<?php  echo  MAINSITE_Admin . $user_access->class_name . '/addNewLine_gallery' ?>",
 			type: 'post',
 			dataType: "json",
-			data: { 'id_gallery': id_gallery, 'append_id_gallery': append_id_gallery, "<?= $csrf['name'] ?>": "<?= $csrf['hash'] ?>" },
+			data: { 'id_gallery': id_gallery, 'append_id_gallery': append_id_gallery, "<?php  echo  $csrf['name'] ?>": "<?php  echo  $csrf['hash'] ?>" },
 			success: function (response) {
 				$(".RFQDetailBody_gallery").append(response.template);
 				set_qe_sub_table_count_gallery();
@@ -1046,7 +1046,7 @@ if (!empty($tour_data)) {
 				set_input_element_functions_gallery();
 				// Initialize Summernote
 				$('.summernote').summernote({
-					<?= _summernote_ ?>
+					<?php  echo  _summernote_ ?>
 				});
 			},
 			error: function (request, error) {
@@ -1093,7 +1093,7 @@ if (!empty($tour_data)) {
 			var s = confirm('You want to delete this file?');
 			if (s) {
 				$.ajax({
-					url: "<?= MAINSITE_Admin . 'Ajax/del_any_file' ?>",
+					url: "<?php  echo  MAINSITE_Admin . 'Ajax/del_any_file' ?>",
 					type: 'post',
 					//dataType: "json",
 					data: {
@@ -1101,7 +1101,7 @@ if (!empty($tour_data)) {
 						"id_column": "gallery_image_id",
 						'id': $gallery_id,
 						"folder_name": "gallery_image",
-						"<?= $csrf['name'] ?>": "<?= $csrf['hash'] ?>"
+						"<?php  echo  $csrf['name'] ?>": "<?php  echo  $csrf['hash'] ?>"
 					},
 					success: function (response) {
 						toastrDefaultSuccessFunc("Record Deleted Successfully");
@@ -1128,10 +1128,10 @@ if (!empty($tour_data)) {
 		append_id_tdate++;
 		Pace.restart();
 		$.ajax({
-			url: "<?= MAINSITE_Admin . $user_access->class_name . '/addNewLine_tdate' ?>",
+			url: "<?php  echo  MAINSITE_Admin . $user_access->class_name . '/addNewLine_tdate' ?>",
 			type: 'post',
 			dataType: "json",
-			data: { 'id_tdate': id_tdate, 'append_id_tdate': append_id_tdate, "<?= $csrf['name'] ?>": "<?= $csrf['hash'] ?>" },
+			data: { 'id_tdate': id_tdate, 'append_id_tdate': append_id_tdate, "<?php  echo  $csrf['name'] ?>": "<?php  echo  $csrf['hash'] ?>" },
 			success: function (response) {
 				$(".RFQDetailBody_tdate").append(response.template);
 				set_qe_sub_table_count_tdate();
@@ -1140,7 +1140,7 @@ if (!empty($tour_data)) {
 				set_input_element_functions_tdate();
 				// Initialize Summernote
 				$('.summernote').summernote({
-					<?= _summernote_ ?>
+					<?php  echo  _summernote_ ?>
 				});
 			},
 			error: function (request, error) {
@@ -1182,14 +1182,14 @@ if (!empty($tour_data)) {
 			var s = confirm('You want to delete this file?');
 			if (s) {
 				$.ajax({
-					url: "<?= MAINSITE_Admin . 'Ajax/del_any_record' ?>",
+					url: "<?php  echo  MAINSITE_Admin . 'Ajax/del_any_record' ?>",
 					type: 'post',
 					//dataType: "json",
 					data: {
 						"table_name": "tour_date",
 						"id_column": "tour_date_id",
 						'id': $tour_date_id,
-						"<?= $csrf['name'] ?>": "<?= $csrf['hash'] ?>"
+						"<?php  echo  $csrf['name'] ?>": "<?php  echo  $csrf['hash'] ?>"
 					},
 					success: function (response) {
 						toastrDefaultSuccessFunc("Record Deleted Successfully");
@@ -1216,10 +1216,10 @@ if (!empty($tour_data)) {
 		append_id_ttc++;
 		Pace.restart();
 		$.ajax({
-			url: "<?= MAINSITE_Admin . $user_access->class_name . '/addNewLine_ttc' ?>",
+			url: "<?php  echo  MAINSITE_Admin . $user_access->class_name . '/addNewLine_ttc' ?>",
 			type: 'post',
 			dataType: "json",
-			data: { 'id_ttc': id_ttc, 'append_id_ttc': append_id_ttc, "<?= $csrf['name'] ?>": "<?= $csrf['hash'] ?>" },
+			data: { 'id_ttc': id_ttc, 'append_id_ttc': append_id_ttc, "<?php  echo  $csrf['name'] ?>": "<?php  echo  $csrf['hash'] ?>" },
 			success: function (response) {
 				$(".RFQDetailBody_ttc").append(response.template);
 				set_qe_sub_table_count_ttc();
@@ -1228,7 +1228,7 @@ if (!empty($tour_data)) {
 				set_input_element_functions_ttc();
 				// Initialize Summernote
 				$('.summernote').summernote({
-					<?= _summernote_ ?>
+					<?php  echo  _summernote_ ?>
 				});
 			},
 			error: function (request, error) {
@@ -1270,14 +1270,14 @@ if (!empty($tour_data)) {
 			var s = confirm('You want to delete this file?');
 			if (s) {
 				$.ajax({
-					url: "<?= MAINSITE_Admin . 'Ajax/del_any_record' ?>",
+					url: "<?php  echo  MAINSITE_Admin . 'Ajax/del_any_record' ?>",
 					type: 'post',
 					//dataType: "json",
 					data: {
 						"table_name": "things_to_carry",
 						"id_column": "things_to_carry_id",
 						'id': $things_to_carry_id,
-						"<?= $csrf['name'] ?>": "<?= $csrf['hash'] ?>"
+						"<?php  echo  $csrf['name'] ?>": "<?php  echo  $csrf['hash'] ?>"
 					},
 					success: function (response) {
 						toastrDefaultSuccessFunc("Record Deleted Successfully");
@@ -1305,10 +1305,10 @@ if (!empty($tour_data)) {
 		append_id_plan++;
 		Pace.restart();
 		$.ajax({
-			url: "<?= MAINSITE_Admin . $user_access->class_name . '/addNewLine_plan' ?>",
+			url: "<?php  echo  MAINSITE_Admin . $user_access->class_name . '/addNewLine_plan' ?>",
 			type: 'post',
 			dataType: "json",
-			data: { 'id_plan': id_plan, 'append_id_plan': append_id_plan, "<?= $csrf['name'] ?>": "<?= $csrf['hash'] ?>" },
+			data: { 'id_plan': id_plan, 'append_id_plan': append_id_plan, "<?php  echo  $csrf['name'] ?>": "<?php  echo  $csrf['hash'] ?>" },
 			success: function (response) {
 				$(".RFQDetailBody_plan").append(response.template);
 				set_qe_sub_table_count_plan();
@@ -1317,7 +1317,7 @@ if (!empty($tour_data)) {
 				set_input_element_functions_plan();
 				// Initialize Summernote
 				$('.summernote').summernote({
-					<?= _summernote_ ?>
+					<?php  echo  _summernote_ ?>
 				});
 			},
 			error: function (request, error) {
@@ -1359,14 +1359,14 @@ if (!empty($tour_data)) {
 			var s = confirm('You want to delete this record?');
 			if (s) {
 				$.ajax({
-					url: "<?= MAINSITE_Admin . 'Ajax/del_any_record' ?>",
+					url: "<?php  echo  MAINSITE_Admin . 'Ajax/del_any_record' ?>",
 					type: 'post',
 					//dataType: "json",
 					data: {
 						"table_name": "tour_plan",
 						"id_column": "tour_plan_id",
 						'id': $tour_plan_id,
-						"<?= $csrf['name'] ?>": "<?= $csrf['hash'] ?>"
+						"<?php  echo  $csrf['name'] ?>": "<?php  echo  $csrf['hash'] ?>"
 					},
 					success: function (response) {
 						toastrDefaultSuccessFunc("Record Deleted Successfully");

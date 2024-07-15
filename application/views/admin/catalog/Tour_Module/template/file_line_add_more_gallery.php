@@ -17,10 +17,11 @@ if (!empty($append_id_gallery)) {
   <!-- Table cell for the file title input -->
   <td>
     <!-- Input field for the file title with a dynamic ID -->
-    <input type="number" min="1" step="1" value="1" name="position_gallery[]" id="position_gallery_<?= $id_gallery ?>"
-      placeholder="Image Position" class="form-control search-code form-control-sm" />
+    <input type="number" min="1" step="1" value="1" name="position_gallery[]"
+      id="position_gallery_<?php echo $id_gallery ?>" placeholder="Image Position"
+      class="form-control search-code form-control-sm" />
     <!-- Hidden input field for the quotation enquiry detail ID with a dynamic ID -->
-    <!-- <input type="hidden" name="quotation_enquiry_detail_id[]" id="quotation_enquiry_detail_id<?= $id_gallery ?>" value="" /> -->
+    <!-- <input type="hidden" name="quotation_enquiry_detail_id[]" id="quotation_enquiry_detail_id<?php echo $id_gallery ?>" value="" /> -->
   </td>
 
   <!-- Table cell for the file input -->
@@ -31,12 +32,13 @@ if (!empty($append_id_gallery)) {
         <!-- <input type="hidden" name="file_name[]" value="" /> -->
         <!-- File input field for selecting a file -->
         <input type="file" accept="image/*" name="file_gallery[]" class="custom-file-input"
-          id="file_input_gallery_<?= $id_gallery ?>" onchange="previewImage_gallery(<?= $id_gallery ?>)">
+          id="file_input_gallery_<?php echo $id_gallery ?>"
+          onchange="previewImage_gallery(<?php echo $id_gallery ?>)">
         <!-- Label for the file input, initially empty -->
         <label class="custom-file-label form-control-sm" for="files">Choose file</label>
       </div>
       <!-- Image preview -->
-      <img id="image_preview_gallery_<?= $id_gallery ?>" src="" alt="Image Preview" class="imageThumb"
+      <img id="image_preview_gallery_<?php echo $id_gallery ?>" src="" alt="Image Preview" class="imageThumb"
         style="display:none;">
     </div>
   </td>

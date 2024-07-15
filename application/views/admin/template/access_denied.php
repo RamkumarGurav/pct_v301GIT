@@ -36,15 +36,15 @@ vertical-align: middle;
 <center><i class="fa fa-ban"></i><h1>ACCESS <span style="color:#FF0000">DENIED!!!</span></h1></center>
 
 <p>You Are Not Authorized To Access This Module</p>
-<?
+<? 
 $no_access_flash_message = $this->session->flashdata('no_access_flash_message');
 ?>
-<p><center><?=$no_access_flash_message?></center></p>
-<?
+<p><center><?php  echo $no_access_flash_message?></center></p>
+<? 
 if(!empty($no_access_message)){
 ?>
-<p><center><div class="alert alert-info"><strong><?=$no_access_message?></strong></div></center></p>
-<? } ?>
+<p><center><div class="alert alert-info"><strong><?php  echo $no_access_message?></strong></div></center></p>
+<?  } ?>
 </article>
 
 </div>

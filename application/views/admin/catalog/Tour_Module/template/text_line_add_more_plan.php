@@ -16,18 +16,18 @@ if (!empty($append_id_plan)) {
 
   <!-- Table cell for the name input -->
   <td>
-    <input type="number" name="day_number_plan[]" id="day_number_plan_<?= $id_plan ?>" placeholder="Day Number"
+    <input type="number" name="day_number_plan[]" id="day_number_plan_<?php echo $id_plan ?>" placeholder="Day Number"
       class="form-control search-code form-control-sm" />
   </td>
   <td class=" ">
-    <input type="text" name="day_name_plan[]" id="day_name_plan_<?= $id_plan ?>" placeholder="Day Title"
+    <input type="text" name="day_name_plan[]" id="day_name_plan_<?php echo $id_plan ?>" placeholder="Day Title"
       class="form-control search-code form-control-sm" />
   </td>
   <td>
-    <textarea class="search_textbox ckeditor" name="day_plan_plan[]" id="day_plan_plan_<?= $id_plan ?>"
+    <textarea class="search_textbox ckeditor" name="day_plan_plan[]" id="day_plan_plan_<?php echo $id_plan ?>"
       style="width: 576px; height: 200px;"></textarea>
 
-    <span class="field-validation-valid" data-valmsg-for="day_plan_plan_<?= $id_plan ?>"
+    <span class="field-validation-valid" data-valmsg-for="day_plan_plan_<?php echo $id_plan ?>"
       data-valmsg-replace="true"></span>
 
   </td>
@@ -37,5 +37,5 @@ if (!empty($append_id_plan)) {
   <td class=" qe_sub_table_remove_td_plan"></td>
 </tr>
 <script>
-  CKEDITOR.replace("day_plan_plan_<?= $id_plan ?>");
+  CKEDITOR.replace("day_plan_plan_<?php echo $id_plan ?>");
 </script>

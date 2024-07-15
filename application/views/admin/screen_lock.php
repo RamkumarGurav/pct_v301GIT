@@ -9,11 +9,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="<? echo _lte_files_ ?>plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="<?php echo _lte_files_ ?>plugins/fontawesome-free/css/all.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="<? echo _lte_files_ ?>dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="<?php echo _lte_files_ ?>dist/css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
@@ -22,23 +22,23 @@
   <!-- Automatic element centering -->
   <div class="lockscreen-wrapper">
     <div class="lockscreen-logo">
-      <img src="<?= base_url() ?>assets/front/images/logo.png" style="height:150px">
+      <img src="<?php echo base_url() ?>assets/front/images/logo.png" style="height:150px">
     </div>
 
 
     <!-- User name -->
-    <div class="lockscreen-name"><?= $this->data['session_name'] ?></div>
+    <div class="lockscreen-name"><?php echo $this->data['session_name'] ?></div>
 
     <!-- START LOCK SCREEN ITEM -->
-    <? if (!empty($alert_message)) { ?>
+    <?php if (!empty($alert_message)) { ?>
       <div style="margin-bottom:31px"><?php echo $alert_message; ?></div>
-    <? } ?>
+    <?php } ?>
     <div class="clearfix"></div>
     <div class="lockscreen-item">
       <!-- lockscreen image -->
 
       <div class="lockscreen-image">
-        <img src="<? echo _lte_files_ ?>dist/img/user1-128x128.jpg" alt="User Image">
+        <img src="<?php echo _lte_files_ ?>dist/img/user1-128x128.jpg" alt="User Image">
       </div>
       <!-- /.lockscreen-image -->
 
@@ -71,10 +71,10 @@
       Enter your password to retrieve your session
     </div>
     <div class="text-center">
-      <a href="<?= MAINSITE_Admin . 'Screen-Lock/logout' ?>">Or sign in as a different user</a>
+      <a href="<?php echo MAINSITE_Admin . 'Screen-Lock/logout' ?>">Or sign in as a different user</a>
     </div>
     <div class="lockscreen-footer text-center">
-      Copyright &copy; <?= date('Y') ?> <b><a target="_blank" href="https://www.marswebsolution.com/"
+      Copyright &copy; <?php echo date('Y') ?> <b><a target="_blank" href="https://www.marswebsolution.com/"
           class="text-black">Mars Web Solutions</a></b><br>
       All rights reserved
     </div>
@@ -82,9 +82,9 @@
   <!-- /.center -->
 
   <!-- jQuery -->
-  <script src="<? echo _lte_files_ ?>plugins/jquery/jquery.min.js"></script>
+  <script src="<?php echo _lte_files_ ?>plugins/jquery/jquery.min.js"></script>
   <!-- Bootstrap 4 -->
-  <script src="<? echo _lte_files_ ?>plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="<?php echo _lte_files_ ?>plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

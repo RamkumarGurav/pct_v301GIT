@@ -143,7 +143,7 @@ class Main extends CI_Controller
 		$this->data['left_menu_booking'] = $this->data['User_auth_obj']->get_left_menu_by_ismaster_params_moduleid(10, $params_arr);
 
 		// Get the left menu for enquiries and store it in the 'left_menu_media' key of the data array.
-		$this->data['left_menu_media'] = $this->data['User_auth_obj']->get_left_menu_by_ismaster_params_moduleid(100, $params_arr);
+		$this->data['left_menu_media'] = $this->data['User_auth_obj']->get_left_menu_by_ismaster_params_moduleid(15, $params_arr);
 
 
 		// Get the left menu for banners and store it in the 'left_menu_banner' key of the data array.
@@ -179,3 +179,6 @@ class Main extends CI_Controller
 
 
 }
+
+
+?>

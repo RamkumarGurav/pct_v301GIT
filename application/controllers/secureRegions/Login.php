@@ -40,6 +40,9 @@ class Login extends CI_Controller
 	 */
 	function index()
 	{
+
+
+
 		// Check if the session variables for user ID, name, and email are set
 		if (!empty($this->data['session_uid']) && !empty($this->data['session_name']) && !empty($this->data['session_email'])) {
 			// If session variables are set, redirect to the main site admin 'wam' page
@@ -123,6 +126,7 @@ class Login extends CI_Controller
 			$this->data['alert_message'] = $temp_alert_message;
 		}
 
+
 		// Load the login view and pass the data to it
 		$this->load->view('admin/login', $this->data);
 	}
@@ -134,3 +138,6 @@ class Login extends CI_Controller
 
 
 }
+
+
+?>

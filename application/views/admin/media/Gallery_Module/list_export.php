@@ -25,21 +25,21 @@ header("Content-Type: application/vnd.ms-excel");
 
 
 <body>
-	<?
+	<?php
 	$colspan = 8;
 	?>
 	<table width="100%" border="1" align="center" cellpadding="0" cellspacing="0">
 		<thead>
-			<? if (!empty($start_date) || !empty($end_date)) { ?>
+			<?php if (!empty($start_date) || !empty($end_date)) { ?>
 				<tr>
-					<th colspan="<?= $colspan ?>" style="background-color:#CCC" width="*"><br />
+					<th colspan="<?php echo $colspan ?>" style="background-color:#CCC" width="*"><br />
 
 						Search Record :
-						<? if (!empty($start_date)) {
+						<?php if (!empty($start_date)) {
 							echo "From : " . date('d-m-Y', strtotime($start_date));
 						} ?>
 
-						<? if (!empty($end_date)) {
+						<?php if (!empty($end_date)) {
 							echo " &nbsp;&nbsp;&nbsp;&nbsp;	 To : " . date('d-m-Y', strtotime($end_date));
 						} ?>
 						<br />&nbsp;
@@ -47,7 +47,7 @@ header("Content-Type: application/vnd.ms-excel");
 					</th>
 
 				</tr>
-			<? } ?>
+			<?php } ?>
 
 			<tr>
 				<th style="background-color:#999" width="*">Sl. No.</th>
@@ -88,10 +88,10 @@ header("Content-Type: application/vnd.ms-excel");
 
 						?>
 						<tr>
-							<td width="*"><? echo $count; ?></td>
-							<td width="*"><? echo $row->name; ?></td>
+							<td width="*"><?php echo $count; ?></td>
+							<td width="*"><?php echo $row->name; ?></td>
 							<td width="*" colspan="3">
-								<? if (!empty($row->roles)) { ?>
+								<?php if (!empty($row->roles)) { ?>
 									<table border="1" align="center" cellpadding="0" cellspacing="0" style="width:90%">
 										<thead>
 											<tr>
@@ -101,59 +101,59 @@ header("Content-Type: application/vnd.ms-excel");
 											</tr>
 										</thead>
 										<tbody>
-											<? $c_count = 0;
+											<?php $c_count = 0;
 											foreach ($row->roles as $role) {
 												$c_count++; ?>
 												<tr>
-													<td><?= $c_count ?>.</td>
-													<td><?= $role->company_unique_name ?></td>
-													<td><?= $role->user_role_name ?></td>
+													<td><?php echo $c_count ?>.</td>
+													<td><?php echo $role->company_unique_name ?></td>
+													<td><?php echo $role->user_role_name ?></td>
 												</tr>
-											<? } ?>
+											<?php } ?>
 										</tbody>
-									</table><? //echo $row->role; ?>
-								<? } ?>
+									</table><?php  //echo $row->role; ?>
+								<?php } ?>
 							</td>
-							<td width="*"><? echo $row->designation_name; ?></td>
+							<td width="*"><?php echo $row->designation_name; ?></td>
 
 
 
 
-							<td width="*"><? echo $row->email; ?></td>
-							<td width="*"><? echo $row->mobile_no; ?></td>
-							<td width="*"><? echo $row->alt_mobile_no; ?></td>
-							<td width="*"><? echo $row->fax_no; ?></td>
-							<td width="*"><? echo $row->address1; ?></td>
-							<td width="*"><? echo $row->address2; ?></td>
-							<td width="*"><? echo $row->address3; ?></td>
-							<td width="*"><? echo $row->pincode; ?></td>
-							<td width="*"><? echo $row->city_name; ?></td>
-							<td width="*"><? echo $row->state_name; ?></td>
-							<td width="*"><? echo $row->country_name; ?></td>
-							<td width="*"><? echo $row->dial_code; ?></td>
+							<td width="*"><?php echo $row->email; ?></td>
+							<td width="*"><?php echo $row->mobile_no; ?></td>
+							<td width="*"><?php echo $row->alt_mobile_no; ?></td>
+							<td width="*"><?php echo $row->fax_no; ?></td>
+							<td width="*"><?php echo $row->address1; ?></td>
+							<td width="*"><?php echo $row->address2; ?></td>
+							<td width="*"><?php echo $row->address3; ?></td>
+							<td width="*"><?php echo $row->pincode; ?></td>
+							<td width="*"><?php echo $row->city_name; ?></td>
+							<td width="*"><?php echo $row->state_name; ?></td>
+							<td width="*"><?php echo $row->country_name; ?></td>
+							<td width="*"><?php echo $row->dial_code; ?></td>
 							<td width="*">
-								<? if ($row->data_view == 1) { ?> Yes
-								<? } else { ?>No
-								<? } ?>	
+								<?php if ($row->data_view == 1) { ?> Yes
+								<?php } else { ?>No
+								<?php } ?>
 							</td>
 							<td width="*">
-								<? if ($row->approval_access == 1) { ?> Yes
-								<? } else { ?>No
-								<? } ?>	
+								<?php if ($row->approval_access == 1) { ?> Yes
+								<?php } else { ?>No
+								<?php } ?>
 							</td>
-							<td width="*"> <? echo date('d-m-Y h:i:s A', strtotime($row->added_on)); ?> &nbsp;</td>
-							<td width="*"><? echo $row->added_by_name; ?></td>
-							<td width="*"> <? if (!empty($row->updated_on)) {
+							<td width="*"> <?php echo date('d-m-Y h:i:s A', strtotime($row->added_on)); ?> &nbsp;</td>
+							<td width="*"><?php echo $row->added_by_name; ?></td>
+							<td width="*"> <?php if (!empty($row->updated_on)) {
 								echo date('d-m-Y h:i:s A', strtotime($row->updated_on));
 							} ?>
 								&nbsp;</td>
-							<td width="*"><? if (!empty($row->updated_by_name)) {
+							<td width="*"><?php if (!empty($row->updated_by_name)) {
 								echo $row->updated_by_name;
 							} ?></td>
 							<td width="*">
-								<? if ($row->status == 1) { ?> Active
-								<? } else { ?>Block
-								<? } ?>	
+								<?php if ($row->status == 1) { ?> Active
+								<?php } else { ?>Block
+								<?php } ?>
 							</td>
 
 						</tr>
@@ -163,7 +163,7 @@ header("Content-Type: application/vnd.ms-excel");
 
 			<?php } else { ?>
 				<tr>
-					<th colspan="<?= $colspan ?>">No records to display...</th>
+					<th colspan="<?php echo $colspan ?>">No records to display...</th>
 				</tr>
 
 			<?php } ?>

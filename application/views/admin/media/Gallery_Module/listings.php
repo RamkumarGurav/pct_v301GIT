@@ -20,14 +20,14 @@ $page_module_name = "Gallery";
 			<div class="row mb-2">
 				<div class="col-sm-6">
 					<h1 class="m-0 text-dark">
-						<?= $page_module_name ?> <small>List</small>
+						<?php echo $page_module_name ?> <small>List</small>
 					</h1>
 				</div><!-- /.col -->
 				<div class="col-sm-6">
 					<ol class="breadcrumb float-sm-right">
-						<li class="breadcrumb-item"><a href="<?= MAINSITE_Admin . "wam" ?>">Home</a></li>
+						<li class="breadcrumb-item"><a href="<?php echo MAINSITE_Admin . "wam" ?>">Home</a></li>
 						<li class="breadcrumb-item active">
-							<?= $page_module_name ?>
+							<?php echo $page_module_name ?>
 						</li>
 					</ol>
 				</div><!-- /.col -->
@@ -60,10 +60,10 @@ $page_module_name = "Gallery";
 								<?php
 								if ($user_access->add_module == 1) {
 									?>
-									<a href="<?= MAINSITE_Admin . $user_access->class_name ?>/edit">
+									<a href="<?php echo MAINSITE_Admin . $user_access->class_name ?>/edit">
 										<button type="button" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i> Add
 											New</button></a>
-								<? } ?>
+								<?php } ?>
 								<?php
 								if ($user_access->update_module == 1) {
 									?>
@@ -71,13 +71,13 @@ $page_module_name = "Gallery";
 											class="fas fa-check"></i> Active</button>
 									<button type="button" class="btn btn-dark btn-sm" onclick="validateRecordsBlock()"><i
 											class="fas fa-ban"></i> Block</button>
-								<? } ?>
+								<?php } ?>
 								<?php
 								if ($user_access->export_data == 1 && false) {
 									?>
 									<button type="button" class="btn btn-success btn-sm export_excel"><i class="fas fa-file-excel"></i>
 										Export</button>
-								<? } ?>
+								<?php } ?>
 							</div>
 						</div>
 						<!-- }}}}}}}}}}}} Main Card Header  -->
@@ -85,9 +85,10 @@ $page_module_name = "Gallery";
 						<div class="px-4 pt-2 d-flex justify-content-between align-items-center gap-2" style="width:100%;">
 							<!--  -->
 							<div class=" d-flex justify-content-end align-items-center" style="width:100%;">
-								<a href="<?= MAINSITE_Admin . "media/gallery/add" ?>" type="button" class="btn btn-primary btn-sm">+Add
+								<a href="<?php echo MAINSITE_Admin . "media/gallery/add" ?>" type="button"
+									class="btn btn-primary btn-sm">+Add
 									More Images/Videos</a>
-								<a href="<?= MAINSITE_Admin . "media/gallery/view" ?>" class="btn btn-dark btn-sm mx-2">view
+								<a href="<?php echo MAINSITE_Admin . "media/gallery/view" ?>" class="btn btn-dark btn-sm mx-2">view
 									in
 									gallery</a>
 								<button type="button" class="btn btn-success btn-sm mx-2"
@@ -120,7 +121,7 @@ $page_module_name = "Gallery";
 								); ?>
 
 								<input type="hidden" name="task" id="task" value="" />
-								<? echo $this->session->flashdata('alert_message'); ?>
+								<?php echo $this->session->flashdata('alert_message'); ?>
 								<?php if (!empty($gallery_data)): ?>
 									<table id="sortable" class="table table-bordered table-striped">
 										<thead>
@@ -128,7 +129,7 @@ $page_module_name = "Gallery";
 												<?php if ($user_access->update_module == 1) { ?>
 													<th width="4%"><input type="checkbox" name="main_check" id="main_check"
 															onclick="check_uncheck_All_records()" value="" /></th>
-												<? } ?>
+												<?php } ?>
 												<th class="align-middle text-center">Sl. No.</th>
 												<th class="align-middle text-center">Image/Video Code</th>
 												<th class="align-middle text-center">Image/Video Title</th>
@@ -145,23 +146,24 @@ $page_module_name = "Gallery";
 											foreach ($gallery_data as $index => $item): ?>
 												<?php $count++; ?>
 												<?php if ($item->file_type == "1"): ?>
-													<tr id="<?= $item->gallery_id ?>" data-sort-id="<?= $item->gallery_id ?>">
+													<tr id="<?php echo $item->gallery_id ?>" data-sort-id="<?php echo $item->gallery_id ?>">
 														<?php if ($user_access->update_module == 1) { ?>
 															<td><input type="checkbox" name="sel_recds[]" id="sel_recds<?php echo $count; ?>"
 																	value="<?php echo $item->gallery_id; ?>" /></td>
-														<? } ?>
+														<?php } ?>
 														<td class="align-middle text-center"><?php echo $index + 1; ?></td>
 
 														<td class="align-middle text-center">
 															<?php if ($item->file_type == '1'): ?>
 																<?php if (!empty($item->file)): ?>
-																	<img src="<?= $item->file ?>" alt="" style="height: 58px; width: 71px; object-fit: cover;">
+																	<img src="<?php echo $item->file ?>" alt=""
+																		style="height: 58px; width: 71px; object-fit: cover;">
 																<?php else: ?>
 																	Image Not Found
 																<?php endif; ?>
 															<?php else: ?>
 																<?php if (!empty($item->file)): ?>
-																	<?= $item->file ?>
+																	<?php echo $item->file ?>
 																<?php else: ?>
 																	Video Code Not Found
 																<?php endif; ?>
@@ -170,7 +172,7 @@ $page_module_name = "Gallery";
 														</td>
 														<td align="center" class="align-middle text-center">
 															<?php if (!empty($item->file_title)): ?>
-																<p><?= $item->file_title ?></p>
+																<p><?php echo $item->file_title ?></p>
 															<?php else: ?>
 																NO_TITLE
 															<?php endif; ?>
@@ -190,8 +192,8 @@ $page_module_name = "Gallery";
 																'<div class="badge badge-sm bg-success">Active</div>' : '<div class="badge badge-sm bg-danger">blocked</div>'; ?>
 														</td>
 														<td align="center" class="align-middle text-center"> <a
-																href="<?= MAINSITE_Admin ?>media/gallery/edit/<?= $item->gallery_id ?>" type="button"
-																class="btn btn-warning btn-sm">edit</a>
+																href="<?php echo MAINSITE_Admin ?>media/gallery/edit/<?php echo $item->gallery_id ?>"
+																type="button" class="btn btn-warning btn-sm">edit</a>
 														</td>
 													</tr>
 
@@ -201,10 +203,10 @@ $page_module_name = "Gallery";
 											<?php endforeach; ?>
 											<?php foreach ($gallery_data as $index => $item): ?>
 												<?php if ($item->file_type == "2"): ?>
-													<tr id="<?= $item->gallery_id ?>" data-sort-id="<?= $item->gallery_id ?>">
+													<tr id="<?php echo $item->gallery_id ?>" data-sort-id="<?php echo $item->gallery_id ?>">
 														<td class="position-relative px-4"><input type="checkbox"
 																class="album-image-checkbox position-absolute" style="top:50%;left:50%;"
-																value="<?= "{$item->gallery_id},{$item->file},{$yearData['fiscal_year']}" ?>">
+																value="<?php echo "{$item->gallery_id},{$item->file},{$yearData['fiscal_year']}" ?>">
 														</td>
 														<td class="align-middle text-center"><?php echo $index + 1; ?></td>
 														<!-- <td align="center"><?php echo $albumData->file_title ?></a> -->
@@ -212,13 +214,14 @@ $page_module_name = "Gallery";
 														<td class="align-middle text-center">
 															<?php if ($item->file_type == '1'): ?>
 																<?php if (!empty($item->file)): ?>
-																	<img src="<?= $item->file ?>" alt="" style="height: 58px; width: 71px; object-fit: cover;">
+																	<img src="<?php echo $item->file ?>" alt=""
+																		style="height: 58px; width: 71px; object-fit: cover;">
 																<?php else: ?>
 																	Image Not Found
 																<?php endif; ?>
 															<?php else: ?>
 																<?php if (!empty($item->file)): ?>
-																	<?= $item->file ?>
+																	<?php echo $item->file ?>
 																<?php else: ?>
 																	Video Code Not Found
 																<?php endif; ?>
@@ -227,7 +230,7 @@ $page_module_name = "Gallery";
 														</td>
 														<td align="center" class="align-middle text-center">
 															<?php if (!empty($item->file_title)): ?>
-																<p><?= $item->file_title ?></p>
+																<p><?php echo $item->file_title ?></p>
 															<?php else: ?>
 																NO_TITLE
 															<?php endif; ?>
@@ -247,8 +250,8 @@ $page_module_name = "Gallery";
 																'<div class="badge badge-sm bg-success">Active</div>' : '<div class="badge badge-sm bg-danger">blocked</div>'; ?>
 														</td>
 														<td align="center" class="align-middle text-center"> <a
-																href="<?= MAINSITE_Admin ?>media/gallery/edit/<?= $item->gallery_id ?>" type="button"
-																class="btn btn-warning btn-sm">edit</a>
+																href="<?php echo MAINSITE_Admin ?>media/gallery/edit/<?php echo $item->gallery_id ?>"
+																type="button" class="btn btn-warning btn-sm">edit</a>
 														</td>
 													</tr>
 
@@ -279,11 +282,11 @@ $page_module_name = "Gallery";
 								</form>
 								<center>
 									<div class="pagination_custum">
-										<? echo $this->pagination->create_links(); ?>
+										<?php echo $this->pagination->create_links(); ?>
 									</div>
 								</center>
 							</div>
-						<? } else {
+						<?php } else {
 							$this->data['no_access_flash_message'] = "You Dont Have Access To View " . $page_module_name;
 							$this->load->view('admin/template/access_denied', $this->data);
 						} ?>
@@ -372,10 +375,10 @@ $page_module_name = "Gallery";
 		if (country_id > 0) {
 			Pace.restart();
 			$.ajax({
-				url: "<?= MAINSITE_Admin . 'Ajax/getState' ?>",
+				url: "<?php echo MAINSITE_Admin . 'Ajax/getState' ?>",
 				type: 'post',
 				dataType: "json",
-				data: { 'country_id': country_id, 'state_id': state_id, "<?= $csrf['name'] ?>": "<?= $csrf['hash'] ?>" },
+				data: { 'country_id': country_id, 'state_id': state_id, "<?php echo $csrf['name'] ?>": "<?php echo $csrf['hash'] ?>" },
 				success: function (response) {
 					$("#state_id").html(response.state_html);
 				},
@@ -393,10 +396,10 @@ $page_module_name = "Gallery";
 		if (state_id > 0) {
 			Pace.restart();
 			$.ajax({
-				url: "<?= MAINSITE_Admin . 'Ajax/getCity' ?>",
+				url: "<?php echo MAINSITE_Admin . 'Ajax/getCity' ?>",
 				type: 'post',
 				dataType: "json",
-				data: { 'city_id': city_id, 'state_id': state_id, "<?= $csrf['name'] ?>": "<?= $csrf['hash'] ?>" },
+				data: { 'city_id': city_id, 'state_id': state_id, "<?php echo $csrf['name'] ?>": "<?php echo $csrf['hash'] ?>" },
 				success: function (response) {
 					$("#city_id").html(response.city_html);
 				},
@@ -427,22 +430,22 @@ $page_module_name = "Gallery";
 
 		$(".export_excel").bind("click", function () {
 
-			$('#search_report_form').attr('action', '<? echo MAINSITE_Admin . $user_access->class_name . "/" . $user_access->function_name . "-export"; ?>');
+			$('#search_report_form').attr('action', '<?php echo MAINSITE_Admin . $user_access->class_name . "/" . $user_access->function_name . "-export"; ?>');
 			$('#search_report_form').attr('target', '_blank');
 			$('#search_report_btn').click();
 
-			$('#search_report_form').attr('action', '<? echo MAINSITE_Admin . $user_access->class_name . "/" . $user_access->function_name; ?>');
+			$('#search_report_form').attr('action', '<?php echo MAINSITE_Admin . $user_access->class_name . "/" . $user_access->function_name; ?>');
 			$('#search_report_form').attr('target', '');
 		})
 
-		<? if (!empty($country_id) && !empty($state_id)) { ?>
-			getState(<?= $country_id ?>, <?= $state_id ?>)
-		<? } ?>
+		<?php if (!empty($country_id) && !empty($state_id)) { ?>
+			getState(<?php echo $country_id ?>, <?php echo $state_id ?>)
+		<?php } ?>
 
-		<? if (!empty($city_id) && !empty($state_id)) { ?>
-			getCity(<?= $city_id ?>
-				, <?= $state_id ?>)
-		<? } ?>
+		<?php if (!empty($city_id) && !empty($state_id)) { ?>
+			getCity(<?php echo $city_id ?>
+				, <?php echo $state_id ?>)
+		<?php } ?>
 	})
 
 </script>
@@ -476,7 +479,7 @@ $page_module_name = "Gallery";
 
 				// Send AJAX POST request to update sorted rows
 				$.post(
-					"<?= MAINSITE_Admin . $user_access->class_name ?>/rearrange_images", {
+					"<?php echo MAINSITE_Admin . $user_access->class_name ?>/rearrange_images", {
 					"images_order": order
 				},
 					// Callback function after AJAX request completes

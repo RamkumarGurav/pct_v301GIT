@@ -20,14 +20,14 @@ $page_module_name = "Tours";
 			<div class="row mb-2">
 				<div class="col-sm-6">
 					<h1 class="m-0 text-dark">
-						<?= $page_module_name ?> <small>List</small>
+						<?php echo $page_module_name ?> <small>List</small>
 					</h1>
 				</div><!-- /.col -->
 				<div class="col-sm-6">
 					<ol class="breadcrumb float-sm-right">
-						<li class="breadcrumb-item"><a href="<?= MAINSITE_Admin . "wam" ?>">Home</a></li>
+						<li class="breadcrumb-item"><a href="<?php echo MAINSITE_Admin . "wam" ?>">Home</a></li>
 						<li class="breadcrumb-item active">
-							<?= $page_module_name ?>
+							<?php echo $page_module_name ?>
 						</li>
 					</ol>
 				</div><!-- /.col -->
@@ -84,7 +84,7 @@ $page_module_name = "Tours";
 											<div class="form-group">
 												<label>Field Value</label>
 												<input type="text" name="field_value" id="field_value" placeholder="Field Value"
-													style="width: 100%;" class="form-control" value="<?= $field_value ?>">
+													style="width: 100%;" class="form-control" value="<?php echo $field_value ?>">
 											</div>
 										</div>
 									</div>
@@ -94,7 +94,7 @@ $page_module_name = "Tours";
 											<div class="form-group">
 												<label>Start Date</label>
 												<div class="input-group date reservationdate" id="reservationdate" data-target-input="nearest">
-													<input type="text" value="<?= $start_date ?>" name="start_date" id="start_date"
+													<input type="text" value="<?php echo $start_date ?>" name="start_date" id="start_date"
 														placeholder="Start Date" style="width: 100%;" class="form-control datetimepicker-input"
 														data-target="#reservationdate" />
 													<div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
@@ -111,7 +111,7 @@ $page_module_name = "Tours";
 												<label>End Date</label>
 												<div class="input-group date reservationdate1" id="reservationdate1"
 													data-target-input="nearest">
-													<input type="text" value="<?= $end_date ?>" name="end_date" id="end_date"
+													<input type="text" value="<?php echo $end_date ?>" name="end_date" id="end_date"
 														placeholder="End Date" style="width: 100%;" class="form-control datetimepicker-input"
 														data-target="#reservationdate1" />
 													<div class="input-group-append" data-target="#reservationdate1" data-toggle="datetimepicker">
@@ -145,7 +145,7 @@ $page_module_name = "Tours";
 										<div class="col-md-6">
 											<!-- <div class="form-group">
 																<label>Field Value</label>
-																<input type="text" name="field_value" id="field_value" placeholder="Field Value" style="width: 100%;" class="form-control" value="<?= $field_value ?>"  >
+																<input type="text" name="field_value" id="field_value" placeholder="Field Value" style="width: 100%;" class="form-control" value="<?php echo $field_value ?>"  >
 																</div> -->
 										</div>
 									</div>
@@ -181,7 +181,7 @@ $page_module_name = "Tours";
 							<?php
 							if ($user_access->add_module == 1) {
 								?>
-								<a href="<?= MAINSITE_Admin . $user_access->class_name ?>/tour-edit">
+								<a href="<?php echo MAINSITE_Admin . $user_access->class_name ?>/tour-edit">
 									<button type="button" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i> Add
 										New</button></a>
 							<? } ?>
@@ -249,7 +249,7 @@ $page_module_name = "Tours";
 								</thead>
 								<? if (!empty($tour_data)) { ?>
 									<tbody>
-										<?
+										<?php
 										$offset_val = (int) $this->uri->segment(5);
 
 										$count = $offset_val;
@@ -260,7 +260,7 @@ $page_module_name = "Tours";
 											<tr>
 
 												<td>
-													<?= $count ?>.
+													<?php echo $count ?>.
 												</td>
 
 												<?php if ($user_access->update_module == 1) { ?>
@@ -278,8 +278,9 @@ $page_module_name = "Tours";
 														-
 													<?php endif; ?>
 												</td>
-												<td><a href="<?= MAINSITE_Admin . $user_access->class_name . "/tour-view/" . $item->tour_id ?>">
-														<?= $item->name ?>
+												<td><a
+														href="<?php echo MAINSITE_Admin . $user_access->class_name . "/tour-view/" . $item->tour_id ?>">
+														<?php echo $item->name ?>
 													</a>
 												</td>
 
@@ -291,10 +292,10 @@ $page_module_name = "Tours";
 												</td> -->
 
 												<td>
-													<?= $item->location ?>
+													<?php echo $item->location ?>
 												</td>
 												<td>
-													<?= $item->available_slots ?>
+													<?php echo $item->available_slots ?>
 												</td>
 												<td>
 
@@ -311,13 +312,13 @@ $page_module_name = "Tours";
 													?>
 
 												</td>
-												<!-- <td><?= $item->minimum_age ?></td> -->
+												<!-- <td><?php echo $item->minimum_age ?></td> -->
 												<td>
-													<?= date("d-m-Y", strtotime($item->added_on)) ?>
+													<?php echo date("d-m-Y", strtotime($item->added_on)) ?>
 												</td>
 
 												<td>
-													<?= $item->added_by_name ?>
+													<?php echo $item->added_by_name ?>
 												</td>
 
 												<td>
@@ -425,10 +426,10 @@ $page_module_name = "Tours";
 		if (country_id > 0) {
 			Pace.restart();
 			$.ajax({
-				url: "<?= MAINSITE_Admin . 'Ajax/getState' ?>",
+				url: "<?php echo MAINSITE_Admin . 'Ajax/getState' ?>",
 				type: 'post',
 				dataType: "json",
-				data: { 'country_id': country_id, 'state_id': state_id, "<?= $csrf['name'] ?>": "<?= $csrf['hash'] ?>" },
+				data: { 'country_id': country_id, 'state_id': state_id, "<?php echo $csrf['name'] ?>": "<?php echo $csrf['hash'] ?>" },
 				success: function (response) {
 					$("#state_id").html(response.state_html);
 				},
@@ -446,10 +447,10 @@ $page_module_name = "Tours";
 		if (state_id > 0) {
 			Pace.restart();
 			$.ajax({
-				url: "<?= MAINSITE_Admin . 'Ajax/getCity' ?>",
+				url: "<?php echo MAINSITE_Admin . 'Ajax/getCity' ?>",
 				type: 'post',
 				dataType: "json",
-				data: { 'city_id': city_id, 'state_id': state_id, "<?= $csrf['name'] ?>": "<?= $csrf['hash'] ?>" },
+				data: { 'city_id': city_id, 'state_id': state_id, "<?php echo $csrf['name'] ?>": "<?php echo $csrf['hash'] ?>" },
 				success: function (response) {
 					$("#city_id").html(response.city_html);
 				},
@@ -489,12 +490,12 @@ $page_module_name = "Tours";
 		})
 
 		<? if (!empty($country_id) && !empty($state_id)) { ?>
-			getState(<?= $country_id ?>, <?= $state_id ?>)
+			getState(<?php echo $country_id ?>, <?php echo $state_id ?>)
 		<? } ?>
 
 		<? if (!empty($city_id) && !empty($state_id)) { ?>
-			getCity(<?= $city_id ?>
-				, <?= $state_id ?>)
+			getCity(<?php echo $city_id ?>
+				, <?php echo $state_id ?>)
 		<? } ?>
 	})
 

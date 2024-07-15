@@ -32,7 +32,7 @@ header("Content-Type: application/vnd.ms-excel");
 		<thead>
 			<? if (!empty($start_date) || !empty($end_date)) { ?>
 				<tr>
-					<th colspan="<?= $colspan ?>" style="background-color:#CCC" width="*"><br />
+					<th colspan="<?php echo $colspan ?>" style="background-color:#CCC" width="*"><br />
 
 						Search Record :
 						<? if (!empty($start_date)) {
@@ -105,13 +105,13 @@ header("Content-Type: application/vnd.ms-excel");
 											foreach ($row->roles as $role) {
 												$c_count++; ?>
 												<tr>
-													<td><?= $c_count ?>.</td>
-													<td><?= $role->company_unique_name ?></td>
-													<td><?= $role->user_role_name ?></td>
+													<td><?php echo $c_count ?>.</td>
+													<td><?php echo $role->company_unique_name ?></td>
+													<td><?php echo $role->user_role_name ?></td>
 												</tr>
 											<? } ?>
 										</tbody>
-									</table><? //echo $row->role; ?>
+									</table><?  //echo $row->role; ?>
 								<? } ?>
 							</td>
 							<td width="*"><? echo $row->designation_name; ?></td>
@@ -134,12 +134,12 @@ header("Content-Type: application/vnd.ms-excel");
 							<td width="*">
 								<? if ($row->data_view == 1) { ?> Yes
 								<? } else { ?>No
-								<? } ?>	
+								<? } ?>
 							</td>
 							<td width="*">
 								<? if ($row->approval_access == 1) { ?> Yes
 								<? } else { ?>No
-								<? } ?>	
+								<? } ?>
 							</td>
 							<td width="*"> <? echo date('d-m-Y h:i:s A', strtotime($row->added_on)); ?> &nbsp;</td>
 							<td width="*"><? echo $row->added_by_name; ?></td>
@@ -153,7 +153,7 @@ header("Content-Type: application/vnd.ms-excel");
 							<td width="*">
 								<? if ($row->status == 1) { ?> Active
 								<? } else { ?>Block
-								<? } ?>	
+								<? } ?>
 							</td>
 
 						</tr>
@@ -163,7 +163,7 @@ header("Content-Type: application/vnd.ms-excel");
 
 			<?php } else { ?>
 				<tr>
-					<th colspan="<?= $colspan ?>">No records to display...</th>
+					<th colspan="<?php echo $colspan ?>">No records to display...</th>
 				</tr>
 
 			<?php } ?>

@@ -1,8 +1,6 @@
 <footer class="main-footer">
-  <span><strong>Copyright &copy;
-      <?= date('Y') ?> <b><a target="_blank" href="https://www.marswebsolution.com/" class="text-black">Mars Web
-          Solutions</a></b>
-    </strong>
+  <span><strong>Copyright &copy; <?php echo date('Y') ?> <b><a target="_blank" href="https://www.marswebsolution.com/"
+          class="text-black">Mars Web Solutions</a></b></strong>
     All rights reserved.</span>
   <div class="float-right d-none d-sm-inline-block">
     <b>Version</b> 3.0.4
@@ -10,7 +8,7 @@
 </footer>
 </div>
 <!-- ./wrapper -->
-<?
+<?php
 if (!empty($page_type)) {
   if ($page_type == "list") {
     $this->load->view('admin/inc/files/footer-list', $this->data);
@@ -36,45 +34,14 @@ if (!empty($page_type)) {
 <script>
   $.ajaxSetup({
     headers: {
-      '<?= $csrf['name'] ?>': '<?= $csrf['hash'] ?>'
+      '<?php echo $csrf['name'] ?>': '<?php echo $csrf['hash'] ?>'
     }
   });
 </script>
-<script src="<?= _lte_files_ ?>plugins/pace-progress/pace.min.js"></script>
-<script src="<?= _lte_files_ ?>plugins/ekko-lightbox/ekko-lightbox.min.js"></script>
-<script src="<?= _lte_files_ ?>plugins/filterizr/jquery.filterizr.min.js"></script>
-<script>
-  $(function () {
-    $(document).on('click', '[data-toggle="lightbox"]', function (event) {
-      event.preventDefault();
-      $(this).ekkoLightbox({
-        alwaysShowClose: true
-      });
-    });
-
-    $('.filter-container').filterizr({
-      gutterPixels: 3
-    });
-    $('.btn[data-filter]').on('click', function () {
-      $('.btn[data-filter]').removeClass('active');
-      $(this).addClass('active');
-    });
-  });
-</script>
-<!-- <?
+<script src="<?php echo _lte_files_ ?>plugins/pace-progress/pace.min.js"></script>
+<?php
 print_r($this->session->all_userdata());
-?> -->
-
-<!-- TO AVOID PAGE RESUBMISSION WHEN REFRESHED << -->
-<script>
-  if (window.history.replaceState) {
-    window.history.replaceState(null, null, window.location.href);
-  }
-</script>
-
-<!-- jQuery -->
-<script src="<?= _lte_files_ ?>plugins/jquery/jquery.min.js"></script>
-<!-- TO AVOID PAGE RESUBMISSION WHEN REFRESHED >> -->
+?>
 </body>
 
 </html>

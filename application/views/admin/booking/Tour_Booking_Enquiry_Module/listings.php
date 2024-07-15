@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 $page_module_name = "Tour Booking Enquiry";
 
@@ -17,12 +17,12 @@ $page_module_name = "Tour Booking Enquiry";
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0 text-dark"><?= $page_module_name ?> <small>List</small></h1>
+                    <h1 class="m-0 text-dark"><?php  echo $page_module_name ?> <small>List</small></h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="<?= MAINSITE_Admin . "wam" ?>">Home</a></li>
-                        <li class="breadcrumb-item active"><?= $page_module_name ?></li>
+                        <li class="breadcrumb-item"><a href="<?php  echo MAINSITE_Admin . "wam" ?>">Home</a></li>
+                        <li class="breadcrumb-item active"><?php  echo $page_module_name ?></li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -31,7 +31,7 @@ $page_module_name = "Tour Booking Enquiry";
     <!-- /.content-header -->
 
     <!-- Main content -->
-    <? ?>
+    <?php  ?>
     <section class="content">
         <div class="row">
             <div class="col-12">
@@ -48,7 +48,7 @@ $page_module_name = "Tour Booking Enquiry";
                         </div>
                         <div id="collapseOne" class="panel-collapse collapse" style="">
                             <div class="card-body">
-                                <?php echo form_open(MAINSITE_Admin . "$user_access->class_name/$user_access->function_name", array('method' => 'post', 'id' => 'search_report_form', "name" => "search_report_form", 'style' => '', 'class' => 'form-horizontal', 'role' => 'form', 'enctype' => 'multipart/form-data')); ?>
+                                <?php  echo form_open(MAINSITE_Admin . "$user_access->class_name/$user_access->function_name", array('method' => 'post', 'id' => 'search_report_form', "name" => "search_report_form", 'style' => '', 'class' => 'form-horizontal', 'role' => 'form', 'enctype' => 'multipart/form-data')); ?>
 
                                 <div class="card-body">
                                     <div class="row">
@@ -58,11 +58,11 @@ $page_module_name = "Tour Booking Enquiry";
                                                 <select name="field_name" id="field_name" class="form-control"
                                                     style="width: 100%;">
                                                     <!-- <option value=''>Select Field</option> -->
-                                                    <option value='ft.name' <? if ($field_name == 'ft.name') {
+                                                    <option value='ft.name' <?php  if ($field_name == 'ft.name') {
                                                         echo 'selected';
                                                     } ?>>User Name
                                                     </option>
-                                                    <option value='ft.contactno' <? if ($field_name == 'ft.contactno') {
+                                                    <option value='ft.contactno' <?php  if ($field_name == 'ft.contactno') {
                                                         echo 'selected';
                                                     } ?>>
                                                         Contact Number</option>
@@ -76,7 +76,7 @@ $page_module_name = "Tour Booking Enquiry";
                                                 <label>Field Value</label>
                                                 <input type="text" name="field_value" id="field_value"
                                                     placeholder="Field Value" style="width: 100%;" class="form-control"
-                                                    value="<?= $field_value ?>">
+                                                    value="<?php  echo $field_value ?>">
                                             </div>
                                         </div>
                                     </div>
@@ -87,9 +87,9 @@ $page_module_name = "Tour Booking Enquiry";
                                                 <label>Start Date</label>
                                                 <div class="input-group date reservationdate" id="reservationdate"
                                                     data-target-input="nearest">
-                                                    <input type="text" value="<?= $start_date ?>" name="start_date"
-                                                        id="start_date" placeholder="Start Date" style="width: 100%;"
-                                                        class="form-control datetimepicker-input"
+                                                    <input type="text" value="<?php  echo $start_date ?>"
+                                                        name="start_date" id="start_date" placeholder="Start Date"
+                                                        style="width: 100%;" class="form-control datetimepicker-input"
                                                         data-target="#reservationdate" />
                                                     <div class="input-group-append" data-target="#reservationdate"
                                                         data-toggle="datetimepicker">
@@ -106,7 +106,7 @@ $page_module_name = "Tour Booking Enquiry";
                                                 <label>End Date</label>
                                                 <div class="input-group date reservationdate1" id="reservationdate1"
                                                     data-target-input="nearest">
-                                                    <input type="text" value="<?= $end_date ?>" name="end_date"
+                                                    <input type="text" value="<?php  echo $end_date ?>" name="end_date"
                                                         id="end_date" placeholder="End Date" style="width: 100%;"
                                                         class="form-control datetimepicker-input"
                                                         data-target="#reservationdate1" />
@@ -128,11 +128,11 @@ $page_module_name = "Tour Booking Enquiry";
                                                 <select name="record_status" id="record_status" class="form-control"
                                                     style="width: 100%;">
                                                     <option value=''>Active / Block</option>
-                                                    <option value='1' <? if ($record_status == 1) {
+                                                    <option value='1' <?php  if ($record_status == 1) {
                                                         echo 'selected';
                                                     } ?>>
                                                         Active</option>
-                                                    <option value='zero' <? if ($record_status == 'zero') {
+                                                    <option value='zero' <?php  if ($record_status == 'zero') {
                                                         echo 'selected';
                                                     } ?>>Block</option>
                                                 </select>
@@ -143,7 +143,7 @@ $page_module_name = "Tour Booking Enquiry";
                                         <div class="col-md-6">
                                             <!-- <div class="form-group">
                                                                 <label>Field Value</label>
-                                                                <input type="text" name="field_value" id="field_value" placeholder="Field Value" style="width: 100%;" class="form-control" value="<?= $field_value ?>"  >
+                                                                <input type="text" name="field_value" id="field_value" placeholder="Field Value" style="width: 100%;" class="form-control" value="<?php  echo $field_value ?>"  >
                                                                 </div> -->
                                         </div>
                                     </div>
@@ -159,7 +159,7 @@ $page_module_name = "Tour Booking Enquiry";
                                     </center>
                                 </div>
                             </div>
-                            <?php echo form_close() ?>
+                            <?php  echo form_close() ?>
                         </div>
                     </div>
                 </div>
@@ -167,55 +167,55 @@ $page_module_name = "Tour Booking Enquiry";
 
                     <div class="card-header">
                         <h3 class="card-title"><span style="color:#FF0000;">Total Records:
-                                <?php echo $row_count; ?></span>
+                                <?php  echo $row_count; ?></span>
                         </h3>
                         <div class="float-right">
-                            <?php
+                            <?php 
                             if ($user_access->add_module == 1 && false) {
                                 ?>
-                                <a href="<?= MAINSITE_Admin . $user_access->class_name ?>/edit">
+                                <a href="<?php  echo MAINSITE_Admin . $user_access->class_name ?>/edit">
                                     <button type="button" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i> Add
                                         New</button></a>
-                            <? } ?>
-                            <?php
+                            <?php  } ?>
+                            <?php 
                             if ($user_access->update_module == 1) {
                                 ?>
                                 <button type="button" class="btn btn-success btn-sm" onclick="validateRecordsActivate()"><i
                                         class="fas fa-check"></i> Active</button>
                                 <button type="button" class="btn btn-dark btn-sm" onclick="validateRecordsBlock()"><i
                                         class="fas fa-ban"></i> Block</button>
-                            <? } ?>
-                            <?php
+                            <?php  } ?>
+                            <?php 
                             if ($user_access->export_data == 1 && false) {
                                 ?>
                                 <button type="button" class="btn btn-success btn-sm export_excel"><i
                                         class="fas fa-file-excel"></i> Export</button>
-                            <? } ?>
-                            <?php
+                            <?php  } ?>
+                            <?php 
                             if ($user_access->export_data == 1 && false) {
                                 ?>
                                 <button type="button" class="btn btn-success btn-sm export_pdf"><i class="fas fa-file-pdf"
                                         style='color:red'></i> Print</button>
-                            <? } ?>
+                            <?php  } ?>
                         </div>
                     </div>
                     <!-- /.card-header -->
-                    <?php
+                    <?php 
                     if ($user_access->view_module == 1) {
                         ?>
                         <div class="card-body">
 
-                            <?php echo form_open(MAINSITE_Admin . "$user_access->class_name/doUpdateStatus", array('method' => 'post', 'id' => 'ptype_list_form', "name" => "ptype_list_form", 'style' => '', 'class' => 'form-horizontal', 'role' => 'form', 'enctype' => 'multipart/form-data')); ?>
+                            <?php  echo form_open(MAINSITE_Admin . "$user_access->class_name/doUpdateStatus", array('method' => 'post', 'id' => 'ptype_list_form', "name" => "ptype_list_form", 'style' => '', 'class' => 'form-horizontal', 'role' => 'form', 'enctype' => 'multipart/form-data')); ?>
                             <input type="hidden" name="task" id="task" value="" />
-                            <? echo $this->session->flashdata('alert_message'); ?>
+                            <?php  echo $this->session->flashdata('alert_message'); ?>
                             <table id="example1" class="table table-bordered table-hover table-striped">
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <?php if ($user_access->update_module == 1) { ?>
+                                        <?php  if ($user_access->update_module == 1) { ?>
                                             <th width="4%"><input type="checkbox" name="main_check" id="main_check"
                                                     onclick="check_uncheck_All_records()" value="" /></th>
-                                        <? } ?>
+                                        <?php  } ?>
                                         <th>Enquiry Date</th>
 
                                         <th>Name</th>
@@ -234,9 +234,9 @@ $page_module_name = "Tour Booking Enquiry";
                                         <th>Status</th>
                                     </tr>
                                 </thead>
-                                <? if (!empty($tour_booking_enquiry_data)) { ?>
+                                <?php  if (!empty($tour_booking_enquiry_data)) { ?>
                                     <tbody>
-                                        <?
+                                        <?php 
                                         $offset_val = (int) $this->uri->segment(5);
 
                                         $count = $offset_val;
@@ -245,78 +245,78 @@ $page_module_name = "Tour Booking Enquiry";
                                             $count++;
                                             ?>
                                             <tr>
-                                                <td><?= $count ?>.</td>
-                                                <?php if ($user_access->update_module == 1) { ?>
-                                                    <td><input type="checkbox" name="sel_recds[]" id="sel_recds<?php echo $count; ?>"
-                                                            value="<?php echo $item->tour_booking_enquiry_id; ?>" /></td>
-                                                <? } ?>
+                                                <td><?php  echo $count ?>.</td>
+                                                <?php  if ($user_access->update_module == 1) { ?>
+                                                    <td><input type="checkbox" name="sel_recds[]" id="sel_recds<?php  echo $count; ?>"
+                                                            value="<?php  echo $item->tour_booking_enquiry_id; ?>" /></td>
+                                                <?php  } ?>
                                                 <td><a
-                                                        href="<?= MAINSITE_Admin . $user_access->class_name . "/view/" . $item->tour_booking_enquiry_id ?>"><?= date("d-m-Y", strtotime($item->added_on)) ?></a>
+                                                        href="<?php  echo MAINSITE_Admin . $user_access->class_name . "/view/" . $item->tour_booking_enquiry_id ?>"><?php  echo date("d-m-Y", strtotime($item->added_on)) ?></a>
                                                 </td>
 
 
-                                                <td><?= $item->name ?></td>
-                                                <!-- <td><?= $item->email ?></td> -->
-                                                <td><?= $item->contactno ?></td>
-                                                <!-- <td><?= $item->subject ?></td> -->
-                                                <!-- <td><?= $item->description ?></td> -->
+                                                <td><?php  echo $item->name ?></td>
+                                                <!-- <td><?php  echo $item->email ?></td> -->
+                                                <td><?php  echo $item->contactno ?></td>
+                                                <!-- <td><?php  echo $item->subject ?></td> -->
+                                                <!-- <td><?php  echo $item->description ?></td> -->
                                                 <td>
-                                                    <?php if ($item->tour[0]->tour_variant == 1): ?>
+                                                    <?php  if ($item->tour[0]->tour_variant == 1): ?>
                                                         Upcoming Adventures
-                                                    <?php elseif ($item->tour[0]->tour_variant == 2): ?>
+                                                    <?php  elseif ($item->tour[0]->tour_variant == 2): ?>
                                                         Upcoming Tours
-                                                    <?php elseif ($item->tour[0]->tour_variant == 3): ?>
+                                                    <?php  elseif ($item->tour[0]->tour_variant == 3): ?>
                                                         Activities
-                                                    <?php else: ?>
+                                                    <?php  else: ?>
                                                         -
-                                                    <?php endif; ?>
+                                                    <?php  endif; ?>
                                                 </td>
-                                                <td><?= $item->tour[0]->name ?></td>
+                                                <td><?php  echo $item->tour[0]->name ?></td>
 
                                                 <td>
-                                                    <?php if (!empty($item->tour_date)): ?>
-                                                        <?= $item->tour_date[0]->start_date_time ?> TO
-                                                        <?= $item->tour_date[0]->end_date ?>
-                                                    <?php else: ?>
+                                                    <?php  if (!empty($item->tour_date)): ?>
+                                                        <?php  echo $item->tour_date[0]->start_date_time ?> TO
+                                                        <?php  echo $item->tour_date[0]->end_date ?>
+                                                    <?php  else: ?>
                                                         -
-                                                    <?php endif; ?>
+                                                    <?php  endif; ?>
 
                                                 </td>
                                                 <td>
 
-                                                    <?php if (!empty($item->tour_date)): ?>
-                                                        <?php if (empty($item->tour_date[0]->is_discount)): ?>
-                                                            ₹<?= $item->tour_date[0]->actual_price ?>
-                                                        <?php else: ?>
+                                                    <?php  if (!empty($item->tour_date)): ?>
+                                                        <?php  if (empty($item->tour_date[0]->is_discount)): ?>
+                                                            ₹<?php  echo $item->tour_date[0]->actual_price ?>
+                                                        <?php  else: ?>
 
-                                                            ₹<?= $item->tour_date[0]->discounted_price ?>
+                                                            ₹<?php  echo $item->tour_date[0]->discounted_price ?>
 
-                                                        <?php endif; ?>
-                                                    <?php else: ?>
+                                                        <?php  endif; ?>
+                                                    <?php  else: ?>
                                                         -
-                                                    <?php endif; ?>
+                                                    <?php  endif; ?>
 
 
                                                 </td>
-                                                <!-- <td><?= date("d-m-Y", strtotime($item->added_on)) ?></td> -->
-                                                <!-- <td><?= date("d-m-Y", strtotime($item->updated_on)) ?></td> -->
-                                                <!-- <td><?= $item->updated_by_name ?></td> -->
+                                                <!-- <td><?php  echo date("d-m-Y", strtotime($item->added_on)) ?></td> -->
+                                                <!-- <td><?php  echo date("d-m-Y", strtotime($item->updated_on)) ?></td> -->
+                                                <!-- <td><?php  echo $item->updated_by_name ?></td> -->
                                                 <td>
-                                                    <? if ($item->status == 1) { ?> <i class="fas fa-check btn-success btn-sm "></i>
-                                                    <? } else { ?><i class="fas fa-ban btn-danger btn-sm "></i>
-                                                    <? } ?>
+                                                    <?php  if ($item->status == 1) { ?> <i class="fas fa-check btn-success btn-sm "></i>
+                                                    <?php  } else { ?><i class="fas fa-ban btn-danger btn-sm "></i>
+                                                    <?php  } ?>
                                                 </td>
                                             </tr>
-                                        <? } ?>
+                                        <?php  } ?>
                                     </tbody>
-                                <? } ?>
+                                <?php  } ?>
                             </table>
-                            <?php echo form_close() ?>
+                            <?php  echo form_close() ?>
                             <center>
-                                <div class="pagination_custum"><? echo $this->pagination->create_links(); ?></div>
+                                <div class="pagination_custum"><?php  echo $this->pagination->create_links(); ?></div>
                             </center>
                         </div>
-                    <? } else {
+                    <?php  } else {
                         $this->data['no_access_flash_message'] = "You Dont Have Access To View " . $page_module_name;
                         $this->load->view('admin/template/access_denied', $this->data);
                     } ?>
@@ -330,7 +330,7 @@ $page_module_name = "Tour Booking Enquiry";
 
 
 </section>
-<? ?>
+<?php  ?>
 </div>
 
 <aside class="control-sidebar control-sidebar-dark">
@@ -415,22 +415,22 @@ $page_module_name = "Tour Booking Enquiry";
 
         $(".export_excel").bind("click", function () {
 
-            $('#search_report_form').attr('action', '<? echo MAINSITE_Admin . $user_access->class_name . "/" . "export"; ?>');
+            $('#search_report_form').attr('action', '<?php  echo MAINSITE_Admin . $user_access->class_name . "/" . "export"; ?>');
             $('#search_report_form').attr('target', '_blank');
             $('#search_report_btn').click();
 
-            $('#search_report_form').attr('action', '<? echo MAINSITE_Admin . $user_access->class_name . "/" . $user_access->function_name; ?>');
+            $('#search_report_form').attr('action', '<?php  echo MAINSITE_Admin . $user_access->class_name . "/" . $user_access->function_name; ?>');
             $('#search_report_form').attr('target', '');
         })
 
 
         $(".export_pdf").bind("click", function () {
 
-            $('#search_report_form').attr('action', '<? echo MAINSITE_Admin . $user_access->class_name . "/" . "pdf"; ?>');
+            $('#search_report_form').attr('action', '<?php  echo MAINSITE_Admin . $user_access->class_name . "/" . "pdf"; ?>');
             $('#search_report_form').attr('target', '_blank');
             $('#search_report_btn').click();
 
-            $('#search_report_form').attr('action', '<? echo MAINSITE_Admin . $user_access->class_name . "/" . $user_access->function_name; ?>');
+            $('#search_report_form').attr('action', '<?php  echo MAINSITE_Admin . $user_access->class_name . "/" . $user_access->function_name; ?>');
             $('#search_report_form').attr('target', '');
         })
 

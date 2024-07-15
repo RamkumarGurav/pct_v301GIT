@@ -51,10 +51,11 @@ class Role_Manager_Module extends Main
 			"7" => "Gallery",
 			"8" => "Customers",
 			"9" => "Invoice",
-			"10" => "Customer Reports",
+			"10" => "Booking",
 			"11" => "Operations",
 			"12" => "Delivery Note",
-			"13" => "Orders"
+			"13" => "Orders",
+			"15" => "Media"
 		);
 
 	}
@@ -345,136 +346,136 @@ class Role_Manager_Module extends Main
 		parent::get_footer();
 
 		/* BELOW DATA IS FOR REFERENCE
-																																											//////	 $this->["module_data]  DATA
-																																												 Array(
-																																												[0] => stdClass Object
-																																														(
-																																																[module_id] => 1
-																																																[module_name] => Role Manager
-																																																[is_master] => 1
-																																																[parent_module_id] => 0
-																																																[class_name] => master/Role-Manager-Module
-																																																[function_name] => role-manager-list
-																																																[count_function_name] => 
-																																																[is_company_profile_id] => 0
-																																																[direct_db_count] => 1
-																																																[table_name] => users_role_master
-																																																[position] => 1
-																																																[added_on] => 2020-04-20 12:44:42
-																																																[is_display] => 1
-																																																[status] => 1
-																																																[icon] => 
-																																														)
+																																													//////	 $this->["module_data]  DATA
+																																														 Array(
+																																														[0] => stdClass Object
+																																																(
+																																																		[module_id] => 1
+																																																		[module_name] => Role Manager
+																																																		[is_master] => 1
+																																																		[parent_module_id] => 0
+																																																		[class_name] => master/Role-Manager-Module
+																																																		[function_name] => role-manager-list
+																																																		[count_function_name] => 
+																																																		[is_company_profile_id] => 0
+																																																		[direct_db_count] => 1
+																																																		[table_name] => users_role_master
+																																																		[position] => 1
+																																																		[added_on] => 2020-04-20 12:44:42
+																																																		[is_display] => 1
+																																																		[status] => 1
+																																																		[icon] => 
+																																																)
 
-																																												[1] => stdClass Object
-																																														(
-																																																[module_id] => 2
-																																																[module_name] => Country
-																																																[is_master] => 1
-																																																[parent_module_id] => 0
-																																																[class_name] => master/Country-Module
-																																																[function_name] => country-list
-																																																[count_function_name] => 
-																																																[is_company_profile_id] => 0
-																																																[direct_db_count] => 1
-																																																[table_name] => country
-																																																[position] => 2
-																																																[added_on] => 2020-04-20 12:44:42
-																																																[is_display] => 1
-																																																[status] => 1
-																																																[icon] => 
-																																														)
-																																																.. )
+																																														[1] => stdClass Object
+																																																(
+																																																		[module_id] => 2
+																																																		[module_name] => Country
+																																																		[is_master] => 1
+																																																		[parent_module_id] => 0
+																																																		[class_name] => master/Country-Module
+																																																		[function_name] => country-list
+																																																		[count_function_name] => 
+																																																		[is_company_profile_id] => 0
+																																																		[direct_db_count] => 1
+																																																		[table_name] => country
+																																																		[position] => 2
+																																																		[added_on] => 2020-04-20 12:44:42
+																																																		[is_display] => 1
+																																																		[status] => 1
+																																																		[icon] => 
+																																																)
+																																																		.. )
 
-																																										/////// $this->[module_permission_data]
-																																												Array(
-																																													[0] => stdClass Object
-																																													(
-																																															[permission_id] => 198
-																																															[module_id] => 9
-																																															[user_role_id] => 4
-																																															[view_module] => 1
-																																															[add_module] => 1
-																																															[update_module] => 1
-																																															[delete_module] => 0
-																																															[approval_module] => 0
-																																															[import_data] => 1
-																																															[export_data] => 1
-																																													)
+																																												/////// $this->[module_permission_data]
+																																														Array(
+																																															[0] => stdClass Object
+																																															(
+																																																	[permission_id] => 198
+																																																	[module_id] => 9
+																																																	[user_role_id] => 4
+																																																	[view_module] => 1
+																																																	[add_module] => 1
+																																																	[update_module] => 1
+																																																	[delete_module] => 0
+																																																	[approval_module] => 0
+																																																	[import_data] => 1
+																																																	[export_data] => 1
+																																															)
 
-																																											[1] => stdClass Object
-																																													(
-																																															[permission_id] => 199
-																																															[module_id] => 15
-																																															[user_role_id] => 4
-																																															[view_module] => 1
-																																															[add_module] => 1
-																																															[update_module] => 1
-																																															[delete_module] => 0
-																																															[approval_module] => 0
-																																															[import_data] => 1
-																																															[export_data] => 1
-																																													)
+																																													[1] => stdClass Object
+																																															(
+																																																	[permission_id] => 199
+																																																	[module_id] => 15
+																																																	[user_role_id] => 4
+																																																	[view_module] => 1
+																																																	[add_module] => 1
+																																																	[update_module] => 1
+																																																	[delete_module] => 0
+																																																	[approval_module] => 0
+																																																	[import_data] => 1
+																																																	[export_data] => 1
+																																															)
 
-																																											[2] => stdClass Object
-																																													(
-																																															[permission_id] => 200
-																																															[module_id] => 17
-																																															[user_role_id] => 4
-																																															[view_module] => 1
-																																															[add_module] => 1
-																																															[update_module] => 1
-																																															[delete_module] => 0
-																																															[approval_module] => 0
-																																															[import_data] => 1
-																																															[export_data] => 1
-																																													)
+																																													[2] => stdClass Object
+																																															(
+																																																	[permission_id] => 200
+																																																	[module_id] => 17
+																																																	[user_role_id] => 4
+																																																	[view_module] => 1
+																																																	[add_module] => 1
+																																																	[update_module] => 1
+																																																	[delete_module] => 0
+																																																	[approval_module] => 0
+																																																	[import_data] => 1
+																																																	[export_data] => 1
+																																															)
 
-																																											[3] => stdClass Object
-																																													(
-																																															[permission_id] => 201
-																																															[module_id] => 16
-																																															[user_role_id] => 4
-																																															[view_module] => 1
-																																															[add_module] => 1
-																																															[update_module] => 1
-																																															[delete_module] => 0
-																																															[approval_module] => 0
-																																															[import_data] => 1
-																																															[export_data] => 1
-																																													)
+																																													[3] => stdClass Object
+																																															(
+																																																	[permission_id] => 201
+																																																	[module_id] => 16
+																																																	[user_role_id] => 4
+																																																	[view_module] => 1
+																																																	[add_module] => 1
+																																																	[update_module] => 1
+																																																	[delete_module] => 0
+																																																	[approval_module] => 0
+																																																	[import_data] => 1
+																																																	[export_data] => 1
+																																															)
 
-																																											[4] => stdClass Object
-																																													(
-																																															[permission_id] => 202
-																																															[module_id] => 18
-																																															[user_role_id] => 4
-																																															[view_module] => 1
-																																															[add_module] => 1
-																																															[update_module] => 1
-																																															[delete_module] => 0
-																																															[approval_module] => 0
-																																															[import_data] => 1
-																																															[export_data] => 1
-																																													)
+																																													[4] => stdClass Object
+																																															(
+																																																	[permission_id] => 202
+																																																	[module_id] => 18
+																																																	[user_role_id] => 4
+																																																	[view_module] => 1
+																																																	[add_module] => 1
+																																																	[update_module] => 1
+																																																	[delete_module] => 0
+																																																	[approval_module] => 0
+																																																	[import_data] => 1
+																																																	[export_data] => 1
+																																															)
 
-																																									)	
+																																											)	
 
-																																						///////$this->data['users_role_master_data'] DATA
-																																									stdClass Object
-																																						(
-																																								[user_role_id] => 4
-																																								[user_role_name] => products manager
-																																								[added_on] => 2023-12-21 18:18:17
-																																								[added_by] => 1
-																																								[updated_on] => 
-																																								[updated_by] => 
-																																								[status] => 1
-																																								[added_by_name] => Abhishek Khandelwal
-																																								[updated_by_name] => 
-																																						)
-																																												 
-																																												 */
+																																								///////$this->data['users_role_master_data'] DATA
+																																											stdClass Object
+																																								(
+																																										[user_role_id] => 4
+																																										[user_role_name] => products manager
+																																										[added_on] => 2023-12-21 18:18:17
+																																										[added_by] => 1
+																																										[updated_on] => 
+																																										[updated_by] => 
+																																										[status] => 1
+																																										[added_by_name] => Abhishek Khandelwal
+																																										[updated_by_name] => 
+																																								)
+																																														 
+																																														 */
 
 
 

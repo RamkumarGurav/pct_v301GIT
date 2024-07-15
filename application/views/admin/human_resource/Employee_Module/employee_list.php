@@ -8,37 +8,31 @@ $page_module_name = "Employee";
 <!-- Main Sidebar Container -->
 
 
-<!--{{{{{{ Content Wrapper. Contains page content -->
+<!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
-
-
-	<!--{{{{{{ Page Module Header with breadcrumb -->
+	<!-- Content Header (Page header) -->
 	<div class="content-header">
 		<div class="container-fluid">
 			<div class="row mb-2">
 				<div class="col-sm-6">
-					<h1 class="m-0 text-dark"><?= $page_module_name ?> <small>List</small></h1>
+					<h1 class="m-0 text-dark"><?php echo $page_module_name ?> <small>List</small></h1>
 				</div><!-- /.col -->
 				<div class="col-sm-6">
 					<ol class="breadcrumb float-sm-right">
-						<li class="breadcrumb-item"><a href="<?= MAINSITE_Admin . "wam" ?>">Home</a></li>
-						<li class="breadcrumb-item active"><?= $page_module_name ?></li>
+						<li class="breadcrumb-item"><a href="<?php echo MAINSITE_Admin . "wam" ?>">Home</a></li>
+						<li class="breadcrumb-item active"><?php echo $page_module_name ?></li>
 					</ol>
 				</div><!-- /.col -->
 			</div><!-- /.row -->
 		</div><!-- /.container-fluid -->
 	</div>
-	<!-- }}}}}} Page Module Header with breadcrumb -->
+	<!-- /.content-header -->
 
-
-
-	<!--{{{{{{ Main content -->
+	<!-- Main content -->
+	<?php ?>
 	<section class="content">
-
 		<div class="row">
 			<div class="col-12">
-
-				<!--   {{{{{{ Search Accordian-->
 				<div id="accordion">
 					<!-- we are adding the .class so bootstrap.js collapse plugin detects it -->
 					<div class="card card-primary">
@@ -52,39 +46,28 @@ $page_module_name = "Employee";
 						<div id="collapseOne" class="panel-collapse collapse" style="">
 							<div class="card-body">
 
-								<?php echo form_open(
-									MAINSITE_Admin . "$user_access->class_name/$user_access->function_name",
-									array(
-										'method' => 'post',
-										'id' => 'search_report_form',
-										"name" => "search_report_form",
-										'style' => '',
-										'class' => 'form-horizontal',
-										'role' => 'form',
-										'enctype' => 'multipart/form-data'
-									)
-								); ?>
+								<?php echo form_open(MAINSITE_Admin . "$user_access->class_name/$user_access->function_name", array('method' => 'post', 'id' => 'search_report_form', "name" => "search_report_form", 'style' => '', 'class' => 'form-horizontal', 'role' => 'form', 'enctype' => 'multipart/form-data')); ?>
 
 								<div class="card-body">
-
 									<div class="row">
 										<div class="col-md-3">
 											<div class="form-group">
 												<label>Field</label>
 												<select name="field_name" id="field_name" class="form-control" style="width: 100%;">
 													<!-- <option value=''>Select Field</option> -->
-													<option value='ft.name' <? if ($field_name == 'ft.name') {
+													<option value='aau.name' <?php if ($field_name == 'aau.name') {
 														echo 'selected';
 													} ?>>Employee Name
 													</option>
-													<option value='ft.email' <? if ($field_name == 'ft.email') {
+													<option value='aau.email' <?php if ($field_name == 'aau.email') {
 														echo 'selected';
-													} ?>>Email</option>
-													<option value='ft.mobile_no' <? if ($field_name == 'ft.mobile_no') {
+													} ?>>Email
+													</option>
+													<option value='aau.mobile_no' <?php if ($field_name == 'aau.mobile_no') {
 														echo 'selected';
-													} ?>>Mobile
-														No.</option>
-													<option value='ft.fax_no' <? if ($field_name == 'ft.fax_no') {
+													} ?>>
+														Mobile No.</option>
+													<option value='aau.fax_no' <?php if ($field_name == 'aau.fax_no') {
 														echo 'selected';
 													} ?>>Fax No.
 													</option>
@@ -97,7 +80,7 @@ $page_module_name = "Employee";
 											<div class="form-group">
 												<label>Field Value</label>
 												<input type="text" name="field_value" id="field_value" placeholder="Field Value"
-													style="width: 100%;" class="form-control" value="<?= $field_value ?>">
+													style="width: 100%;" class="form-control" value="<?php echo $field_value ?>">
 											</div>
 										</div>
 
@@ -107,18 +90,19 @@ $page_module_name = "Employee";
 												<select type="text" class="form-control" id="user_role_id" name="user_role_id"
 													style="width: 100%;">
 													<option value="">Select Role</option>
-													<? foreach ($users_role_data as $urd) {
+													<?php foreach ($users_role_data as $urd) {
 														$selected = "";
 														if ($urd->user_role_id == $user_role_id) {
 															$selected = "selected";
 														}
 														?>
-														<option value="<?= $urd->user_role_id ?>" <?= $selected ?>><?= $urd->user_role_name ?>
-															<? if ($urd->status != 1) {
+														<option value="<?php echo $urd->user_role_id ?>" <?php echo $selected ?>>
+															<?php echo $urd->user_role_name ?>
+															<?php if ($urd->status != 1) {
 																echo " [Block]";
 															} ?>
 														</option>
-													<? } ?>
+													<?php } ?>
 												</select>
 
 											</div>
@@ -130,18 +114,19 @@ $page_module_name = "Employee";
 												<select type="text" class="form-control" id="designation_id" name="designation_id"
 													style="width: 100%;">
 													<option value="">Select Designation</option>
-													<? foreach ($designation_data as $dd) {
+													<?php foreach ($designation_data as $d) {
 														$selected = "";
-														if ($dd->designation_id == $designation_id) {
+														if ($d->designation_id == $designation_id) {
 															$selected = "selected";
 														}
 														?>
-														<option value="<?= $dd->designation_id ?>" <?= $selected ?>><?= $dd->designation_name ?>
-															<? if ($dd->status != 1) {
+														<option value="<?php echo $d->designation_id ?>" <?php echo $selected ?>>
+															<?php echo $d->designation_name ?>
+															<?php if ($d->status != 1) {
 																echo " [Block]";
 															} ?>
 														</option>
-													<? } ?>
+													<?php } ?>
 												</select>
 
 											</div>
@@ -157,18 +142,19 @@ $page_module_name = "Employee";
 												<select type="text" class="form-control" id="country_id" name="country_id"
 													onchange="getState(this.value ,0)" style="width: 100%;">
 													<option value="">Select Country</option>
-													<? foreach ($country_data as $cd) {
+													<?php foreach ($country_data as $cd) {
 														$selected = "";
 														if ($cd->country_id == $country_id) {
 															$selected = "selected";
 														}
 														?>
-														<option value="<?= $cd->country_id ?>" <?= $selected ?>><?= $cd->country_name ?>
-															<? if ($cd->status != 1) {
+														<option value="<?php echo $cd->country_id ?>" <?php echo $selected ?>>
+															<?php echo $cd->country_name ?>
+															<?php if ($cd->status != 1) {
 																echo " [Block]";
 															} ?>
 														</option>
-													<? } ?>
+													<?php } ?>
 												</select>
 
 											</div>
@@ -200,27 +186,30 @@ $page_module_name = "Employee";
 												<label>Status</label>
 												<select name="record_status" id="record_status" class="form-control" style="width: 100%;">
 													<option value=''>Active / Block</option>
-													<option value='1' <? if ($record_status == 1) {
+													<option value='1' <?php if ($record_status == 1) {
 														echo 'selected';
 													} ?>>Active</option>
-													<option value='zero' <? if ($record_status == 'zero') {
+													<option value='zero' <?php if ($record_status == 'zero') {
 														echo 'selected';
 													} ?>>Block</option>
 												</select>
 
+												</>
+											</div>
+											<!-- /.col -->
+											<div class="col-md-6">
 
 											</div>
 										</div>
 
 									</div>
 
-
 									<div class="row">
 										<div class="col-md-6">
 											<div class="form-group">
 												<label>Start Date</label>
 												<div class="input-group date reservationdate" id="reservationdate" data-target-input="nearest">
-													<input type="text" value="<?= $start_date ?>" name="start_date" id="start_date"
+													<input type="text" value="<?php echo $start_date ?>" name="start_date" id="start_date"
 														placeholder="Start Date" style="width: 100%;" class="form-control datetimepicker-input"
 														data-target="#reservationdate" />
 													<div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
@@ -236,7 +225,7 @@ $page_module_name = "Employee";
 												<label>End Date</label>
 												<div class="input-group date reservationdate1" id="reservationdate1"
 													data-target-input="nearest">
-													<input type="text" value="<?= $end_date ?>" name="end_date" id="end_date"
+													<input type="text" value="<?php echo $end_date ?>" name="end_date" id="end_date"
 														placeholder="End Date" style="width: 100%;" class="form-control datetimepicker-input"
 														data-target="#reservationdate1" />
 													<div class="input-group-append" data-target="#reservationdate1" data-toggle="datetimepicker">
@@ -255,171 +244,136 @@ $page_module_name = "Employee";
 											&nbsp;&nbsp;<button type="reset" class="btn btn-default">Reset</button>
 										</center>
 									</div>
-
+									</form>
 								</div>
 								<?php echo form_close() ?>
-
 							</div>
 						</div>
 
 					</div>
-				</div>
-				<!-- }}}}}} Search Accordian  -->
 
+					<div class="card">
 
-
-				<!--   {{{{{{ Main Card with actions and Table -->
-				<div class="card">
-					<!--   {{{{{{{{{{ Main Card Header -->
-
-					<div class="card-header">
-						<h3 class="card-title"><span style="color:#FF0000;">Total Records: <?php echo $row_count; ?></span></h3>
-						<div class="float-right">
-							<?php
-							if ($user_access->add_module == 1) {
-								?>
-								<a href="<?= MAINSITE_Admin . $user_access->class_name ?>/employee-edit">
-									<button type="button" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i> Add
-										New</button></a>
-							<? } ?>
-							<?php
-							if ($user_access->update_module == 1) {
-								?>
-								<button type="button" class="btn btn-success btn-sm" onclick="validateRecordsActivate()"><i
-										class="fas fa-check"></i> Active</button>
-								<button type="button" class="btn btn-dark btn-sm" onclick="validateRecordsBlock()"><i
-										class="fas fa-ban"></i> Block</button>
-							<? } ?>
-							<?php
-							if ($user_access->export_data == 1) {
-								?>
-								<button type="button" class="btn btn-success btn-sm export_excel"><i class="fas fa-file-excel"></i>
-									Export</button>
-							<? } ?>
+						<div class="card-header">
+							<h3 class="card-title"><span style="color:#FF0000;">Total Records: <?php echo $row_count; ?></span></h3>
+							<div class="float-right">
+								<?php
+								if ($user_access->add_module == 1) {
+									?>
+									<a href="<?php echo MAINSITE_Admin . $user_access->class_name ?>/employee-edit">
+										<button type="button" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i> Add
+											New</button></a>
+								<?php } ?>
+								<?php
+								if ($user_access->update_module == 1) {
+									?>
+									<button type="button" class="btn btn-success btn-sm" onclick="validateRecordsActivate()"><i
+											class="fas fa-check"></i> Active</button>
+									<button type="button" class="btn btn-dark btn-sm" onclick="validateRecordsBlock()"><i
+											class="fas fa-ban"></i> Block</button>
+								<?php } ?>
+								<?php
+								if ($user_access->export_data == 1) {
+									?>
+									<button type="button" class="btn btn-success btn-sm export_excel"><i class="fas fa-file-excel"></i>
+										Export</button>
+								<?php } ?>
+							</div>
 						</div>
-					</div>
-					<!-- }}}}}}}}}}}} Main Card Header  -->
+						<!-- /.card-header -->
+						<?php
+						if ($user_access->view_module == 1) {
+							?>
+							<div class="card-body">
 
+								<?php echo form_open(MAINSITE_Admin . "$user_access->class_name/userEmployee-doUpdateStatus", array('method' => 'post', 'id' => 'ptype_list_form', "name" => "ptype_list_form", 'style' => '', 'class' => 'form-horizontal', 'role' => 'form', 'enctype' => 'multipart/form-data')); ?>
+								<input type="hidden" name="task" id="task" value="" />
+								<?php echo $this->session->flashdata('alert_message'); ?>
+								<table id="example1" class="table table-bordered table-hover table-striped">
+									<thead>
+										<tr>
+											<th>#</th>
+											<?php if ($user_access->update_module == 1) { ?>
+												<th width="4%"><input type="checkbox" name="main_check" id="main_check"
+														onclick="check_uncheck_All_records()" value="" /></th>
+											<?php } ?>
+											<th>Employee Name</th>
+											<th>Role</th>
+											<th>Designation</th>
+											<th>Contact</th>
+											<th>Added On</th>
+											<th>Added By</th>
+											<th>Status</th>
+										</tr>
+									</thead>
+									<?php if (!empty($employee_data)) { ?>
+										<tbody>
+											<?php
+											$offset_val = (int) $this->uri->segment(5);
 
-					<!--   {{{{{{{{{{ Main Table-->
-					<?php
-					if ($user_access->view_module == 1) {
-						?>
-						<div class="card-body">
+											$count = $offset_val;
 
-							<?php echo form_open(
-								MAINSITE_Admin . "$user_access->class_name/userEmployee-doUpdateStatus",
-								array(
-									'method' => 'post',
-									'id' => 'ptype_list_form',
-									"name" => "ptype_list_form",
-									'style' => '',
-									'class' => 'form-horizontal',
-									'role' => 'form',
-									'enctype' => 'multipart/form-data'
-								)
-							); ?>
-
-							<input type="hidden" name="task" id="task" value="" />
-							<? echo $this->session->flashdata('alert_message'); ?>
-							<table id="example1" class="table table-bordered table-hover table-striped">
-								<thead>
-									<tr>
-										<th>#</th>
-										<?php if ($user_access->update_module == 1) { ?>
-											<th width="4%"><input type="checkbox" name="main_check" id="main_check"
-													onclick="check_uncheck_All_records()" value="" /></th>
-										<? } ?>
-										<th>Employee Name</th>
-										<th>Role</th>
-										<th>Designation</th>
-										<th>Contact</th>
-										<th>Added On</th>
-										<th>Added By</th>
-										<th>Status</th>
-									</tr>
-								</thead>
-								<? if (!empty($employee_data)) { ?>
-									<tbody>
-										<?
-										$offset_val = (int) $this->uri->segment(5);
-
-										$count = $offset_val;
-
-										foreach ($employee_data as $ed) {
-											$count++;
-											?>
-											<tr>
-
-												<td><?= $count ?>.</td>
-
-												<?php if ($user_access->update_module == 1) { ?>
-													<td><input type="checkbox" name="sel_recds[]" id="sel_recds<?php echo $count; ?>"
-															value="<?php echo $ed->admin_user_id; ?>" /></td>
-												<? } ?>
-
-												<td><a
-														href="<?= MAINSITE_Admin . $user_access->class_name . "/employee-view/" . $ed->admin_user_id ?>">
-														<?= $ed->name ?></a>
-												</td>
-
-												<td>
-													<?
-													if (!empty($ed->roles)) {
-														if (count($ed->roles) > 1) {
-															//echo "<ol>";
-															foreach ($ed->roles as $r) {
-																echo '<p>' . $r->user_role_name . '</p>';
+											foreach ($employee_data as $urm) {
+												$count++;
+												?>
+												<tr>
+													<td><?php echo $count ?>.</td>
+													<?php if ($user_access->update_module == 1) { ?>
+														<td><input type="checkbox" name="sel_recds[]" id="sel_recds<?php echo $count; ?>"
+																value="<?php echo $urm->admin_user_id; ?>" /></td>
+													<?php } ?>
+													<td><a
+															href="<?php echo MAINSITE_Admin . $user_access->class_name . "/employee-view/" . $urm->admin_user_id ?>"><?php echo $urm->name ?></a>
+													</td>
+													<td>
+														<?php
+														if (!empty($urm->roles)) {
+															if (count($urm->roles) > 1) {
+																//echo "<ol>";
+																foreach ($urm->roles as $r) {
+																	echo '<p>' . $r->user_role_name . '</p>';
+																}
+																//echo "</ol>";
+															} else {
+																echo $urm->roles[0]->user_role_name;
 															}
-															//echo "</ol>";
-														} else {
-															echo $ed->roles[0]->user_role_name;
 														}
-													}
-													?>
-												</td>
+														?>
+														<?php  //=$urm->user_role_name ?>
 
-												<td><?= $ed->designation_name ?></td>
-
-												<td><?= $ed->email ?><br> <?= $ed->mobile_no ?></td>
-
-												<td><?= date("d-m-Y", strtotime($ed->added_on)) ?></td>
-
-												<td><?= $ed->added_by_name ?></td>
-
-												<td>
-													<? if ($ed->status == 1) { ?>
-														<i class="fas fa-check btn-success btn-sm "></i>
-													<? } else { ?>
-														<i class="fas fa-ban btn-danger btn-sm "></i>
-													<? } ?>
-												</td>
-
-											</tr>
-										<? } ?>
-									</tbody>
-								<? } ?>
-							</table>
-							</form>
-							<center>
-								<div class="pagination_custum"><? echo $this->pagination->create_links(); ?></div>
-							</center>
-						</div>
-					<? } else {
-						$this->data['no_access_flash_message'] = "You Dont Have Access To View " . $page_module_name;
-						$this->load->view('admin/template/access_denied', $this->data);
-					} ?>
-					<!--   }}}}}}}}}}}} Main Table-->
+													</td>
+													<td><?php echo $urm->designation_name ?></td>
+													<td><?php echo $urm->email ?><br> <?php echo $urm->mobile_no ?></td>
+													<td><?php echo date("d-m-Y", strtotime($urm->added_on)) ?></td>
+													<td><?php echo $urm->added_by_name ?></td>
+													<td>
+														<?php if ($urm->status == 1) { ?> <i class="fas fa-check btn-success btn-sm "></i>
+														<?php } else { ?><i class="fas fa-ban btn-danger btn-sm "></i>
+														<?php } ?>
+													</td>
+												</tr>
+											<?php } ?>
+										</tbody>
+									<?php } ?>
+								</table>
+								</form>
+								<center>
+									<div class="pagination_custum"><?php echo $this->pagination->create_links(); ?></div>
+								</center>
+							</div>
+						<?php } else {
+							$this->data['no_access_flash_message'] = "You Dont Have Access To View " . $page_module_name;
+							$this->load->view('admin/template/access_denied', $this->data);
+						} ?>
+						<!-- /.card-body -->
+					</div>
 				</div>
-				<!-- }}}}}} Main Card with actions and Table  -->
-
 			</div>
-		</div>
+
 
 	</section>
-	<!-- }}}}} Main content -->
+	<?php ?>
 </div>
-<!--}}}}}} Content Wrapper. Contains page content -->
 
 <aside class="control-sidebar control-sidebar-dark">
 	<!-- Control sidebar content goes here -->
@@ -490,10 +444,10 @@ $page_module_name = "Employee";
 		if (country_id > 0) {
 			Pace.restart();
 			$.ajax({
-				url: "<?= MAINSITE_Admin . 'Ajax/getState' ?>",
+				url: "<?php echo MAINSITE_Admin . 'Ajax/getState' ?>",
 				type: 'post',
 				dataType: "json",
-				data: { 'country_id': country_id, 'state_id': state_id, "<?= $csrf['name'] ?>":"<?= $csrf['hash'] ?>"  },
+				data: { 'country_id': country_id, 'state_id': state_id, "<?php echo $csrf['name'] ?>": "<?php echo $csrf['hash'] ?>" },
 				success: function (response) {
 					$("#state_id").html(response.state_html);
 				},
@@ -511,10 +465,10 @@ $page_module_name = "Employee";
 		if (state_id > 0) {
 			Pace.restart();
 			$.ajax({
-				url: "<?= MAINSITE_Admin . 'Ajax/getCity' ?>",
+				url: "<?php echo MAINSITE_Admin . 'Ajax/getCity' ?>",
 				type: 'post',
 				dataType: "json",
-				data: { 'city_id': city_id, 'state_id': state_id, "<?= $csrf['name'] ?>":"<?= $csrf['hash'] ?>" },
+				data: { 'city_id': city_id, 'state_id': state_id, "<?php echo $csrf['name'] ?>": "<?php echo $csrf['hash'] ?>" },
 				success: function (response) {
 					$("#city_id").html(response.city_html);
 				},
@@ -545,22 +499,22 @@ $page_module_name = "Employee";
 
 		$(".export_excel").bind("click", function () {
 
-			$('#search_report_form').attr('action', '<? echo MAINSITE_Admin . $user_access->class_name . "/" . $user_access->function_name . "-export"; ?>');
+			$('#search_report_form').attr('action', '<?php echo MAINSITE_Admin . $user_access->class_name . "/" . $user_access->function_name . "-export"; ?>');
 			$('#search_report_form').attr('target', '_blank');
 			$('#search_report_btn').click();
 
-			$('#search_report_form').attr('action', '<? echo MAINSITE_Admin . $user_access->class_name . "/" . $user_access->function_name; ?>');
+			$('#search_report_form').attr('action', '<?php echo MAINSITE_Admin . $user_access->class_name . "/" . $user_access->function_name; ?>');
 			$('#search_report_form').attr('target', '');
 		})
 
-		<? if (!empty($country_id) && !empty($state_id)) { ?>
-			getState(<?= $country_id ?> , <?= $state_id ?>)
-		<? } ?>
+		<?php if (!empty($country_id) && !empty($state_id)) { ?>
+			getState(<?php echo $country_id ?>, <?php echo $state_id ?>)
+		<?php } ?>
 
-		<? if (!empty($city_id) && !empty($state_id)) { ?>
-			getCity(<?= $city_id ?> 
-				, <?= $state_id ?>)	
-<? } ?>
+		<?php if (!empty($city_id) && !empty($state_id)) { ?>
+			getCity(<?php echo $city_id ?>, <?php echo $state_id ?>)
+		<?php } ?>
+
 	})
 
 </script>

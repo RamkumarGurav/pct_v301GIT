@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 19, 2024 at 04:44 PM
+-- Generation Time: Jun 27, 2024 at 05:02 PM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.1.33
 
@@ -68,8 +68,9 @@ CREATE TABLE `admin_user` (
 --
 
 INSERT INTO `admin_user` (`admin_user_id`, `user_role_id`, `designation_id`, `name`, `first_name`, `last_name`, `password`, `show_password`, `email`, `username`, `country_id`, `state_id`, `city_id`, `address1`, `address2`, `address3`, `pincode`, `mobile_no`, `alt_mobile_no`, `fax_no`, `data_view`, `approval_access`, `user_image`, `added_by`, `added_on`, `updated_by`, `updated_on`, `status`, `last_login`, `last_loginip`, `joining_date`, `termination_date`) VALUES
-(1, 1, 1, 'Abhishek Khandelwal', 'Abhishek', 'Khandelwal', '21232f297a57a5a743894a0e4a801fc3', 'admin', 'abhishek.khandelwal@marswebsoluition.com', 'admin', 1, 1, 1, '#1204, Ashwa Plaza, 26th Main, 41st CRoss,', '', '', '560069', '9886551433', '', '', 1, 0, NULL, 1, '2022-11-21 00:00:00', 1, '2022-11-22 00:07:26', 1, '2024-06-19 17:33:01', '::1', '2022-03-11', '1970-01-01'),
-(3, 0, 1, 'ramesh h', 'ramesh', 'h', 'edb43a6f411d80717742583ce13af55b', 'saitarun@annadatha', 'saitarun999@gmail.com', NULL, 1, 29, 1123, 'RAMAYAMPET', '', 'MEDAK DIST', '502101', '8555863004', '', '', 0, 0, NULL, 1, '2023-12-21 18:19:52', 1, '2024-06-19 16:57:47', 1, '2023-12-21 18:21:21', '49.249.163.201', '2023-12-21', NULL);
+(1, 1, 1, 'Krishna', 'Krishna', '', '21232f297a57a5a743894a0e4a801fc3', 'admin', 'krishna@prachitours.in', 'admin', 1, 1, 8, 'Tumkuru', '', '', '560069', '9886551433', '', '', 1, 0, NULL, 1, '2022-11-21 00:00:00', 1, '2024-06-26 17:10:26', 1, '2024-06-27 20:03:22', '::1', '2022-03-11', '1970-01-01'),
+(3, 0, 1, 'ramesh h', 'ramesh', 'h', 'edb43a6f411d80717742583ce13af55b', 'saitarun@annadatha', 'saitarun999@gmail.com', NULL, 1, 29, 1123, 'RAMAYAMPET', '', 'MEDAK DIST', '502101', '8555863004', '', '', 0, 0, NULL, 1, '2023-12-21 18:19:52', 1, '2024-06-19 16:57:47', 1, '2023-12-21 18:21:21', '49.249.163.201', '2023-12-21', NULL),
+(4, 0, 1, 'ram gurav', 'ram', 'gurav', '6a204bd89f3c8348afd5c77c717a097a', 'asdfasdf', 'ramkumarsgurav@gmail.com', NULL, 1, 1, 2, 'chandra layout', 'bengaluru,560060', '', '560060', '8549065626', '', '', 1, 0, NULL, 1, '2024-06-23 12:52:15', NULL, NULL, 1, '2024-06-23 18:38:16', '::1', '2024-06-23', '2024-06-23');
 
 -- --------------------------------------------------------
 
@@ -109,8 +110,87 @@ CREATE TABLE `admin_user_role` (
 --
 
 INSERT INTO `admin_user_role` (`admin_user_role`, `admin_user_id`, `user_role_id`, `company_profile_id`) VALUES
-(10, 1, 1, 1),
-(14, 3, 4, 1);
+(16, 1, 1, 1),
+(14, 3, 4, 1),
+(15, 4, 1, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `carousel_image`
+--
+
+CREATE TABLE `carousel_image` (
+  `carousel_image_id` int(11) NOT NULL,
+  `tour_id` int(11) DEFAULT NULL,
+  `position` int(10) DEFAULT 1,
+  `file` text NOT NULL,
+  `status` char(1) NOT NULL DEFAULT '1',
+  `added_on` datetime DEFAULT current_timestamp(),
+  `added_by` int(11) DEFAULT NULL,
+  `updated_on` datetime DEFAULT NULL ON UPDATE current_timestamp(),
+  `updated_by` int(11) DEFAULT NULL,
+  `is_deleted` char(1) NOT NULL DEFAULT '0',
+  `is_deleted_on` datetime DEFAULT NULL,
+  `is_deleted_by` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `carousel_image`
+--
+
+INSERT INTO `carousel_image` (`carousel_image_id`, `tour_id`, `position`, `file`, `status`, `added_on`, `added_by`, `updated_on`, `updated_by`, `is_deleted`, `is_deleted_on`, `is_deleted_by`) VALUES
+(12, 1, 1, 'carousel_image_12.png', '1', '2024-06-22 15:28:16', 1, '2024-06-24 16:53:15', NULL, '0', NULL, NULL),
+(13, 1, 1, 'carousel_image_13.png', '1', '2024-06-22 15:28:16', 1, '2024-06-24 16:53:15', NULL, '0', NULL, NULL),
+(14, 1, 1, 'carousel_image_14.png', '1', '2024-06-22 15:28:17', 1, '2024-06-24 16:53:15', NULL, '0', NULL, NULL),
+(15, 10, 1, 'carousel_image_15.png', '1', '2024-06-22 17:07:47', 1, '2024-06-24 16:53:15', NULL, '0', NULL, NULL),
+(16, 10, 1, 'carousel_image_16.png', '1', '2024-06-22 17:07:48', 1, '2024-06-24 16:53:15', NULL, '0', NULL, NULL),
+(17, 10, 1, 'carousel_image_17.png', '1', '2024-06-22 17:07:48', 1, '2024-06-24 16:53:15', NULL, '0', NULL, NULL),
+(18, 11, 1, 'carousel_image_12.png', '1', '2024-06-22 15:28:16', 1, '2024-06-24 16:53:15', NULL, '0', NULL, NULL),
+(19, 11, 1, 'carousel_image_13.png', '1', '2024-06-22 15:28:16', 1, '2024-06-24 16:53:15', NULL, '0', NULL, NULL),
+(20, 11, 1, 'carousel_image_14.png', '1', '2024-06-22 15:28:17', 1, '2024-06-24 16:53:15', NULL, '0', NULL, NULL),
+(21, 12, 1, 'carousel_image_12.png', '1', '2024-06-22 15:28:16', 1, '2024-06-24 16:53:15', NULL, '0', NULL, NULL),
+(22, 12, 1, 'carousel_image_13.png', '1', '2024-06-22 15:28:16', 1, '2024-06-24 16:53:15', NULL, '0', NULL, NULL),
+(23, 12, 1, 'carousel_image_14.png', '1', '2024-06-22 15:28:17', 1, '2024-06-24 16:53:15', NULL, '0', NULL, NULL),
+(25, 13, 1, 'carousel_image_16.png', '1', '2024-06-22 17:07:48', 1, '2024-06-24 16:53:15', NULL, '0', NULL, NULL),
+(27, 14, 1, 'carousel_image_12.png', '1', '2024-06-22 15:28:16', 1, '2024-06-24 16:53:15', NULL, '0', NULL, NULL),
+(28, 14, 1, 'carousel_image_13.png', '1', '2024-06-22 15:28:16', 1, '2024-06-24 16:53:15', NULL, '0', NULL, NULL),
+(29, 14, 1, 'carousel_image_14.png', '1', '2024-06-22 15:28:17', 1, '2024-06-24 16:53:15', NULL, '0', NULL, NULL),
+(30, 15, 1, 'carousel_image_12.png', '1', '2024-06-22 15:28:16', 1, '2024-06-24 16:53:15', NULL, '0', NULL, NULL),
+(31, 15, 1, 'carousel_image_13.png', '1', '2024-06-22 15:28:16', 1, '2024-06-24 16:53:15', NULL, '0', NULL, NULL),
+(32, 15, 1, 'carousel_image_14.png', '1', '2024-06-22 15:28:17', 1, '2024-06-24 16:53:15', NULL, '0', NULL, NULL),
+(34, 16, 1, 'carousel_image_16.png', '1', '2024-06-22 17:07:48', 1, '2024-06-24 16:53:15', NULL, '0', NULL, NULL),
+(36, 17, 1, 'carousel_image_12.png', '1', '2024-06-22 15:28:16', 1, '2024-06-24 16:53:15', NULL, '0', NULL, NULL),
+(37, 17, 1, 'carousel_image_13.png', '1', '2024-06-22 15:28:16', 1, '2024-06-24 16:53:15', NULL, '0', NULL, NULL),
+(38, 17, 1, 'carousel_image_14.png', '1', '2024-06-22 15:28:17', 1, '2024-06-24 16:53:15', NULL, '0', NULL, NULL),
+(40, 18, 1, 'carousel_image_16.png', '1', '2024-06-22 15:28:16', 1, '2024-06-24 16:53:15', NULL, '0', NULL, NULL),
+(42, 21, 1, 'carousel_image_12.png', '1', '2024-06-22 15:28:16', 1, '2024-06-24 16:53:15', NULL, '0', NULL, NULL),
+(43, 21, 1, 'carousel_image_13.png', '1', '2024-06-22 15:28:16', 1, '2024-06-24 16:53:15', NULL, '0', NULL, NULL),
+(44, 21, 1, 'carousel_image_14.png', '1', '2024-06-22 15:28:16', 1, '2024-06-24 16:53:15', NULL, '0', NULL, NULL),
+(45, 22, 1, 'carousel_image_15.png', '1', '2024-06-22 15:28:16', 1, '2024-06-24 16:53:15', NULL, '0', NULL, NULL),
+(46, 22, 1, 'carousel_image_16.png', '1', '2024-06-22 15:28:16', 1, '2024-06-24 16:53:15', NULL, '0', NULL, NULL),
+(47, 22, 1, 'carousel_image_17.png', '1', '2024-06-22 15:28:16', 1, '2024-06-24 16:53:15', NULL, '0', NULL, NULL),
+(48, 19, 1, 'carousel_image_12.png', '1', '2024-06-22 15:28:16', 1, '2024-06-24 16:53:15', NULL, '0', NULL, NULL),
+(49, 19, 1, 'carousel_image_13.png', '1', '2024-06-22 15:28:16', 1, '2024-06-24 16:53:15', NULL, '0', NULL, NULL),
+(50, 19, 1, 'carousel_image_14.png', '1', '2024-06-22 15:28:16', 1, '2024-06-24 16:53:15', NULL, '0', NULL, NULL),
+(51, 20, 1, 'carousel_image_15.png', '1', '2024-06-22 15:28:16', 1, '2024-06-24 16:53:15', NULL, '0', NULL, NULL),
+(52, 20, 1, 'carousel_image_16.png', '1', '2024-06-22 15:28:16', 1, '2024-06-24 16:53:15', NULL, '0', NULL, NULL),
+(53, 20, 1, 'carousel_image_17.png', '1', '2024-06-22 15:28:16', 1, '2024-06-24 16:53:15', NULL, '0', NULL, NULL),
+(54, 22, 1, 'carousel_image_12.png', '1', '2024-06-22 15:28:16', 1, '2024-06-24 16:53:15', NULL, '0', NULL, NULL),
+(55, 22, 1, 'carousel_image_13.png', '1', '2024-06-22 15:28:16', 1, '2024-06-24 16:53:15', NULL, '0', NULL, NULL),
+(56, 22, 1, 'carousel_image_14.png', '1', '2024-06-22 15:28:16', 1, '2024-06-24 16:53:15', NULL, '0', NULL, NULL),
+(58, 24, 1, 'carousel_image_16.png', '1', '2024-06-22 15:28:16', 1, '2024-06-24 16:53:15', NULL, '0', NULL, NULL),
+(60, 25, 1, 'carousel_image_60.png', '1', '2024-06-24 15:34:37', 1, '2024-06-24 16:53:15', NULL, '0', NULL, NULL),
+(61, 25, 1, 'carousel_image_61.png', '1', '2024-06-24 15:34:37', 1, '2024-06-24 16:53:15', NULL, '0', NULL, NULL),
+(64, 24, 5, 'carousel_image_64.png', '1', '2024-06-24 17:11:18', 1, '2024-06-24 17:11:18', NULL, '0', NULL, NULL),
+(72, 24, 1, 'carousel_image_72.png', '1', '2024-06-26 14:48:50', 1, '2024-06-26 14:48:50', NULL, '0', NULL, NULL),
+(73, 18, 1, 'carousel_image_73.png', '1', '2024-06-26 15:10:59', 1, '2024-06-26 15:10:59', NULL, '0', NULL, NULL),
+(74, 18, 1, 'carousel_image_74.png', '1', '2024-06-26 15:10:59', 1, '2024-06-26 15:10:59', NULL, '0', NULL, NULL),
+(75, 16, 1, 'carousel_image_75.png', '1', '2024-06-26 15:12:33', 1, '2024-06-26 15:12:33', NULL, '0', NULL, NULL),
+(76, 16, 1, 'carousel_image_76.png', '1', '2024-06-26 15:12:33', 1, '2024-06-26 15:12:33', NULL, '0', NULL, NULL),
+(77, 13, 1, 'carousel_image_77.png', '1', '2024-06-26 15:13:37', 1, '2024-06-26 15:13:37', NULL, '0', NULL, NULL),
+(78, 13, 1, 'carousel_image_78.png', '1', '2024-06-26 15:13:37', 1, '2024-06-26 15:13:37', NULL, '0', NULL, NULL),
+(79, 24, 1, 'carousel_image_79.png', '1', '2024-06-27 14:46:56', 1, '2024-06-27 14:46:56', NULL, '0', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1418,7 +1498,7 @@ CREATE TABLE `company_profile` (
 --
 
 INSERT INTO `company_profile` (`company_profile_id`, `company_unique_name`, `company_name`, `company_email`, `company_website`, `letterhead_header_image`, `name`, `first_name`, `last_name`, `email`, `logo`, `country_id`, `state_id`, `city_id`, `address1`, `address2`, `address3`, `pincode`, `mobile_no`, `alt_mobile_no`, `gst_no`, `user_image`, `added_by`, `added_on`, `updated_by`, `updated_on`, `status`) VALUES
-(1, 'Annadatha', 'Annadatha Rythu Seva Kendram', 'info@annadatha.in', 'www.annadatha.in', 'letterhead_1.png', 'Mr. Sai Teja', 'Sai', 'Teja', 'info@annadatha.in', 'logo_1.png', 1, 1, 1, 'MPP Complex, Shop No. 14 15 Siddipet Road', 'Ramayampet Medak', '', '502101', '9666364912', '', '29AASFM3822G1ZY', NULL, 1, '2022-11-21 15:17:21', 1, '2022-11-22 00:02:41', 1);
+(1, 'Prachi Tours', 'Prachi Toursim', 'info@prachitours.in', 'www.prachitours.in', 'letterhead_1.png', 'Krishna', 'Krishna', '', 'info@prachitours.in', 'logo_1.png', 1, 1, 8, 'Tumkuru', 'Ramayampet Medak', '', '502101', '9666364912', '', '29AASFM3822G1ZY', NULL, 1, '2022-11-21 15:17:21', 1, '2024-06-26 17:09:14', 1);
 
 -- --------------------------------------------------------
 
@@ -1497,7 +1577,72 @@ CREATE TABLE `designation_master` (
 
 INSERT INTO `designation_master` (`designation_id`, `designation_name`, `added_on`, `added_by`, `updated_on`, `updated_by`, `status`) VALUES
 (1, 'Product Manager', '2022-11-21 20:27:11', 1, NULL, NULL, 1),
-(2, 'Store Manager', '2024-06-19 12:32:44', 1, NULL, NULL, 1);
+(2, 'Store Manager', '2024-06-19 12:32:44', 1, NULL, NULL, 1),
+(3, 'Sales', '2024-06-26 16:38:52', 1, NULL, NULL, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `enquiry`
+--
+
+CREATE TABLE `enquiry` (
+  `enquiry_id` int(11) NOT NULL,
+  `tour_id` int(11) DEFAULT NULL,
+  `tour_date_id` int(11) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `contactno` varchar(20) DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `subject` varchar(255) DEFAULT NULL,
+  `description` text DEFAULT NULL,
+  `status` char(1) NOT NULL DEFAULT '1',
+  `added_on` datetime DEFAULT current_timestamp(),
+  `added_by` int(11) DEFAULT NULL,
+  `updated_on` datetime DEFAULT NULL ON UPDATE current_timestamp(),
+  `updated_by` int(11) DEFAULT NULL,
+  `is_deleted` char(1) NOT NULL DEFAULT '0',
+  `is_deleted_on` datetime DEFAULT NULL,
+  `is_deleted_by` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `enquiry`
+--
+
+INSERT INTO `enquiry` (`enquiry_id`, `tour_id`, `tour_date_id`, `name`, `contactno`, `email`, `subject`, `description`, `status`, `added_on`, `added_by`, `updated_on`, `updated_by`, `is_deleted`, `is_deleted_on`, `is_deleted_by`) VALUES
+(1, 24, 8, 'ram', '1236547891', 'ram@gmail.com', 'enquiery', 'enquiry description ;asdh f;ashdhf ;asl lsakjdf ;ASLD', '1', '2024-06-24 11:27:58', NULL, '2024-06-24 11:47:52', NULL, '0', NULL, NULL),
+(2, 24, 9, 'sham edited', '165487984340', 'shamedited@gmail.com', 'booking enquiry edited', 'edited  sham ;kljdaf a;lskdjjf ;laskdfj a;lsdfjk a;lsdfj a;lsdfjk ;alsfkdj a;sldkfj as;ldfkj a;lsdfkj a;lfdkj', '1', '2024-06-24 11:27:58', NULL, '2024-06-24 12:44:14', 1, '0', NULL, NULL),
+(18, 24, 8, 'asdf', '08549065626', 'ramkumarsgurav@gmail.com', 'upcoming adventures booking', 'asdf', '1', '2024-06-24 14:47:12', NULL, NULL, NULL, '0', NULL, NULL),
+(21, 24, 8, 'ramkumar gurav', '08549065626', 'ramkumarsgurav@gmail.com', 'upcoming adventures booking', 'enquiry 2', '1', '2024-06-24 15:12:20', NULL, NULL, NULL, '0', NULL, NULL),
+(22, 24, 8, 'ramkumar gurav', '08549065626', 'ramkumarsgurav@gmail.com', 'upcoming adventures booking', 'safdf', '1', '2024-06-24 15:14:16', NULL, NULL, NULL, '0', NULL, NULL),
+(23, 24, 9, 'ramkumar gurav', '08549065626', 'ramkumarsgurav@gmail.com', 'upcoming adventures booking', 'asdf', '1', '2024-06-24 15:16:05', NULL, NULL, NULL, '0', NULL, NULL),
+(24, 24, 9, 'ramkumar gurav', '08549065626', 'ramkumarsgurav@gmail.com', 'upcoming adventures booking', 'asdf', '1', '2024-06-24 15:16:11', NULL, NULL, NULL, '0', NULL, NULL),
+(25, 24, 8, 'ramkumar gurav', '08549065626', 'ramkumarsgurav@gmail.com', 'upcoming adventures booking', 'asdf', '1', '2024-06-24 15:16:21', NULL, NULL, NULL, '0', NULL, NULL),
+(26, 24, 8, 'ramkumar gurav', '08549065626', 'ramkumarsgurav@gmail.com', 'upcoming adventures booking', 'asdf', '1', '2024-06-24 15:16:23', NULL, NULL, NULL, '0', NULL, NULL),
+(27, 24, 8, 'ramkumar gurav', '08549065626', 'ramkumarsgurav@gmail.com', 'upcoming adventures booking', 'asdf', '1', '2024-06-24 15:16:46', NULL, NULL, NULL, '0', NULL, NULL),
+(28, 24, 8, 'sham', '08549065626', 'ramkumarsgurav@gmail.com', 'upcoming adventures booking', 'enuqiry4', '1', '2024-06-24 15:17:26', NULL, NULL, NULL, '0', NULL, NULL),
+(29, 24, 8, 'ramkumar gurav', '08549065626', 'ramkumarsgurav@gmail.com', 'upcoming adventures booking', 'asdfd', '1', '2024-06-24 15:27:38', NULL, NULL, NULL, '0', NULL, NULL),
+(30, 24, 8, 'ramkumar gurav', '08549065626', 'ramkumarsgurav@gmail.com', 'upcoming adventures booking', 'asdf', '1', '2024-06-24 15:30:07', NULL, NULL, NULL, '0', NULL, NULL),
+(31, 24, 8, 'sham', '8549065626', 'ramkumarsgurav@gmail.com', 'upcoming adventures booking', 'hi', '1', '2024-06-26 10:45:58', NULL, NULL, NULL, '0', NULL, NULL),
+(32, 24, 9, 'gurav', '8549065626', 'ramkumarsgurav@gmail.com', 'upcoming adventures booking', 'asdfasdf', '1', '2024-06-26 10:47:37', NULL, NULL, NULL, '0', NULL, NULL),
+(33, 24, 9, 'sham', '8549065626', 'ramkumarsgurav@gmail.com', 'upcoming adventures booking', 'asdfasdf', '1', '2024-06-26 10:50:27', NULL, NULL, NULL, '0', NULL, NULL),
+(34, 24, 9, 'sham', '8549065626', 'ramkumarsgurav@gmail.com', 'upcoming adventures booking', 'asdfasdf', '1', '2024-06-26 10:51:35', NULL, NULL, NULL, '0', NULL, NULL),
+(35, 24, 8, 'ramkumar gurav', '8549065626', 'ramkumarsgurav@gmail.com', 'upcoming adventures booking', 'asd', '1', '2024-06-26 10:53:27', NULL, NULL, NULL, '0', NULL, NULL),
+(36, 24, 8, 'ramkumar gurav', '8549065626', 'ramkumarsgurav@gmail.com', 'upcoming adventures booking', 'asd', '1', '2024-06-26 10:55:38', NULL, NULL, NULL, '0', NULL, NULL),
+(37, 24, 9, 'ramkumar gurav', '08549065626', 'ramkumarsgurav@gmail.com', 'upcoming adventures booking', 'asd', '1', '2024-06-26 10:55:48', NULL, NULL, NULL, '0', NULL, NULL),
+(38, 24, 9, 'ramkumar gurav', '8549065626', 'ramkumarsgurav@gmail.com', 'upcoming adventures booking', 'asdf', '1', '2024-06-26 10:57:35', NULL, NULL, NULL, '0', NULL, NULL),
+(39, 24, 9, 'ramkumar gurav', '8549065626', 'ramkumarsgurav@gmail.com', 'upcoming adventures booking', 'asdf', '1', '2024-06-26 10:58:23', NULL, NULL, NULL, '0', NULL, NULL),
+(40, 24, 9, 'ramkumar gurav', '8549065626', 'ramkumarsgurav@gmail.com', 'upcoming adventures booking', 'asdf', '1', '2024-06-26 10:58:27', NULL, NULL, NULL, '0', NULL, NULL),
+(41, 24, 9, 'ramkumar gurav', '08549065626', 'ramkumarsgurav@gmail.com', 'upcoming adventures booking', 'asdf', '1', '2024-06-26 10:59:15', NULL, NULL, NULL, '0', NULL, NULL),
+(42, 24, 9, 'ramkumar gurav', '8549065626', 'ramkumarsgurav@gmail.com', 'upcoming adventures booking', 'asdf adsf', '1', '2024-06-26 11:01:28', NULL, NULL, NULL, '0', NULL, NULL),
+(43, 24, 8, 'ramkumar gurav', '8549065626', 'ramkumarsgurav@gmail.com', 'upcoming adventures booking', 'asdf', '1', '2024-06-26 11:11:21', NULL, NULL, NULL, '0', NULL, NULL),
+(44, 24, 8, 'ramkumar gurav', '8549065626', 'ramkumarsgurav@gmail.com', 'upcoming adventures booking', 'asdf', '1', '2024-06-26 11:11:26', NULL, NULL, NULL, '0', NULL, NULL),
+(45, 24, 8, 'ramkumar gurav', '8549065626', 'ramkumarsgurav@gmail.com', 'upcoming adventures booking', 'asdf asdf', '1', '2024-06-26 11:11:53', NULL, NULL, NULL, '0', NULL, NULL),
+(46, 24, 8, 'asdf', 'asdf', 'sadf', 'upcoming adventures booking', 'asdf', '1', '2024-06-26 11:14:33', NULL, NULL, NULL, '0', NULL, NULL),
+(47, 24, 8, 'ramkumar gurav', '8549065626', 'ramkumarsgurav@gmail.com', 'upcoming adventures booking', 'asdf', '1', '2024-06-26 11:15:29', NULL, NULL, NULL, '0', NULL, NULL),
+(48, 0, 8, 'ramkumar gurav', '08549065626', 'ramkumarsgurav@gmail.com', 'upcoming adventures booking', 'asfd', '1', '2024-06-26 12:19:49', NULL, NULL, NULL, '0', NULL, NULL),
+(49, 0, 18, 'ramkumar gurav', '08549065626', 'ramkumarsgurav@gmail.com', 'upcoming adventures booking', 'asdf', '1', '2024-06-26 12:32:44', NULL, NULL, NULL, '0', NULL, NULL),
+(50, 0, 8, 'ramkumar gurav', '08549065626', 'ramkumarsgurav@gmail.com', 'upcoming adventures booking', 'asdf', '1', '2024-06-26 12:33:32', NULL, NULL, NULL, '0', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1532,8 +1677,39 @@ INSERT INTO `fiscal_year` (`fiscal_year_id`, `start`, `end`, `short_start`, `sho
 
 CREATE TABLE `gallery` (
   `gallery_id` int(11) NOT NULL,
-  `upcoming_tour_id` int(11) DEFAULT NULL,
-  `file_name` varchar(255) DEFAULT NULL,
+  `file_type` char(1) DEFAULT '1',
+  `position` int(10) DEFAULT 99999999,
+  `file_title` varchar(255) DEFAULT NULL,
+  `file` varchar(255) DEFAULT NULL,
+  `status` char(1) DEFAULT '1',
+  `added_on` datetime DEFAULT current_timestamp(),
+  `added_by` int(11) DEFAULT NULL,
+  `updated_on` datetime DEFAULT NULL ON UPDATE current_timestamp(),
+  `updated_by` int(11) DEFAULT NULL,
+  `is_deleted` char(1) DEFAULT '0',
+  `is_deleted_on` datetime DEFAULT NULL,
+  `is_deleted_by` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `gallery`
+--
+
+INSERT INTO `gallery` (`gallery_id`, `file_type`, `position`, `file_title`, `file`, `status`, `added_on`, `added_by`, `updated_on`, `updated_by`, `is_deleted`, `is_deleted_on`, `is_deleted_by`) VALUES
+(1, '1', 99999999, 'america tour', 'https://images.unsplash.com/photo-1719425620960-119ae4bf1187?q=80&w=1521&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', '1', '2024-06-27 18:16:56', NULL, NULL, NULL, '0', NULL, NULL),
+(2, '1', 99999999, 'ajanta tour', 'https://images.unsplash.com/photo-1719425620960-119ae4bf1187?q=80&w=1521&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', '1', '2024-06-27 18:16:56', NULL, NULL, NULL, '0', NULL, NULL),
+(3, '1', 99999999, 'ellora tour', 'https://images.unsplash.com/photo-1719425620960-119ae4bf1187?q=80&w=1521&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', '1', '2024-06-27 18:16:56', NULL, NULL, NULL, '0', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `gallery_image`
+--
+
+CREATE TABLE `gallery_image` (
+  `gallery_image_id` int(11) NOT NULL,
+  `tour_id` int(11) DEFAULT NULL,
+  `position` int(10) DEFAULT 1,
   `file` text NOT NULL,
   `status` char(1) NOT NULL DEFAULT '1',
   `added_on` datetime DEFAULT current_timestamp(),
@@ -1546,12 +1722,59 @@ CREATE TABLE `gallery` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `gallery`
+-- Dumping data for table `gallery_image`
 --
 
-INSERT INTO `gallery` (`gallery_id`, `upcoming_tour_id`, `file_name`, `file`, `status`, `added_on`, `added_by`, `updated_on`, `updated_by`, `is_deleted`, `is_deleted_on`, `is_deleted_by`) VALUES
-(1, 1, 'upcoming_tour1_image1', 'upcoming_tour1_image1.png', '1', '2024-06-19 19:05:56', NULL, NULL, NULL, '0', NULL, NULL),
-(2, 1, 'upcoming_tour1_image2', 'upcoming_tour1_image2.png', '1', '2024-06-19 19:05:56', NULL, NULL, NULL, '0', NULL, NULL);
+INSERT INTO `gallery_image` (`gallery_image_id`, `tour_id`, `position`, `file`, `status`, `added_on`, `added_by`, `updated_on`, `updated_by`, `is_deleted`, `is_deleted_on`, `is_deleted_by`) VALUES
+(7, 1, 1, 'gallery_image_7.png', '1', '2024-06-22 15:28:17', 1, '2024-06-24 16:53:37', NULL, '0', NULL, NULL),
+(8, 1, 1, 'gallery_image_8.png', '1', '2024-06-22 15:28:17', 1, '2024-06-24 16:53:37', NULL, '0', NULL, NULL),
+(9, 1, 1, 'gallery_image_9.png', '1', '2024-06-22 15:28:17', 1, '2024-06-24 16:53:37', NULL, '0', NULL, NULL),
+(10, 10, 1, 'gallery_image_10.png', '1', '2024-06-22 17:07:48', 1, '2024-06-24 16:53:37', NULL, '0', NULL, NULL),
+(11, 10, 1, 'gallery_image_11.png', '1', '2024-06-22 17:07:48', 1, '2024-06-24 16:53:37', NULL, '0', NULL, NULL),
+(12, 10, 1, 'gallery_image_12.png', '1', '2024-06-22 17:07:48', 1, '2024-06-24 16:53:37', NULL, '0', NULL, NULL),
+(13, 11, 1, 'gallery_image_10.png', '1', '2024-06-22 17:07:48', 1, '2024-06-24 16:53:37', NULL, '0', NULL, NULL),
+(14, 11, 1, 'gallery_image_11.png', '1', '2024-06-22 17:07:48', 1, '2024-06-24 16:53:37', NULL, '0', NULL, NULL),
+(16, 12, 1, 'gallery_image_10.png', '1', '2024-06-22 17:07:48', 1, '2024-06-24 16:53:37', NULL, '0', NULL, NULL),
+(17, 12, 1, 'gallery_image_11.png', '1', '2024-06-22 17:07:48', 1, '2024-06-24 16:53:37', NULL, '0', NULL, NULL),
+(19, 13, 1, 'gallery_image_10.png', '1', '2024-06-22 17:07:48', 1, '2024-06-24 16:53:37', NULL, '0', NULL, NULL),
+(20, 13, 1, 'gallery_image_11.png', '1', '2024-06-22 17:07:48', 1, '2024-06-24 16:53:37', NULL, '0', NULL, NULL),
+(22, 14, 1, 'gallery_image_10.png', '1', '2024-06-22 17:07:48', 1, '2024-06-24 16:53:37', NULL, '0', NULL, NULL),
+(23, 14, 1, 'gallery_image_11.png', '1', '2024-06-22 17:07:48', 1, '2024-06-24 16:53:37', NULL, '0', NULL, NULL),
+(25, 15, 1, 'gallery_image_10.png', '1', '2024-06-22 17:07:48', 1, '2024-06-24 16:53:37', NULL, '0', NULL, NULL),
+(26, 15, 1, 'gallery_image_11.png', '1', '2024-06-22 17:07:48', 1, '2024-06-24 16:53:37', NULL, '0', NULL, NULL),
+(28, 16, 1, 'gallery_image_10.png', '1', '2024-06-22 17:07:48', 1, '2024-06-24 16:53:37', NULL, '0', NULL, NULL),
+(29, 16, 1, 'gallery_image_11.png', '1', '2024-06-22 17:07:48', 1, '2024-06-24 16:53:37', NULL, '0', NULL, NULL),
+(31, 17, 1, 'gallery_image_10.png', '1', '2024-06-22 17:07:48', 1, '2024-06-24 16:53:37', NULL, '0', NULL, NULL),
+(32, 17, 1, 'gallery_image_11.png', '1', '2024-06-22 17:07:48', 1, '2024-06-24 16:53:37', NULL, '0', NULL, NULL),
+(34, 18, 1, 'gallery_image_10.png', '1', '2024-06-22 17:07:48', 1, '2024-06-24 16:53:37', NULL, '0', NULL, NULL),
+(35, 18, 1, 'gallery_image_11.png', '1', '2024-06-22 17:07:48', 1, '2024-06-24 16:53:37', NULL, '0', NULL, NULL),
+(37, 19, 1, 'gallery_image_10.png', '1', '2024-06-22 17:07:48', 1, '2024-06-24 16:53:37', NULL, '0', NULL, NULL),
+(38, 19, 1, 'gallery_image_11.png', '1', '2024-06-22 17:07:48', 1, '2024-06-24 16:53:37', NULL, '0', NULL, NULL),
+(39, 19, 1, 'gallery_image_12.png', '1', '2024-06-22 17:07:48', 1, '2024-06-24 16:53:37', NULL, '0', NULL, NULL),
+(40, 20, 1, 'gallery_image_10.png', '1', '2024-06-22 17:07:48', 1, '2024-06-24 16:53:37', NULL, '0', NULL, NULL),
+(41, 20, 1, 'gallery_image_11.png', '1', '2024-06-22 17:07:48', 1, '2024-06-24 16:53:37', NULL, '0', NULL, NULL),
+(42, 20, 1, 'gallery_image_12.png', '1', '2024-06-22 17:07:48', 1, '2024-06-24 16:53:37', NULL, '0', NULL, NULL),
+(43, 21, 1, 'gallery_image_10.png', '1', '2024-06-22 17:07:48', 1, '2024-06-24 16:53:37', NULL, '0', NULL, NULL),
+(44, 21, 1, 'gallery_image_11.png', '1', '2024-06-22 17:07:48', 1, '2024-06-24 16:53:37', NULL, '0', NULL, NULL),
+(45, 21, 1, 'gallery_image_12.png', '1', '2024-06-22 17:07:48', 1, '2024-06-24 16:53:37', NULL, '0', NULL, NULL),
+(46, 22, 1, 'gallery_image_10.png', '1', '2024-06-22 17:07:48', 1, '2024-06-24 16:53:37', NULL, '0', NULL, NULL),
+(47, 22, 1, 'gallery_image_11.png', '1', '2024-06-22 17:07:48', 1, '2024-06-24 16:53:37', NULL, '0', NULL, NULL),
+(48, 22, 1, 'gallery_image_12.png', '1', '2024-06-22 17:07:48', 1, '2024-06-24 16:53:37', NULL, '0', NULL, NULL),
+(49, 23, 1, 'gallery_image_10.png', '1', '2024-06-22 17:07:48', 1, '2024-06-24 16:53:37', NULL, '0', NULL, NULL),
+(50, 23, 1, 'gallery_image_11.png', '1', '2024-06-22 17:07:48', 1, '2024-06-24 16:53:37', NULL, '0', NULL, NULL),
+(51, 23, 1, 'gallery_image_12.png', '1', '2024-06-22 17:07:48', 1, '2024-06-24 16:53:37', NULL, '0', NULL, NULL),
+(52, 24, 1, 'gallery_image_10.png', '1', '2024-06-22 17:07:48', 1, '2024-06-24 16:53:37', NULL, '0', NULL, NULL),
+(53, 24, 1, 'gallery_image_11.png', '1', '2024-06-22 17:07:48', 1, '2024-06-24 16:53:37', NULL, '0', NULL, NULL),
+(55, 25, 1, 'gallery_image_55.png', '1', '2024-06-24 15:34:37', 1, '2024-06-24 16:53:37', NULL, '0', NULL, NULL),
+(56, 24, 11, 'gallery_image_56.png', '1', '2024-06-24 17:27:02', 1, '2024-06-24 17:27:02', NULL, '0', NULL, NULL),
+(58, 14, 1, 'gallery_image_58.png', '1', '2024-06-26 15:09:31', 1, '2024-06-26 15:09:32', NULL, '0', NULL, NULL),
+(59, 11, 1, 'gallery_image_59.png', '1', '2024-06-26 15:09:56', 1, '2024-06-26 15:09:56', NULL, '0', NULL, NULL),
+(60, 18, 12, 'gallery_image_60.png', '1', '2024-06-26 15:10:59', 1, '2024-06-26 15:10:59', NULL, '0', NULL, NULL),
+(61, 17, 1, 'gallery_image_61.png', '1', '2024-06-26 15:11:43', 1, '2024-06-26 15:11:43', NULL, '0', NULL, NULL),
+(62, 16, 11, 'gallery_image_62.png', '1', '2024-06-26 15:12:33', 1, '2024-06-26 15:12:33', NULL, '0', NULL, NULL),
+(63, 15, 1, 'gallery_image_63.png', '1', '2024-06-26 15:13:01', 1, '2024-06-26 15:13:01', NULL, '0', NULL, NULL),
+(64, 13, 1, 'gallery_image_64.png', '1', '2024-06-26 15:13:37', 1, '2024-06-26 15:13:37', NULL, '0', NULL, NULL),
+(65, 12, 1, 'gallery_image_65.png', '1', '2024-06-26 15:14:02', 1, '2024-06-26 15:14:02', NULL, '0', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1588,7 +1811,12 @@ INSERT INTO `module_master` (`module_id`, `module_name`, `is_master`, `parent_mo
 (4, 'City', 1, 0, 'master/City-Module', 'city-list', '', 0, 1, 'city', 4, '2020-04-20 12:44:42', 1, 1, NULL),
 (7, 'Designation', 1, 0, 'master/Designation-Module', 'designation-list', '', 0, 1, 'designation_master', 7, '2020-04-20 12:44:42', 1, 1, NULL),
 (12, 'Employee', 2, 0, 'human_resource/Employee-Module', 'employee-list', '', 0, 1, 'admin_user', 11, '2022-03-11 00:00:00', 1, 1, NULL),
-(14, 'Company Profile', 3, 0, 'company_profile/Company-Profile-Module', 'company-profile-list', '', 0, 1, 'company_profile', 1, '2020-04-20 12:44:42', 1, 1, NULL);
+(14, 'Company Profile', 3, 0, 'company_profile/Company-Profile-Module', 'company-profile-list', '', 0, 1, 'company_profile', 1, '2020-04-20 12:44:42', 1, 1, NULL),
+(195, 'Tours', 4, 0, 'catalog/Tour-Module', 'tour-list', '', 0, 1, 'tour', 4, '0000-00-00 00:00:00', 1, 1, NULL),
+(196, 'Enquiry', 5, 0, 'enquiry/Enquiry-Module', 'listings', '', 0, 1, 'enquiry', 4, '2020-04-20 12:44:42', 1, 1, NULL),
+(197, 'Tour Booking Enquiry', 10, 0, 'booking/Tour-Booking-Enquiry-Module', 'listings', '', 0, 1, 'tour_booking_enquiry', 4, '2020-04-20 12:44:42', 1, 1, NULL),
+(198, 'Gallery', 100, 0, 'media/Gallery-Module', 'listings', '', 0, 1, 'gallery', 4, '2020-04-20 12:44:42', 1, 1, NULL),
+(199, 'Videos', 100, 0, 'media/Video-Module', 'listings', '', 0, 1, 'video', 4, '2020-04-20 12:44:42', 1, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -1651,7 +1879,15 @@ INSERT INTO `module_permissions` (`permission_id`, `module_id`, `user_role_id`, 
 (199, 15, 4, 1, 1, 1, 0, 0, 1, 1),
 (200, 17, 4, 1, 1, 1, 0, 0, 1, 1),
 (201, 16, 4, 1, 1, 1, 0, 0, 1, 1),
-(202, 18, 4, 1, 1, 1, 0, 0, 1, 1);
+(202, 18, 4, 1, 1, 1, 0, 0, 1, 1),
+(203, 195, 1, 1, 1, 1, 0, 0, 1, 1),
+(204, 196, 1, 1, 1, 1, 0, 0, 1, 1),
+(205, 197, 1, 1, 1, 1, 0, 0, 1, 1),
+(206, 195, 5, 1, 1, 1, 0, 0, 1, 1),
+(207, 196, 5, 1, 1, 1, 0, 0, 1, 1),
+(208, 197, 5, 1, 1, 1, 0, 0, 1, 1),
+(209, 198, 1, 1, 1, 1, 0, 0, 1, 1),
+(210, 199, 1, 1, 1, 1, 0, 0, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -1720,8 +1956,8 @@ INSERT INTO `state` (`state_id`, `country_id`, `state_name`, `state_code`, `is_d
 
 CREATE TABLE `things_to_carry` (
   `things_to_carry_id` int(11) NOT NULL,
-  `upcoming_tour_id` int(11) DEFAULT NULL,
-  `description` text NOT NULL,
+  `tour_id` int(11) DEFAULT NULL,
+  `name` text NOT NULL,
   `status` char(1) NOT NULL DEFAULT '1',
   `added_on` datetime DEFAULT current_timestamp(),
   `added_by` int(11) DEFAULT NULL,
@@ -1736,56 +1972,191 @@ CREATE TABLE `things_to_carry` (
 -- Dumping data for table `things_to_carry`
 --
 
-INSERT INTO `things_to_carry` (`things_to_carry_id`, `upcoming_tour_id`, `description`, `status`, `added_on`, `added_by`, `updated_on`, `updated_by`, `is_deleted`, `is_deleted_on`, `is_deleted_by`) VALUES
+INSERT INTO `things_to_carry` (`things_to_carry_id`, `tour_id`, `name`, `status`, `added_on`, `added_by`, `updated_on`, `updated_by`, `is_deleted`, `is_deleted_on`, `is_deleted_by`) VALUES
 (1, 1, ' Small backpack to carry your essentials during the trek', '1', '2024-06-19 19:09:14', NULL, NULL, NULL, '0', NULL, NULL),
-(2, 1, 'Power Bank', '1', '2024-06-19 19:09:14', NULL, NULL, NULL, '0', NULL, NULL);
+(3, 1, 'Power Bank', '1', '2024-06-21 15:38:34', 1, NULL, NULL, '0', NULL, NULL),
+(4, 1, 'Water bottles - 2 (1 liter each)', '1', '2024-06-21 15:40:22', 1, NULL, NULL, '0', NULL, NULL),
+(5, 1, 'Lunch Box & Spoon to carry your packed lunch', '1', '2024-06-21 15:40:22', 1, NULL, NULL, '0', NULL, NULL),
+(6, 1, ' A comfortable pair of shoes with good grip for trekking', '1', '2024-06-21 15:40:22', 1, NULL, NULL, '0', NULL, NULL),
+(7, 1, ' Flip-flops for lazing around the campsite', '1', '2024-06-21 15:40:22', 1, NULL, NULL, '0', NULL, NULL),
+(8, 1, 'Torch/Headlamp to be used at night Portable chargers for your electronics', '1', '2024-06-21 15:40:22', 1, NULL, NULL, '0', NULL, NULL),
+(9, 1, 'Extra pair of clothes to change into once wet', '1', '2024-06-21 15:40:22', 1, NULL, NULL, '0', NULL, NULL),
+(13, 1, 'Polybags to pack your wet clothes', '1', '2024-06-21 18:06:18', 1, NULL, NULL, '0', NULL, NULL),
+(14, 1, 'Extra cash for meals not included in the itinerary Carry at least one Id proof (Driving License, Voter Id, or Aadhar card)', '1', '2024-06-21 18:06:18', 1, NULL, NULL, '0', NULL, NULL),
+(15, 11, 'Small backpack to carry your essentials during the trek', '1', '2024-06-22 17:07:48', 1, '2024-06-23 16:13:07', NULL, '0', NULL, NULL),
+(16, 11, 'Power Bank', '1', '2024-06-22 17:07:48', 1, '2024-06-23 16:13:05', NULL, '0', NULL, NULL),
+(17, 11, 'Water bottles - 2 (1 liter each)', '1', '2024-06-22 17:07:48', 1, '2024-06-23 16:13:01', NULL, '0', NULL, NULL),
+(18, 11, ' Lunch Box & Spoon to carry your packed lunch', '1', '2024-06-22 17:07:48', 1, '2024-06-23 16:12:57', NULL, '0', NULL, NULL),
+(19, 11, ' A comfortable pair of shoes with good grip for trekking', '1', '2024-06-22 17:07:48', 1, '2024-06-23 16:12:54', NULL, '0', NULL, NULL),
+(20, 11, ' Flip-flops for lazing around the campsite', '1', '2024-06-22 17:07:48', 1, '2024-06-23 16:12:46', NULL, '0', NULL, NULL),
+(21, 11, 'Torch/Headlamp to be used at night Portable chargers for your electronics', '1', '2024-06-22 17:07:48', 1, '2024-06-23 16:12:43', NULL, '0', NULL, NULL),
+(22, 11, 'Extra pair of clothes to change into once wet', '1', '2024-06-22 17:07:48', 1, '2024-06-23 16:12:51', NULL, '0', NULL, NULL),
+(23, 11, 'Polybags to pack your wet clothes', '1', '2024-06-22 17:07:48', 1, '2024-06-23 16:12:41', NULL, '0', NULL, NULL),
+(24, 11, 'Extra cash for meals not included in the itinerary Carry at least one Id proof (Driving License, Voter Id, or Aadhar card)', '1', '2024-06-22 17:07:48', 1, '2024-06-23 16:12:39', NULL, '0', NULL, NULL),
+(25, 10, ' Small backpack to carry your essentials during the trek', '1', '2024-06-19 19:09:14', NULL, '2024-06-23 16:13:42', NULL, '0', NULL, NULL),
+(26, 10, 'Power Bank', '1', '2024-06-21 15:38:34', 1, '2024-06-23 16:13:45', NULL, '0', NULL, NULL),
+(27, 10, 'Water bottles - 2 (1 liter each)', '1', '2024-06-21 15:40:22', 1, '2024-06-23 16:13:47', NULL, '0', NULL, NULL),
+(28, 10, 'Lunch Box & Spoon to carry your packed lunch', '1', '2024-06-21 15:40:22', 1, '2024-06-23 16:13:49', NULL, '0', NULL, NULL),
+(29, 10, ' A comfortable pair of shoes with good grip for trekking', '1', '2024-06-21 15:40:22', 1, '2024-06-23 16:13:51', NULL, '0', NULL, NULL),
+(30, 10, ' Flip-flops for lazing around the campsite', '1', '2024-06-21 15:40:22', 1, '2024-06-23 16:13:53', NULL, '0', NULL, NULL),
+(31, 10, 'Torch/Headlamp to be used at night Portable chargers for your electronics', '1', '2024-06-21 15:40:22', 1, '2024-06-23 16:13:23', NULL, '0', NULL, NULL),
+(32, 10, 'Extra pair of clothes to change into once wet', '1', '2024-06-21 15:40:22', 1, '2024-06-23 16:13:22', NULL, '0', NULL, NULL),
+(33, 10, 'Polybags to pack your wet clothes', '1', '2024-06-21 18:06:18', 1, '2024-06-23 16:13:28', NULL, '0', NULL, NULL),
+(34, 10, 'Extra cash for meals not included in the itinerary Carry at least one Id proof (Driving License, Voter Id, or Aadhar card)', '1', '2024-06-21 18:06:18', 1, '2024-06-23 16:13:18', NULL, '0', NULL, NULL),
+(35, 12, ' Small backpack to carry your essentials during the trek', '1', '2024-06-19 19:09:14', NULL, NULL, NULL, '0', NULL, NULL),
+(36, 12, 'Power Bank', '1', '2024-06-21 15:38:34', 1, NULL, NULL, '0', NULL, NULL),
+(37, 12, 'Water bottles - 2 (1 liter each)', '1', '2024-06-21 15:40:22', 1, NULL, NULL, '0', NULL, NULL),
+(38, 12, 'Lunch Box & Spoon to carry your packed lunch', '1', '2024-06-21 15:40:22', 1, NULL, NULL, '0', NULL, NULL),
+(39, 12, ' A comfortable pair of shoes with good grip for trekking', '1', '2024-06-21 15:40:22', 1, NULL, NULL, '0', NULL, NULL),
+(40, 12, ' Flip-flops for lazing around the campsite', '1', '2024-06-21 15:40:22', 1, NULL, NULL, '0', NULL, NULL),
+(41, 12, 'Torch/Headlamp to be used at night Portable chargers for your electronics', '1', '2024-06-21 15:40:22', 1, NULL, NULL, '0', NULL, NULL),
+(42, 12, 'Extra pair of clothes to change into once wet', '1', '2024-06-21 15:40:22', 1, NULL, NULL, '0', NULL, NULL),
+(43, 12, 'Polybags to pack your wet clothes', '1', '2024-06-21 18:06:18', 1, NULL, NULL, '0', NULL, NULL),
+(44, 12, 'Extra cash for meals not included in the itinerary Carry at least one Id proof (Driving License, Voter Id, or Aadhar card)', '1', '2024-06-21 18:06:18', 1, NULL, NULL, '0', NULL, NULL),
+(45, 13, ' Small backpack to carry your essentials during the trek', '1', '2024-06-19 19:09:14', NULL, NULL, NULL, '0', NULL, NULL),
+(46, 13, 'Power Bank', '1', '2024-06-21 15:38:34', 1, NULL, NULL, '0', NULL, NULL),
+(47, 13, 'Water bottles - 2 (1 liter each)', '1', '2024-06-21 15:40:22', 1, NULL, NULL, '0', NULL, NULL),
+(48, 13, 'Lunch Box & Spoon to carry your packed lunch', '1', '2024-06-21 15:40:22', 1, NULL, NULL, '0', NULL, NULL),
+(49, 13, ' A comfortable pair of shoes with good grip for trekking', '1', '2024-06-21 15:40:22', 1, NULL, NULL, '0', NULL, NULL),
+(50, 13, ' Flip-flops for lazing around the campsite', '1', '2024-06-21 15:40:22', 1, NULL, NULL, '0', NULL, NULL),
+(51, 13, 'Torch/Headlamp to be used at night Portable chargers for your electronics', '1', '2024-06-21 15:40:22', 1, NULL, NULL, '0', NULL, NULL),
+(52, 13, 'Extra pair of clothes to change into once wet', '1', '2024-06-21 15:40:22', 1, NULL, NULL, '0', NULL, NULL),
+(53, 13, 'Polybags to pack your wet clothes', '1', '2024-06-21 18:06:18', 1, NULL, NULL, '0', NULL, NULL),
+(54, 13, 'Extra cash for meals not included in the itinerary Carry at least one Id proof (Driving License, Voter Id, or Aadhar card)', '1', '2024-06-21 18:06:18', 1, NULL, NULL, '0', NULL, NULL),
+(55, 14, ' Small backpack to carry your essentials during the trek', '1', '2024-06-19 19:09:14', NULL, NULL, NULL, '0', NULL, NULL),
+(56, 14, 'Power Bank', '1', '2024-06-21 15:38:34', 1, NULL, NULL, '0', NULL, NULL),
+(57, 14, 'Water bottles - 2 (1 liter each)', '1', '2024-06-21 15:40:22', 1, NULL, NULL, '0', NULL, NULL),
+(58, 14, 'Lunch Box & Spoon to carry your packed lunch', '1', '2024-06-21 15:40:22', 1, NULL, NULL, '0', NULL, NULL),
+(59, 14, ' A comfortable pair of shoes with good grip for trekking', '1', '2024-06-21 15:40:22', 1, NULL, NULL, '0', NULL, NULL),
+(60, 14, ' Flip-flops for lazing around the campsite', '1', '2024-06-21 15:40:22', 1, NULL, NULL, '0', NULL, NULL),
+(61, 14, 'Torch/Headlamp to be used at night Portable chargers for your electronics', '1', '2024-06-21 15:40:22', 1, NULL, NULL, '0', NULL, NULL),
+(62, 14, 'Extra pair of clothes to change into once wet', '1', '2024-06-21 15:40:22', 1, NULL, NULL, '0', NULL, NULL),
+(63, 14, 'Polybags to pack your wet clothes', '1', '2024-06-21 18:06:18', 1, NULL, NULL, '0', NULL, NULL),
+(64, 14, 'Extra cash for meals not included in the itinerary Carry at least one Id proof (Driving License, Voter Id,\r\nor Aadhar card)', '1', '2024-06-21 18:06:18', 1, NULL, NULL, '0', NULL, NULL),
+(65, 15, ' Small backpack to carry your essentials during the trek', '1', '2024-06-19 19:09:15', NULL, NULL, NULL, '0', NULL, NULL),
+(66, 15, 'Power Bank', '1', '2024-06-21 15:38:34', 1, NULL, NULL, '0', NULL, NULL),
+(67, 15, 'Water bottles - 2 (1 liter each)', '1', '2024-06-21 15:40:22', 1, NULL, NULL, '0', NULL, NULL),
+(68, 15, 'Lunch Box & Spoon to carry your packed lunch', '1', '2024-06-21 15:40:22', 1, NULL, NULL, '0', NULL, NULL),
+(69, 15, ' A comfortable pair of shoes with good grip for trekking', '1', '2024-06-21 15:40:22', 1, NULL, NULL, '0', NULL, NULL),
+(70, 15, ' Flip-flops for lazing around the campsite', '1', '2024-06-21 15:40:22', 1, NULL, NULL, '0', NULL, NULL),
+(71, 15, 'Torch/Headlamp to be used at night Portable chargers for your electronics', '1', '2024-06-21 15:40:22', 1, NULL, NULL, '0', NULL, NULL),
+(72, 15, 'Extra pair of clothes to change into once wet', '1', '2024-06-21 15:40:22', 1, NULL, NULL, '0', NULL, NULL),
+(73, 15, 'Polybags to pack your wet clothes', '1', '2024-06-21 18:06:18', 1, NULL, NULL, '0', NULL, NULL),
+(74, 15, 'Extra cash for meals not included in the itinerary Carry at least one Id proof (Driving License, Voter Id,\r\nor Aadhar card)', '1', '2024-06-21 18:06:18', 1, NULL, NULL, '0', NULL, NULL),
+(75, 16, ' Small backpack to carry your essentials during the trek', '1', '2024-06-19 19:09:16', NULL, NULL, NULL, '0', NULL, NULL),
+(76, 16, 'Power Bank', '1', '2024-06-21 16:38:34', 1, NULL, NULL, '0', NULL, NULL),
+(77, 16, 'Water bottles - 2 (1 liter each)', '1', '2024-06-21 16:40:22', 1, NULL, NULL, '0', NULL, NULL),
+(78, 16, 'Lunch Box & Spoon to carry your packed lunch', '1', '2024-06-21 16:40:22', 1, NULL, NULL, '0', NULL, NULL),
+(79, 16, ' A comfortable pair of shoes with good grip for trekking', '1', '2024-06-21 16:40:22', 1, NULL, NULL, '0', NULL, NULL),
+(80, 16, ' Flip-flops for lazing around the campsite', '1', '2024-06-21 16:40:22', 1, NULL, NULL, '0', NULL, NULL),
+(81, 16, 'Torch/Headlamp to be used at night Portable chargers for your electronics', '1', '2024-06-21 16:40:22', 1, NULL, NULL, '0', NULL, NULL),
+(82, 16, 'Extra pair of clothes to change into once wet', '1', '2024-06-21 16:40:22', 1, NULL, NULL, '0', NULL, NULL),
+(83, 16, 'Polybags to pack your wet clothes', '1', '2024-06-21 18:06:18', 1, NULL, NULL, '0', NULL, NULL),
+(84, 16, 'Extra cash for meals not included in the itinerary Carry at least one Id proof (Driving License, Voter Id,\r\nor Aadhar card)', '1', '2024-06-21 18:06:18', 1, NULL, NULL, '0', NULL, NULL),
+(85, 17, ' Small backpack to carry your essentials during the trek', '1', '2024-06-19 19:09:17', NULL, NULL, NULL, '0', NULL, NULL),
+(86, 17, 'Power Bank', '1', '2024-06-21 17:38:34', 1, NULL, NULL, '0', NULL, NULL),
+(87, 17, 'Water bottles - 2 (1 liter each)', '1', '2024-06-21 17:40:22', 1, NULL, NULL, '0', NULL, NULL),
+(88, 17, 'Lunch Box & Spoon to carry your packed lunch', '1', '2024-06-21 17:40:22', 1, NULL, NULL, '0', NULL, NULL),
+(89, 17, ' A comfortable pair of shoes with good grip for trekking', '1', '2024-06-21 17:40:22', 1, NULL, NULL, '0', NULL, NULL),
+(90, 17, ' Flip-flops for lazing around the campsite', '1', '2024-06-21 17:40:22', 1, NULL, NULL, '0', NULL, NULL),
+(91, 17, 'Torch/Headlamp to be used at night Portable chargers for your electronics', '1', '2024-06-21 17:40:22', 1, NULL, NULL, '0', NULL, NULL),
+(92, 17, 'Extra pair of clothes to change into once wet', '1', '2024-06-21 17:40:22', 1, NULL, NULL, '0', NULL, NULL),
+(93, 17, 'Polybags to pack your wet clothes', '1', '2024-06-21 18:06:18', 1, NULL, NULL, '0', NULL, NULL),
+(94, 17, 'Extra cash for meals not included in the itinerary Carry at least one Id proof (Driving License, Voter Id,\r\nor Aadhar card)', '1', '2024-06-21 18:06:18', 1, NULL, NULL, '0', NULL, NULL),
+(95, 18, ' Small backpack to carry your essentials during the trek', '1', '2024-06-19 19:09:18', NULL, NULL, NULL, '0', NULL, NULL),
+(96, 18, 'Power Bank', '1', '2024-06-21 18:38:34', 1, NULL, NULL, '0', NULL, NULL),
+(97, 18, 'Water bottles - 2 (1 liter each)', '1', '2024-06-21 18:40:22', 1, NULL, NULL, '0', NULL, NULL),
+(98, 18, 'Lunch Box & Spoon to carry your packed lunch', '1', '2024-06-21 18:40:22', 1, NULL, NULL, '0', NULL, NULL),
+(99, 18, ' A comfortable pair of shoes with good grip for trekking', '1', '2024-06-21 18:40:22', 1, NULL, NULL, '0', NULL, NULL),
+(100, 18, ' Flip-flops for lazing around the campsite', '1', '2024-06-21 18:40:22', 1, NULL, NULL, '0', NULL, NULL),
+(101, 18, 'Torch/Headlamp to be used at night Portable chargers for your electronics', '1', '2024-06-21 18:40:22', 1, NULL, NULL, '0', NULL, NULL),
+(102, 18, 'Extra pair of clothes to change into once wet', '1', '2024-06-21 18:40:22', 1, NULL, NULL, '0', NULL, NULL),
+(103, 18, 'Polybags to pack your wet clothes', '1', '2024-06-21 18:06:18', 1, NULL, NULL, '0', NULL, NULL),
+(104, 18, 'Extra cash for meals not included in the itinerary Carry at least one Id proof (Driving License, Voter Id,\r\nor Aadhar card)', '1', '2024-06-21 18:06:18', 1, NULL, NULL, '0', NULL, NULL),
+(105, 19, ' Small backpack to carry your essentials during the trek', '1', '2024-06-19 19:09:19', NULL, NULL, NULL, '0', NULL, NULL),
+(106, 19, 'Power Bank', '1', '2024-06-21 19:38:34', 1, NULL, NULL, '0', NULL, NULL),
+(107, 19, 'Water bottles - 2 (1 liter each)', '1', '2024-06-21 19:40:22', 1, NULL, NULL, '0', NULL, NULL),
+(108, 19, 'Lunch Box & Spoon to carry your packed lunch', '1', '2024-06-21 19:40:22', 1, NULL, NULL, '0', NULL, NULL),
+(109, 19, ' A comfortable pair of shoes with good grip for trekking', '1', '2024-06-21 19:40:22', 1, NULL, NULL, '0', NULL, NULL),
+(110, 19, ' Flip-flops for lazing around the campsite', '1', '2024-06-21 19:40:22', 1, NULL, NULL, '0', NULL, NULL),
+(111, 19, 'Torch/Headlamp to be used at night Portable chargers for your electronics', '1', '2024-06-21 19:40:22', 1, NULL, NULL, '0', NULL, NULL),
+(112, 19, 'Extra pair of clothes to change into once wet', '1', '2024-06-21 19:40:22', 1, NULL, NULL, '0', NULL, NULL),
+(113, 19, 'Polybags to pack your wet clothes', '1', '2024-06-21 19:06:19', 1, NULL, NULL, '0', NULL, NULL),
+(114, 19, 'Extra cash for meals not included in the itinerary Carry at least one Id proof (Driving License, Voter Id,\r\nor Aadhar card)', '1', '2024-06-21 19:06:19', 1, NULL, NULL, '0', NULL, NULL),
+(115, 20, ' Small backpack to carry your essentials during the trek', '1', '2024-06-20 20:09:20', NULL, NULL, NULL, '0', NULL, NULL),
+(116, 20, 'Power Bank', '1', '2024-06-21 20:38:34', 1, NULL, NULL, '0', NULL, NULL),
+(117, 20, 'Water bottles - 2 (1 liter each)', '1', '2024-06-21 20:40:22', 1, NULL, NULL, '0', NULL, NULL),
+(118, 20, 'Lunch Box & Spoon to carry your packed lunch', '1', '2024-06-21 20:40:22', 1, NULL, NULL, '0', NULL, NULL),
+(119, 20, ' A comfortable pair of shoes with good grip for trekking', '1', '2024-06-21 20:40:22', 1, NULL, NULL, '0', NULL, NULL),
+(120, 20, ' Flip-flops for lazing around the campsite', '1', '2024-06-21 20:40:22', 1, NULL, NULL, '0', NULL, NULL),
+(121, 20, 'Torch/Headlamp to be used at night Portable chargers for your electronics', '1', '2024-06-21 20:40:22', 1, NULL, NULL, '0', NULL, NULL),
+(122, 20, 'Extra pair of clothes to change into once wet', '1', '2024-06-21 20:40:22', 1, NULL, NULL, '0', NULL, NULL),
+(123, 20, 'Polybags to pack your wet clothes', '1', '2024-06-21 20:06:20', 1, NULL, NULL, '0', NULL, NULL),
+(124, 20, 'Extra cash for meals not included in the itinerary Carry at least one Id proof (Driving License, Voter Id,\r\nor Aadhar card)', '1', '2024-06-21 20:06:20', 1, NULL, NULL, '0', NULL, NULL),
+(125, 21, ' Small backpack to carry your essentials during the trek', '1', '2124-06-21 21:09:21', NULL, NULL, NULL, '0', NULL, NULL),
+(126, 21, 'Power Bank', '1', '2124-06-21 21:38:34', 1, NULL, NULL, '0', NULL, NULL),
+(127, 21, 'Water bottles - 2 (1 liter each)', '1', '2124-06-21 21:40:22', 1, NULL, NULL, '0', NULL, NULL),
+(128, 21, 'Lunch Box & Spoon to carry your packed lunch', '1', '2124-06-21 21:40:22', 1, NULL, NULL, '0', NULL, NULL),
+(129, 21, ' A comfortable pair of shoes with good grip for trekking', '1', '2124-06-21 21:40:22', 1, NULL, NULL, '0', NULL, NULL),
+(130, 21, ' Flip-flops for lazing around the campsite', '1', '2124-06-21 21:40:22', 1, NULL, NULL, '0', NULL, NULL),
+(131, 21, 'Torch/Headlamp to be used at night Portable chargers for your electronics', '1', '2124-06-21 21:40:22', 1, NULL, NULL, '0', NULL, NULL),
+(132, 21, 'Extra pair of clothes to change into once wet', '1', '2124-06-21 21:40:22', 1, NULL, NULL, '0', NULL, NULL),
+(133, 21, 'Polybags to pack your wet clothes', '1', '2124-06-21 21:06:21', 1, NULL, NULL, '0', NULL, NULL),
+(134, 21, 'Extra cash for meals not included in the itinerary Carry at least one Id proof (Driving License, Voter Id,\r\nor Aadhar card)', '1', '2124-06-21 21:06:21', 1, NULL, NULL, '0', NULL, NULL),
+(135, 22, ' Small backpack to carry your essentials during the trek', '1', '2224-06-22 22:09:22', NULL, NULL, NULL, '0', NULL, NULL),
+(136, 22, 'Power Bank', '1', '2224-06-22 22:38:34', 1, NULL, NULL, '0', NULL, NULL),
+(137, 22, 'Water bottles - 2 (1 liter each)', '1', '2224-06-22 22:40:22', 1, NULL, NULL, '0', NULL, NULL),
+(138, 22, 'Lunch Box & Spoon to carry your packed lunch', '1', '2224-06-22 22:40:22', 1, NULL, NULL, '0', NULL, NULL),
+(139, 22, ' A comfortable pair of shoes with good grip for trekking', '1', '2224-06-22 22:40:22', 1, NULL, NULL, '0', NULL, NULL),
+(140, 22, ' Flip-flops for lazing around the campsite', '1', '2224-06-22 22:40:22', 1, NULL, NULL, '0', NULL, NULL),
+(141, 22, 'Torch/Headlamp to be used at night Portable chargers for your electronics', '1', '2224-06-22 22:40:22', 1, NULL, NULL, '0', NULL, NULL),
+(142, 22, 'Extra pair of clothes to change into once wet', '1', '2224-06-22 22:40:22', 1, NULL, NULL, '0', NULL, NULL),
+(143, 22, 'Polybags to pack your wet clothes', '1', '2224-06-22 22:06:22', 1, NULL, NULL, '0', NULL, NULL),
+(144, 22, 'Extra cash for meals not included in the itinerary Carry at least one Id proof (Driving License, Voter Id,\r\nor Aadhar card)', '1', '2224-06-22 22:06:22', 1, NULL, NULL, '0', NULL, NULL),
+(145, 23, ' Small backpack to carry your essentials during the trek', '1', '2324-06-23 23:09:23', NULL, NULL, NULL, '0', NULL, NULL),
+(146, 23, 'Power Bank', '1', '2324-06-23 23:38:34', 1, NULL, NULL, '0', NULL, NULL),
+(147, 23, 'Water bottles - 2 (1 liter each)', '1', '2324-06-23 23:40:23', 1, NULL, NULL, '0', NULL, NULL),
+(148, 23, 'Lunch Box & Spoon to carry your packed lunch', '1', '2324-06-23 23:40:23', 1, NULL, NULL, '0', NULL, NULL),
+(149, 23, ' A comfortable pair of shoes with good grip for trekking', '1', '2324-06-23 23:40:23', 1, NULL, NULL, '0', NULL, NULL),
+(150, 23, ' Flip-flops for lazing around the campsite', '1', '2324-06-23 23:40:23', 1, NULL, NULL, '0', NULL, NULL),
+(151, 23, 'Torch/Headlamp to be used at night Portable chargers for your electronics', '1', '2324-06-23 23:40:23', 1, NULL, NULL, '0', NULL, NULL),
+(152, 23, 'Extra pair of clothes to change into once wet', '1', '2324-06-23 23:40:23', 1, NULL, NULL, '0', NULL, NULL),
+(153, 23, 'Polybags to pack your wet clothes', '1', '2324-06-23 23:06:23', 1, NULL, NULL, '0', NULL, NULL),
+(154, 23, 'Extra cash for meals not included in the itinerary Carry at least one Id proof (Driving License, Voter Id,\r\nor Aadhar card)', '1', '2324-06-23 23:06:23', 1, NULL, NULL, '0', NULL, NULL),
+(155, 24, ' Small backpack to carry your essentials during the trek', '1', '0000-00-00 00:00:00', NULL, NULL, NULL, '0', NULL, NULL),
+(156, 24, 'Power Bank', '1', '0000-00-00 00:00:00', 1, NULL, NULL, '0', NULL, NULL),
+(157, 24, 'Water bottles - 2 (1 liter each)', '1', '0000-00-00 00:00:00', 1, NULL, NULL, '0', NULL, NULL),
+(158, 24, 'Lunch Box & Spoon to carry your packed lunch', '1', '0000-00-00 00:00:00', 1, NULL, NULL, '0', NULL, NULL),
+(159, 24, ' A comfortable pair of shoes with good grip for trekking', '1', '0000-00-00 00:00:00', 1, NULL, NULL, '0', NULL, NULL),
+(160, 24, ' Flip-flops for lazing around the campsite', '1', '0000-00-00 00:00:00', 1, NULL, NULL, '0', NULL, NULL),
+(161, 24, 'Torch/Headlamp to be used at night Portable chargers for your electronics', '1', '0000-00-00 00:00:00', 1, NULL, NULL, '0', NULL, NULL),
+(162, 24, 'Extra pair of clothes to change into once wet', '1', '0000-00-00 00:00:00', 1, NULL, NULL, '0', NULL, NULL),
+(163, 24, 'Polybags to pack your wet clothes', '1', '0000-00-00 00:00:00', 1, NULL, NULL, '0', NULL, NULL),
+(164, 24, 'Extra cash for meals not included in the itinerary Carry at least one Id proof (Driving License, Voter Id,\r\nor Aadhar card)', '1', '0000-00-00 00:00:00', 1, NULL, NULL, '0', NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tour_plans`
+-- Table structure for table `tour`
 --
 
-CREATE TABLE `tour_plans` (
-  `tour_plan_id` int(11) NOT NULL,
-  `upcoming_tour_id` int(11) DEFAULT NULL,
-  `name` varchar(255) DEFAULT NULL,
-  `description` text NOT NULL,
-  `status` char(1) NOT NULL DEFAULT '1',
-  `added_on` datetime DEFAULT current_timestamp(),
-  `added_by` int(11) DEFAULT NULL,
-  `updated_on` datetime DEFAULT NULL ON UPDATE current_timestamp(),
-  `updated_by` int(11) DEFAULT NULL,
-  `is_deleted` char(1) NOT NULL DEFAULT '0',
-  `is_deleted_on` datetime DEFAULT NULL,
-  `is_deleted_by` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `tour_plans`
---
-
-INSERT INTO `tour_plans` (`tour_plan_id`, `upcoming_tour_id`, `name`, `description`, `status`, `added_on`, `added_by`, `updated_on`, `updated_by`, `is_deleted`, `is_deleted_on`, `is_deleted_by`) VALUES
-(1, 1, 'day0\'s name', 'day0\'s description', '1', '2024-06-19 19:07:57', NULL, NULL, NULL, '0', NULL, NULL),
-(2, 1, 'day1\'s name', 'day1\'s description', '1', '2024-06-19 19:07:57', NULL, NULL, NULL, '0', NULL, NULL);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `upcoming_tours`
---
-
-CREATE TABLE `upcoming_tours` (
-  `upcoming_tour_id` int(11) NOT NULL,
+CREATE TABLE `tour` (
+  `tour_id` int(11) NOT NULL,
+  `tour_variant` char(1) DEFAULT '1',
   `name` varchar(255) NOT NULL,
   `description` longtext NOT NULL,
-  `available_slots` int(4) NOT NULL,
-  `duration_day` int(4) NOT NULL,
-  `duration_night` int(4) NOT NULL,
+  `inclusion` longtext DEFAULT NULL,
+  `exclusion` longtext DEFAULT NULL,
+  `important_notes` longtext DEFAULT NULL,
+  `additional_info` longtext DEFAULT NULL,
+  `available_slots` int(4) NOT NULL DEFAULT 0,
+  `duration_day` int(4) NOT NULL DEFAULT 0,
+  `duration_night` int(4) NOT NULL DEFAULT 0,
   `tour_type` varchar(255) NOT NULL,
   `minimum_age` varchar(100) NOT NULL,
   `location` varchar(100) NOT NULL,
-  `location_url` varchar(255) NOT NULL,
+  `google_map_url` text DEFAULT NULL,
+  `google_map_address` text DEFAULT NULL,
   `banner_image` varchar(100) NOT NULL,
   `cover_image` varchar(100) NOT NULL,
   `status` char(1) NOT NULL DEFAULT '1',
@@ -1799,11 +2170,189 @@ CREATE TABLE `upcoming_tours` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `upcoming_tours`
+-- Dumping data for table `tour`
 --
 
-INSERT INTO `upcoming_tours` (`upcoming_tour_id`, `name`, `description`, `available_slots`, `duration_day`, `duration_night`, `tour_type`, `minimum_age`, `location`, `location_url`, `banner_image`, `cover_image`, `status`, `added_on`, `added_by`, `updated_on`, `updated_by`, `is_deleted`, `is_deleted_on`, `is_deleted_by`) VALUES
-(1, 'upcoming tour1', 'upcoming tour1\'s long text', 3, 2, 1, 'adventure,food', '10 years+', 'bengaluru', 'bengalur_loc_code', 'b_image1.png', 'c_image1.png', '1', '2024-06-19 19:04:13', NULL, NULL, NULL, '0', NULL, NULL);
+INSERT INTO `tour` (`tour_id`, `tour_variant`, `name`, `description`, `inclusion`, `exclusion`, `important_notes`, `additional_info`, `available_slots`, `duration_day`, `duration_night`, `tour_type`, `minimum_age`, `location`, `google_map_url`, `google_map_address`, `banner_image`, `cover_image`, `status`, `added_on`, `added_by`, `updated_on`, `updated_by`, `is_deleted`, `is_deleted_on`, `is_deleted_by`) VALUES
+(11, '3', 'Mangolore Activities', '<p>About Malvanthige Adventure Tour: A Thrilling Off-Beat Experience Embark on a two-day escapade with Malvanthige Adventure Tour, designed to transport you to a realm of absolute thrills and off-beat wonders. This Malvanthige Adventure Tour promises not just excitement but a tapestry of memories etched in the landscapes of TB Beach, the thrill of water parks, the serenity of tea estates, and the breathtaking vistas of Elneer Falls and Kyathanmakki View Point.</p>\r\n\r\n<p>Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices Maecenas</p>\r\n', NULL, NULL, NULL, NULL, 4, 2, 1, 'adventure, food, beach', '10 years+', 'Mysore', 'https://maps.google.com/?q=Mysuru,+Karnataka,+India&ftid=0x3baf70381d572ef9:0x2b89ece8c0f8396d', 'Mysore, Karnataka, India', 'banner_image_10.png', 'cover_image_10.png', '1', '2024-06-22 17:07:47', 1, '2024-06-26 15:33:41', 1, '0', NULL, NULL),
+(12, '3', 'Hubli  Activities', '<p><strong>New&nbsp;</strong>Greenfield Veggie Mix is pH neutral (6.5-7.5) and rich in organic carbon, nitrogen, phosphorus, potassium, silica, magnesium, calcium, iron, aluminium, sulphur and other essential micro-nutrients. Recommended for: Tomato, cucumber, capsicum, chillies, bell pepper, lettuce, broccoli, basil, parsley, etc</p>\r\n', NULL, NULL, NULL, NULL, 3, 2, 1, 'adventure , food', '10 years+', 'Bengaluru New', 'https://maps.google.com/?q=Mysuru,+Karnataka,+India&ftid=0x3baf70381d572ef9:0x2b89ece8c0f8396d', 'Mysore, Karnataka, India', 'banner_image_1.png', 'cover_image_1.png', '1', '2024-06-19 19:04:13', 1, '2024-06-26 15:14:02', 1, '0', NULL, NULL),
+(13, '3', 'Goa  Activities', '<p><strong>New&nbsp;</strong>Greenfield Veggie Mix is pH neutral (6.5-7.5) and rich in organic carbon, nitrogen, phosphorus, potassium, silica, magnesium, calcium, iron, aluminium, sulphur and other essential micro-nutrients. Recommended for: Tomato, cucumber, capsicum, chillies, bell pepper, lettuce, broccoli, basil, parsley, etc</p>\r\n', NULL, NULL, NULL, NULL, 3, 2, 1, 'adventure , food', '10 years+', 'Bengaluru New', 'https://maps.google.com/?q=Mysuru,+Karnataka,+India&ftid=0x3baf70381d572ef9:0x2b89ece8c0f8396d', 'Mysore, Karnataka, India', 'banner_image_1.png', 'cover_image_1.png', '1', '2024-06-19 19:04:13', 1, '2024-06-26 15:13:37', 1, '0', NULL, NULL),
+(14, '1', 'Delhi Adventure', '<p><strong>New&nbsp;</strong>Greenfield Veggie Mix is pH neutral (6.5-7.5) and rich in organic carbon, nitrogen, phosphorus, potassium, silica, magnesium, calcium, iron, aluminium, sulphur and other essential micro-nutrients. Recommended for: Tomato, cucumber, capsicum, chillies, bell pepper, lettuce, broccoli, basil, parsley, etc</p>\r\n', NULL, NULL, NULL, NULL, 3, 2, 1, 'adventure , food', '10 years+', 'Bengaluru New', 'https://maps.google.com/?q=Mysuru,+Karnataka,+India&ftid=0x3baf70381d572ef9:0x2b89ece8c0f8396d', 'Mysore, Karnataka, India', 'banner_image_1.png', 'cover_image_1.png', '1', '2024-06-19 19:04:13', 1, '2024-06-26 15:09:31', 1, '0', NULL, NULL),
+(15, '1', 'Hyderabad Adventure', '<p><strong>New&nbsp;</strong>Greenfield Veggie Mix is pH neutral (6.5-7.5) and rich in organic carbon, nitrogen, phosphorus, potassium, silica, magnesium, calcium, iron, aluminium, sulphur and other essential micro-nutrients. Recommended for: Tomato, cucumber, capsicum, chillies, bell pepper, lettuce, broccoli, basil, parsley, etc</p>\r\n', NULL, NULL, NULL, NULL, 3, 2, 1, 'adventure , food', '10 years+', 'Bengaluru New', 'https://maps.google.com/?q=Mysuru,+Karnataka,+India&ftid=0x3baf70381d572ef9:0x2b89ece8c0f8396d', 'Mysore, Karnataka, India', 'banner_image_1.png', 'cover_image_1.png', '1', '2024-06-19 19:04:13', 1, '2024-06-26 15:13:01', 1, '0', NULL, NULL),
+(16, '1', 'Punjab Adventure', '<p><strong>New&nbsp;</strong>Greenfield Veggie Mix is pH neutral (6.5-7.5) and rich in organic carbon, nitrogen, phosphorus, potassium, silica, magnesium, calcium, iron, aluminium, sulphur and other essential micro-nutrients. Recommended for: Tomato, cucumber, capsicum, chillies, bell pepper, lettuce, broccoli, basil, parsley, etc</p>\r\n', NULL, NULL, NULL, NULL, 3, 2, 1, 'adventure , food', '10 years+', 'Bengaluru New', 'https://maps.google.com/?q=Mysuru,+Karnataka,+India&ftid=0x3baf70381d572ef9:0x2b89ece8c0f8396d', 'Mysore, Karnataka, India', 'banner_image_1.png', 'cover_image_1.png', '1', '2024-06-19 19:04:13', 1, '2024-06-26 15:12:33', 1, '0', NULL, NULL),
+(17, '2', 'Assam Tour', '<p><strong>New&nbsp;</strong>Greenfield Veggie Mix is pH neutral (6.5-7.5) and rich in organic carbon, nitrogen, phosphorus, potassium, silica, magnesium, calcium, iron, aluminium, sulphur and other essential micro-nutrients. Recommended for: Tomato, cucumber, capsicum, chillies, bell pepper, lettuce, broccoli, basil, parsley, etc</p>\r\n', NULL, NULL, NULL, NULL, 3, 2, 1, 'adventure , food', '10 years+', 'Bengaluru New', 'https://maps.google.com/?q=Mysuru,+Karnataka,+India&ftid=0x3baf70381d572ef9:0x2b89ece8c0f8396d', 'Mysore, Karnataka, India', 'banner_image_1.png', 'cover_image_1.png', '1', '2024-06-19 19:04:13', 1, '2024-06-26 15:11:43', 1, '0', NULL, NULL),
+(18, '2', 'Meghalaya Tour', '<p><strong>New&nbsp;</strong>Greenfield Veggie Mix is pH neutral (6.5-7.5) and rich in organic carbon, nitrogen, phosphorus, potassium, silica, magnesium, calcium, iron, aluminium, sulphur and other essential micro-nutrients. Recommended for: Tomato, cucumber, capsicum, chillies, bell pepper, lettuce, broccoli, basil, parsley, etc</p>\r\n', NULL, NULL, NULL, NULL, 3, 2, 1, 'adventure , food', '10 years+', 'Bengaluru New', 'https://maps.google.com/?q=Mysuru,+Karnataka,+India&ftid=0x3baf70381d572ef9:0x2b89ece8c0f8396d', 'Mysore, Karnataka, India', 'banner_image_1.png', 'cover_image_1.png', '1', '2024-06-19 19:04:13', 1, '2024-06-26 16:11:49', 1, '0', NULL, NULL),
+(24, '2', 'Bengaluru Tour', '<p><strong>About Malvanthige</strong> Adventure Tour: A Thrilling Off-Beat Experience Embark on a two-day escapade with Malvanthige Adventure Tour, designed to transport you to a realm of absolute thrills and off-beat wonders. This Malvanthige Adventure Tour promises not just excitement but a tapestry of memories etched in the landscapes of TB Beach, the thrill of water parks, the serenity of tea estates, and the breathtaking vistas of Elneer Falls and Kyathanmakki View Point.</p>\r\n\r\n<p>Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices Maecenas</p>\r\n', '<ul>\r\n	<li>Travel from Bangalore To Kodachadri&nbsp; In Non AC sit-in coach Bus/TT</li>\r\n	<li>4 meals: 2 breakfasts (Day 1 &amp; 2), 2 Lunch (Day 1),and 1 Dinner (Day 1)</li>\r\n	<li>Accommodation in tents or rooms or dormitories on multiple sharing basis</li>\r\n	<li>Off-Road Jeep Ride To the Homestay.</li>\r\n	<li>Local Guide and Outdoor trek leader from Adventure Buddha</li>\r\n	<li>Entry charges</li>\r\n	<li>&nbsp;Forest Permits</li>\r\n</ul>\r\n', '<ul>\r\n	<li>Meals other than mentioned in the itinerary</li>\r\n	<li>GST</li>\r\n	<li>Any Kind of Personal Expenses</li>\r\n	<li>Any kind of Insurances (health, life, accidental, medical, etc)</li>\r\n	<li>Anything that is not included in the above list</li>\r\n</ul>\r\n', '<ul>\r\n	<li><strong>No Luxury.</strong>&nbsp;We assure awesome memories in every trip, but not awesome facilities! We provide basic facilities in terms of food, travel &amp; accommodation.</li>\r\n	<li><strong>No alcohol &amp; Drugs</strong>&nbsp;<strong>during Treks &amp; adventure activities</strong></li>\r\n	<li>The itinerary is fixed. No special requests to change itinerary/schedule are permitted</li>\r\n</ul>\r\n\r\n<p>Please go through the Terms &amp; Conditions before booking:&nbsp;<a href=\"https://adventurebuddha.com/terms-and-conditions/\">Adventure Buddha Terms &amp; Conditions</a></p>\r\n\r\n<p><strong>About Trip</strong></p>\r\n\r\n<p><strong>Travel:</strong></p>\r\n\r\n<ul>\r\n	<li>This trip involves&nbsp;<strong>basic facilities</strong>&nbsp;in terms of food, travel, and stay without any luxury, whatsoever.</li>\r\n	<li>This is a group trip with a shared model. It may not suit everyone &ndash; especially those expecting privacy, Luxury, and comfort.</li>\r\n	<li>Homestay with cots &amp; beds/ floor mattresses(sharing basis, separate for boys &amp; girls), clean washrooms</li>\r\n	<li>Homestays with Tent stay.</li>\r\n	<li><strong>Please do not book this trip if you are not okay with the above points.</strong></li>\r\n	<li>Tempo Traveller or Mini Bus (with push-back seats) depending on the number of participants and Availability</li>\r\n	<li><strong>Note:</strong>&nbsp;This trip involves an overnight journey on a push-back Seater (Not sleeper or semis-sleeper).</li>\r\n	<li><strong>We request you to book this trip only if you can handle slight discomfort (especially the last row of the vehicle).</strong></li>\r\n	<li><strong>Seats are allotted on a first come first serve basis to the pickup point</strong></li>\r\n</ul>\r\n', '<table>\r\n	<tbody>\r\n		<tr>\r\n			<th>ACCOMODATION TYPE</th>\r\n			<td>Rooms with cots and Floor Mattress, Tent Stay</td>\r\n		</tr>\r\n		<tr>\r\n			<th>FOOD</th>\r\n			<td>Non-Veg, Veg</td>\r\n		</tr>\r\n		<tr>\r\n			<th>TRANSPORT</th>\r\n			<td>Non Ac Coach</td>\r\n		</tr>\r\n		<tr>\r\n			<th>TREK DIFFICULTY</th>\r\n			<td>Moderate</td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n', 3, 2, 1, 'adventure , food', '10 years+', 'Bengaluru New', 'https://maps.google.com/?q=Mysuru,+Karnataka,+India&ftid=0x3baf70381d572ef9:0x2b89ece8c0f8396d', 'Mysore, Karnataka, India', 'banner_image_1.png', 'cover_image_24.png', '1', '2024-06-19 19:04:13', 1, '2024-06-27 15:12:27', 1, '0', NULL, NULL),
+(26, '1', 'Assam Adventure', '<p>About Malvanthige Adventure Tour: A Thrilling Off-Beat Experience Embark on a two-day escapade with Malvanthige Adventure Tour, designed to transport you to a realm of absolute thrills and off-beat wonders. This Malvanthige Adventure Tour promises not just excitement but a tapestry of memories etched in the landscapes of TB Beach, the thrill of water parks, the serenity of tea estates, and the breathtaking vistas of Elneer Falls and Kyathanmakki View Point.</p>\r\n\r\n<p>Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices Maecenas</p>\r\n', '', '', '', '', 3, 2, 2, 'adventure, food, beach', '10 years+', 'Assam', 'https://maps.google.com/?q=Assam,+Sikkim+737135,+India&ftid=0x39e6af3d9216e749:0x10e5baa02b84c09', 'Assam, Sikkim, India', 'banner_image_26.png', 'cover_image_26.png', '0', '2024-06-27 13:17:25', 1, '2024-06-27 13:17:25', NULL, '0', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tour_booking_enquiry`
+--
+
+CREATE TABLE `tour_booking_enquiry` (
+  `tour_booking_enquiry_id` int(11) NOT NULL,
+  `tour_id` int(11) DEFAULT NULL,
+  `tour_date_id` varchar(255) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `contactno` varchar(20) DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `subject` varchar(255) DEFAULT NULL,
+  `description` text DEFAULT NULL,
+  `status` char(1) NOT NULL DEFAULT '1',
+  `added_on` datetime DEFAULT current_timestamp(),
+  `added_by` int(11) DEFAULT NULL,
+  `updated_on` datetime DEFAULT NULL ON UPDATE current_timestamp(),
+  `updated_by` int(11) DEFAULT NULL,
+  `is_deleted` char(1) NOT NULL DEFAULT '0',
+  `is_deleted_on` datetime DEFAULT NULL,
+  `is_deleted_by` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tour_booking_enquiry`
+--
+
+INSERT INTO `tour_booking_enquiry` (`tour_booking_enquiry_id`, `tour_id`, `tour_date_id`, `name`, `contactno`, `email`, `subject`, `description`, `status`, `added_on`, `added_by`, `updated_on`, `updated_by`, `is_deleted`, `is_deleted_on`, `is_deleted_by`) VALUES
+(1, 24, '18', 'ramkumar gurav', '08549065626', 'ramkumarsgurav@gmail.com', 'upcoming adventures booking', 'asdf', '0', '2024-06-26 12:34:53', NULL, '2024-06-27 15:09:12', 1, '0', NULL, NULL),
+(2, 24, '9', 'Shan', '8549065626', 'ramkumarsgurav@gmail.com', 'upcoming adventures booking', 'asdf', '0', '2024-06-26 13:16:35', NULL, '2024-06-27 15:09:12', 1, '0', NULL, NULL),
+(3, 24, '8', 'tours ram', '08549065626', 'ramkumarsgurav@gmail.com', 'upcoming tours booking', 'asdfasdf', '0', '2024-06-26 15:53:45', NULL, '2024-06-27 15:09:12', 1, '0', NULL, NULL),
+(4, 16, '26', 'adventure ram', '08549065626', 'ramkumarsgurav@gmail.com', 'upcoming adventures booking', 'asdf', '1', '2024-06-26 15:54:16', NULL, NULL, NULL, '0', NULL, NULL),
+(5, 13, '20', 'activities gurav', '08549065626', 'ramkumarsgurav@gmail.com', 'Activities booking', 'asdf', '1', '2024-06-26 15:55:26', NULL, '2024-06-26 16:09:39', 1, '0', NULL, NULL),
+(6, 16, '26', 'ramkumar gurav', '8549065626', 'ramkumarsgurav@gmail.com', 'upcoming adventures booking', 'sdfg', '1', '2024-06-26 16:16:23', NULL, NULL, NULL, '0', NULL, NULL),
+(7, 16, '26', 'ramkumar gurav', '1243', 'ramkumarsgurav@gmail.com', 'upcoming adventures booking', 'asdf', '1', '2024-06-26 16:37:19', NULL, NULL, NULL, '0', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tour_date`
+--
+
+CREATE TABLE `tour_date` (
+  `tour_date_id` int(11) NOT NULL,
+  `tour_id` int(11) DEFAULT NULL,
+  `is_discount` char(1) DEFAULT '1',
+  `actual_price` decimal(10,2) DEFAULT 0.00,
+  `discounted_price` decimal(10,2) DEFAULT 0.00,
+  `start_date_time` varchar(255) DEFAULT NULL,
+  `end_date` varchar(255) DEFAULT NULL,
+  `status` char(1) NOT NULL DEFAULT '1',
+  `added_on` datetime DEFAULT current_timestamp(),
+  `added_by` int(11) DEFAULT NULL,
+  `updated_on` datetime DEFAULT NULL ON UPDATE current_timestamp(),
+  `updated_by` int(11) DEFAULT NULL,
+  `is_deleted` char(1) NOT NULL DEFAULT '0',
+  `is_deleted_on` datetime DEFAULT NULL,
+  `is_deleted_by` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tour_date`
+--
+
+INSERT INTO `tour_date` (`tour_date_id`, `tour_id`, `is_discount`, `actual_price`, `discounted_price`, `start_date_time`, `end_date`, `status`, `added_on`, `added_by`, `updated_on`, `updated_by`, `is_deleted`, `is_deleted_on`, `is_deleted_by`) VALUES
+(10, 23, '0', '100.00', '0.00', '23/06/24 02PM', '24/06/24', '1', '2024-06-24 14:49:02', 1, '2024-06-26 18:29:20', NULL, '0', NULL, NULL),
+(11, 23, '0', '100.00', '0.00', '09/06/24 02PM', '24/06/24', '1', '2024-06-24 14:49:02', 1, '2024-06-26 18:29:20', NULL, '0', NULL, NULL),
+(12, 22, '0', '100.00', '0.00', '10/06/24 02PM', '19/06/24', '1', '2024-06-24 14:49:26', 1, '2024-06-26 18:29:20', NULL, '0', NULL, NULL),
+(13, 22, '0', '100.00', '0.00', '16/06/24 02PM', '24/06/24', '1', '2024-06-24 14:49:26', 1, '2024-06-26 18:29:20', NULL, '0', NULL, NULL),
+(14, 22, '0', '100.00', '0.00', '12/06/24 02PM', '24/06/24', '1', '2024-06-24 14:49:26', 1, '2024-06-26 18:29:20', NULL, '0', NULL, NULL),
+(15, 25, '0', '100.00', '0.00', '16/06/24 03PM', '24/06/24', '1', '2024-06-24 15:34:37', 1, '2024-06-26 18:29:20', NULL, '0', NULL, NULL),
+(20, 13, '1', '100.00', '80.00', '25/06/24  02:PM', '27/06/24', '1', '2024-06-26 14:52:22', 1, '2024-06-26 19:21:26', NULL, '0', NULL, NULL),
+(21, 13, '0', '100.00', '0.00', '23/06/24  07:PM', '29/06/24', '1', '2024-06-26 14:52:22', 1, '2024-06-26 18:29:20', NULL, '0', NULL, NULL),
+(22, 18, '1', '100.00', '70.00', '26/06/24  02:PM', '28/06/24', '1', '2024-06-26 14:53:05', 1, '2024-06-26 19:08:19', NULL, '0', NULL, NULL),
+(23, 18, '0', '100.00', '0.00', '25/06/24  02:PM', '27/06/24', '1', '2024-06-26 14:53:06', 1, '2024-06-26 18:29:20', NULL, '0', NULL, NULL),
+(24, 17, '1', '100.00', '80.00', '26/06/24  02:PM', '28/06/24', '1', '2024-06-26 14:53:41', 1, '2024-06-26 19:08:23', NULL, '0', NULL, NULL),
+(25, 17, '0', '100.00', '0.00', '25/06/24  02:PM', '28/06/24', '1', '2024-06-26 14:53:41', 1, '2024-06-26 18:29:20', NULL, '0', NULL, NULL),
+(26, 16, '1', '100.00', '85.00', '25/06/24  02:PM', '27/06/24', '1', '2024-06-26 14:54:32', 1, '2024-06-26 19:19:00', NULL, '0', NULL, NULL),
+(27, 16, '0', '100.00', '50.00', '27/06/24  02:PM', '27/06/24', '1', '2024-06-26 14:54:32', 1, '2024-06-26 19:19:38', NULL, '0', NULL, NULL),
+(28, 15, '0', '100.00', '0.00', '26/06/24  02:PM', '29/06/24', '1', '2024-06-26 14:55:08', 1, '2024-06-26 18:29:20', NULL, '0', NULL, NULL),
+(29, 15, '0', '100.00', '0.00', '25/06/24  02:PM', '28/06/24', '1', '2024-06-26 14:55:08', 1, '2024-06-26 18:29:20', NULL, '0', NULL, NULL),
+(30, 14, '0', '100.00', '0.00', '25/06/24  02:PM', '28/06/24', '1', '2024-06-26 14:56:09', 1, '2024-06-26 18:29:20', NULL, '0', NULL, NULL),
+(31, 14, '0', '100.00', '0.00', '26/06/24  02:PM', '28/06/24', '1', '2024-06-26 14:56:09', 1, '2024-06-26 18:29:20', NULL, '0', NULL, NULL),
+(32, 14, '0', '100.00', '0.00', '26/06/24  02:PM', '28/06/24', '1', '2024-06-26 14:56:09', 1, '2024-06-26 18:29:20', NULL, '0', NULL, NULL),
+(33, 12, '0', '100.00', '0.00', '26/06/24  02:PM', '27/06/24', '1', '2024-06-26 14:57:15', 1, '2024-06-26 18:29:20', NULL, '0', NULL, NULL),
+(34, 12, '0', '100.00', '0.00', '26/07/24  02:PM', '27/07/24', '1', '2024-06-26 14:57:15', 1, '2024-06-26 18:29:20', NULL, '0', NULL, NULL),
+(35, 11, '0', '100.00', '0.00', '25/06/24  03:PM', '26/06/24', '1', '2024-06-26 15:33:41', 1, '2024-06-26 18:29:20', NULL, '0', NULL, NULL),
+(61, 24, '1', '500.00', '400.00', '27/06/24  03:PM', '28/06/24', '1', '2024-06-27 15:12:27', 1, NULL, NULL, '0', NULL, NULL),
+(62, 24, '0', '600.00', '0.00', '28/06/24  03:PM', '29/06/24', '1', '2024-06-27 15:12:27', 1, NULL, NULL, '0', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tour_plan`
+--
+
+CREATE TABLE `tour_plan` (
+  `tour_plan_id` int(11) NOT NULL,
+  `tour_id` int(11) DEFAULT NULL,
+  `day_number` int(2) DEFAULT 0,
+  `day_name` varchar(255) DEFAULT NULL,
+  `day_plan` longtext NOT NULL,
+  `status` char(1) NOT NULL DEFAULT '1',
+  `added_on` datetime DEFAULT current_timestamp(),
+  `added_by` int(11) DEFAULT NULL,
+  `updated_on` datetime DEFAULT NULL ON UPDATE current_timestamp(),
+  `updated_by` int(11) DEFAULT NULL,
+  `is_deleted` char(1) NOT NULL DEFAULT '0',
+  `is_deleted_on` datetime DEFAULT NULL,
+  `is_deleted_by` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tour_plan`
+--
+
+INSERT INTO `tour_plan` (`tour_plan_id`, `tour_id`, `day_number`, `day_name`, `day_plan`, `status`, `added_on`, `added_by`, `updated_on`, `updated_by`, `is_deleted`, `is_deleted_on`, `is_deleted_by`) VALUES
+(30, 1, 0, 'Overnight Journey from Bangalore to TB Beach', '<p><strong>7:00 PM :&nbsp;</strong>Depart from Bangalore for TB Beach.</p>\r\n\r\n<p>Enjoy a road trip filled with lively music and cool breeze.</p>\r\n', '1', '2024-06-22 16:58:36', 1, NULL, NULL, '0', NULL, NULL),
+(31, 1, 1, 'TB Beach - Amusement Park - Malvanthige Estate', '<p><strong>6:00 AM :</strong>&nbsp;Arrive at TB Beach. Coffee or tea with tasty bites while enjoying the sunrise.</p>\r\n\r\n<p><strong>8:00 AM :</strong>&nbsp;Freshen up and have a hearty breakfast.</p>\r\n\r\n<p><strong>9:00 AM :</strong>&nbsp;Head to the Amusement Park for a day of water activities and fun.</p>\r\n\r\n<p><strong>1:00 PM :</strong>&nbsp;Lunch at the amusement park.</p>\r\n\r\n<p><strong>2:30 PM :</strong>&nbsp;Depart for Malvanthige Estate, a 3-hour journey through scenic ghat roads. Enjoy old songs and stunning views of the Western Ghats.</p>\r\n\r\n<p><strong>6:00 PM :</strong>&nbsp;Arrival at the campsite. Welcome with a refreshing drink and time to refresh.</p>\r\n\r\n<p><strong>7:00 PM :</strong>&nbsp;B.B.Q. session with a choice of marinations. Bonfire, music, dance, and unlimited fun. Local cuisine dinner under the stars</p>\r\n\r\n<p><strong>10:00 PM :</strong>&nbsp;Sign off for the day in the cozy tents.</p>\r\n', '1', '2024-06-22 16:58:36', 1, NULL, NULL, '0', NULL, NULL),
+(32, 1, 2, 'Tea Estate Walk - Elneer Falls - Kyathanmakki View Point', '<p><strong>Early Morning :&nbsp;</strong>Wake up to the dawn, freshen up, and energize with a coffee shot.</p>\r\n\r\n<p><strong>7:00 AM :&nbsp;</strong>Embark on a tea estate walk to absorb the fantastic views of the tea estate mountains.</p>\r\n\r\n<p><strong>9:00 AM :&nbsp;</strong>Return for breakfast and prepare for a thrilling jeep ride towards Elneer Falls.</p>\r\n\r\n<p><strong>12:00 PM :&nbsp;</strong>Enjoy the refreshing waterfalls and proceed to an off-road ride to Kyathanmakki View Point.</p>\r\n\r\n<p><strong>Afternoon :&nbsp;</strong>Have lunch on the way, capturing the essence of the journey.</p>\r\n\r\n<p><strong>Evening :&nbsp;</strong>Head back to Bangalore, concluding an unforgettable adventure.</p>\r\n', '1', '2024-06-22 16:58:36', 1, NULL, NULL, '0', NULL, NULL),
+(33, 10, 0, 'Overnight Journey from Bangalore to TB Beach', '<p><strong>7:00 PM :&nbsp;</strong>Depart from Bangalore for TB Beach.</p>\r\n\r\n<p>Enjoy a road trip filled with lively music and cool breeze.</p>\r\n', '1', '2024-06-22 17:07:48', 1, NULL, NULL, '0', NULL, NULL),
+(34, 10, 1, ' TB Beach - Amusement Park - Malvanthige Estate', '<p><strong>6:00 AM :</strong>&nbsp;Arrive at TB Beach. Coffee or tea with tasty bites while enjoying the sunrise.</p>\r\n\r\n<p><strong>8:00 AM :</strong>&nbsp;Freshen up and have a hearty breakfast.</p>\r\n\r\n<p><strong>9:00 AM :</strong>&nbsp;Head to the Amusement Park for a day of water activities and fun.</p>\r\n\r\n<p><strong>1:00 PM :</strong>&nbsp;Lunch at the amusement park.</p>\r\n\r\n<p><strong>2:30 PM :</strong>&nbsp;Depart for Malvanthige Estate, a 3-hour journey through scenic ghat roads. Enjoy old songs and stunning views of the Western Ghats.</p>\r\n\r\n<p><strong>6:00 PM :</strong>&nbsp;Arrival at the campsite. Welcome with a refreshing drink and time to refresh.</p>\r\n\r\n<p><strong>7:00 PM :</strong>&nbsp;B.B.Q. session with a choice of marinations. Bonfire, music, dance, and unlimited fun. Local cuisine dinner under the stars</p>\r\n\r\n<p><strong>10:00 PM :</strong>&nbsp;Sign off for the day in the cozy tents.</p>\r\n', '1', '2024-06-22 17:07:48', 1, NULL, NULL, '0', NULL, NULL),
+(35, 10, 2, 'Tea Estate Walk - Elneer Falls - Kyathanmakki View Point', '<p><strong>Early Morning :&nbsp;</strong>Wake up to the dawn, freshen up, and energize with a coffee shot.</p>\r\n\r\n<p><strong>7:00 AM :&nbsp;</strong>Embark on a tea estate walk to absorb the fantastic views of the tea estate mountains.</p>\r\n\r\n<p><strong>9:00 AM :&nbsp;</strong>Return for breakfast and prepare for a thrilling jeep ride towards Elneer Falls.</p>\r\n\r\n<p><strong>12:00 PM :&nbsp;</strong>Enjoy the refreshing waterfalls and proceed to an off-road ride to Kyathanmakki View Point.</p>\r\n\r\n<p><strong>Afternoon :&nbsp;</strong>Have lunch on the way, capturing the essence of the journey.</p>\r\n\r\n<p><strong>Evening :&nbsp;</strong>Head back to Bangalore, concluding an unforgettable adventure.</p>\r\n', '1', '2024-06-22 17:07:48', 1, NULL, NULL, '0', NULL, NULL),
+(36, 11, 0, 'Overnight Journey from Bangalore to TB Beach', '<p><strong>7:00 PM :&nbsp;</strong>Depart from Bangalore for TB Beach.</p>\r\n\r\n<p>Enjoy a road trip filled with lively music and cool breeze.</p>\r\n', '1', '2024-06-22 17:07:48', 1, '2024-06-23 16:24:39', NULL, '0', NULL, NULL),
+(37, 11, 1, ' TB Beach - Amusement Park - Malvanthige Estate', '<p><strong>6:00 AM :</strong>&nbsp;Arrive at TB Beach. Coffee or tea with tasty bites while enjoying the sunrise.</p>\r\n\r\n<p><strong>8:00 AM :</strong>&nbsp;Freshen up and have a hearty breakfast.</p>\r\n\r\n<p><strong>9:00 AM :</strong>&nbsp;Head to the Amusement Park for a day of water activities and fun.</p>\r\n\r\n<p><strong>1:00 PM :</strong>&nbsp;Lunch at the amusement park.</p>\r\n\r\n<p><strong>2:30 PM :</strong>&nbsp;Depart for Malvanthige Estate, a 3-hour journey through scenic ghat roads. Enjoy old songs and stunning views of the Western Ghats.</p>\r\n\r\n<p><strong>6:00 PM :</strong>&nbsp;Arrival at the campsite. Welcome with a refreshing drink and time to refresh.</p>\r\n\r\n<p><strong>7:00 PM :</strong>&nbsp;B.B.Q. session with a choice of marinations. Bonfire, music, dance, and unlimited fun. Local cuisine dinner under the stars</p>\r\n\r\n<p><strong>10:00 PM :</strong>&nbsp;Sign off for the day in the cozy tents.</p>\r\n', '1', '2024-06-22 17:07:48', 1, '2024-06-23 16:24:42', NULL, '0', NULL, NULL),
+(38, 11, 2, 'Tea Estate Walk - Elneer Falls - Kyathanmakki View Point', '<p><strong>Early Morning :&nbsp;</strong>Wake up to the dawn, freshen up, and energize with a coffee shot.</p>\r\n\r\n<p><strong>7:00 AM :&nbsp;</strong>Embark on a tea estate walk to absorb the fantastic views of the tea estate mountains.</p>\r\n\r\n<p><strong>9:00 AM :&nbsp;</strong>Return for breakfast and prepare for a thrilling jeep ride towards Elneer Falls.</p>\r\n\r\n<p><strong>12:00 PM :&nbsp;</strong>Enjoy the refreshing waterfalls and proceed to an off-road ride to Kyathanmakki View Point.</p>\r\n\r\n<p><strong>Afternoon :&nbsp;</strong>Have lunch on the way, capturing the essence of the journey.</p>\r\n\r\n<p><strong>Evening :&nbsp;</strong>Head back to Bangalore, concluding an unforgettable adventure.</p>\r\n', '1', '2024-06-22 17:07:48', 1, '2024-06-23 16:24:44', NULL, '0', NULL, NULL),
+(39, 12, 0, 'Overnight Journey from Bangalore to TB Beach', '<p><strong>7:00 PM :&nbsp;</strong>Depart from Bangalore for TB Beach.\r\n</p>\r\n\r\n<p>Enjoy a road trip filled with lively music and cool breeze.</p>\r\n', '1', '2024-06-22 17:07:48', 1, NULL, NULL, '0', NULL, NULL),
+(40, 12, 1, ' TB Beach - Amusement Park - Malvanthige Estate', '<p><strong>6:00 AM\r\n    :</strong>&nbsp;Arrive at TB Beach. Coffee or tea with tasty bites while enjoying the sunrise.</p>\r\n\r\n<p>\r\n  <strong>8:00 AM :</strong>&nbsp;Freshen up and have a hearty breakfast.\r\n</p>\r\n\r\n<p><strong>9:00 AM\r\n    :</strong>&nbsp;Head to the Amusement Park for a day of water activities and fun.</p>\r\n\r\n<p><strong>1:00 PM\r\n    :</strong>&nbsp;Lunch at the amusement park.</p>\r\n\r\n<p><strong>2:30 PM :</strong>&nbsp;Depart for Malvanthige\r\n  Estate, a 3-hour journey through scenic ghat roads. Enjoy old songs and stunning views of the Western Ghats.</p>\r\n\r\n\r\n<p><strong>6:00 PM :</strong>&nbsp;Arrival at the campsite. Welcome with a refreshing drink and time to refresh.\r\n</p>\r\n\r\n<p><strong>7:00 PM :</strong>&nbsp;B.B.Q. session with a choice of marinations. Bonfire, music, dance, and\r\n  unlimited fun. Local cuisine dinner under the stars</p>\r\n\r\n<p><strong>10:00 PM :</strong>&nbsp;Sign off for the\r\n  day in the cozy tents.</p>\r\n', '1', '2024-06-22 17:07:48', 1, NULL, NULL, '0', NULL, NULL),
+(41, 12, 2, 'Tea\r\nEstate Walk - Elneer Falls - Kyathanmakki View Point', '<p><strong>Early Morning :&nbsp;</strong>Wake up to the dawn,\r\n  freshen up, and energize with a coffee shot.</p>\r\n\r\n<p><strong>7:00 AM :&nbsp;</strong>Embark on a tea estate walk\r\n  to absorb the fantastic views of the tea estate mountains.</p>\r\n\r\n<p><strong>9:00 AM :&nbsp;</strong>Return for\r\n  breakfast and prepare for a thrilling jeep ride towards Elneer Falls.</p>\r\n\r\n<p><strong>12:00 PM\r\n    :&nbsp;</strong>Enjoy the refreshing waterfalls and proceed to an off-road ride to Kyathanmakki View Point.</p>\r\n\r\n\r\n<p><strong>Afternoon :&nbsp;</strong>Have lunch on the way, capturing the essence of the journey.</p>\r\n\r\n<p>\r\n  <strong>Evening :&nbsp;</strong>Head back to Bangalore, concluding an unforgettable adventure.\r\n</p>\r\n', '1', '2024-06-22 17:07:48', 1, NULL, NULL, '0', NULL, NULL),
+(42, 13, 0, 'Overnight Journey from Bangalore to TB Beach', '<p><strong>7:00 PM :&nbsp;</strong>Depart from Bangalore for TB Beach.\r\n</p>\r\n\r\n<p>Enjoy a road trip filled with lively music and cool breeze.</p>\r\n', '1', '2024-06-22 17:07:48', 1, NULL, NULL, '0', NULL, NULL),
+(43, 13, 1, ' TB Beach - Amusement Park - Malvanthige Estate', '<p><strong>6:00 AM\r\n    :</strong>&nbsp;Arrive at TB Beach. Coffee or tea with tasty bites while enjoying the sunrise.</p>\r\n\r\n<p>\r\n  <strong>8:00 AM :</strong>&nbsp;Freshen up and have a hearty breakfast.\r\n</p>\r\n\r\n<p><strong>9:00 AM\r\n    :</strong>&nbsp;Head to the Amusement Park for a day of water activities and fun.</p>\r\n\r\n<p><strong>1:00 PM\r\n    :</strong>&nbsp;Lunch at the amusement park.</p>\r\n\r\n<p><strong>2:30 PM :</strong>&nbsp;Depart for Malvanthige\r\n  Estate, a 3-hour journey through scenic ghat roads. Enjoy old songs and stunning views of the Western Ghats.</p>\r\n\r\n\r\n<p><strong>6:00 PM :</strong>&nbsp;Arrival at the campsite. Welcome with a refreshing drink and time to refresh.\r\n</p>\r\n\r\n<p><strong>7:00 PM :</strong>&nbsp;B.B.Q. session with a choice of marinations. Bonfire, music, dance, and\r\n  unlimited fun. Local cuisine dinner under the stars</p>\r\n\r\n<p><strong>10:00 PM :</strong>&nbsp;Sign off for the\r\n  day in the cozy tents.</p>\r\n', '1', '2024-06-22 17:07:48', 1, NULL, NULL, '0', NULL, NULL),
+(44, 13, 2, 'Tea\r\nEstate Walk - Elneer Falls - Kyathanmakki View Point', '<p><strong>Early Morning :&nbsp;</strong>Wake up to the dawn,\r\n  freshen up, and energize with a coffee shot.</p>\r\n\r\n<p><strong>7:00 AM :&nbsp;</strong>Embark on a tea estate walk\r\n  to absorb the fantastic views of the tea estate mountains.</p>\r\n\r\n<p><strong>9:00 AM :&nbsp;</strong>Return for\r\n  breakfast and prepare for a thrilling jeep ride towards Elneer Falls.</p>\r\n\r\n<p><strong>12:00 PM\r\n    :&nbsp;</strong>Enjoy the refreshing waterfalls and proceed to an off-road ride to Kyathanmakki View Point.</p>\r\n\r\n\r\n<p><strong>Afternoon :&nbsp;</strong>Have lunch on the way, capturing the essence of the journey.</p>\r\n\r\n<p>\r\n  <strong>Evening :&nbsp;</strong>Head back to Bangalore, concluding an unforgettable adventure.\r\n</p>\r\n', '1', '2024-06-22 17:07:48', 1, NULL, NULL, '0', NULL, NULL),
+(45, 14, 0, 'Overnight Journey from Bangalore to TB Beach', '<p><strong>7:00 PM :&nbsp;</strong>Depart from Bangalore for TB Beach.\r\n</p>\r\n\r\n<p>Enjoy a road trip filled with lively music and cool breeze.</p>\r\n', '1', '2024-06-22 17:07:48', 1, NULL, NULL, '0', NULL, NULL),
+(46, 14, 1, ' TB Beach - Amusement Park - Malvanthige Estate', '<p><strong>6:00 AM\r\n    :</strong>&nbsp;Arrive at TB Beach. Coffee or tea with tasty bites while enjoying the sunrise.</p>\r\n\r\n<p>\r\n  <strong>8:00 AM :</strong>&nbsp;Freshen up and have a hearty breakfast.\r\n</p>\r\n\r\n<p><strong>9:00 AM\r\n    :</strong>&nbsp;Head to the Amusement Park for a day of water activities and fun.</p>\r\n\r\n<p><strong>1:00 PM\r\n    :</strong>&nbsp;Lunch at the amusement park.</p>\r\n\r\n<p><strong>2:30 PM :</strong>&nbsp;Depart for Malvanthige\r\n  Estate, a 3-hour journey through scenic ghat roads. Enjoy old songs and stunning views of the Western Ghats.</p>\r\n\r\n\r\n<p><strong>6:00 PM :</strong>&nbsp;Arrival at the campsite. Welcome with a refreshing drink and time to refresh.\r\n</p>\r\n\r\n<p><strong>7:00 PM :</strong>&nbsp;B.B.Q. session with a choice of marinations. Bonfire, music, dance, and\r\n  unlimited fun. Local cuisine dinner under the stars</p>\r\n\r\n<p><strong>10:00 PM :</strong>&nbsp;Sign off for the\r\n  day in the cozy tents.</p>\r\n', '1', '2024-06-22 17:07:48', 1, NULL, NULL, '0', NULL, NULL),
+(47, 14, 2, 'Tea\r\nEstate Walk - Elneer Falls - Kyathanmakki View Point', '<p><strong>Early Morning :&nbsp;</strong>Wake up to the dawn,\r\n  freshen up, and energize with a coffee shot.</p>\r\n\r\n<p><strong>7:00 AM :&nbsp;</strong>Embark on a tea estate walk\r\n  to absorb the fantastic views of the tea estate mountains.</p>\r\n\r\n<p><strong>9:00 AM :&nbsp;</strong>Return for\r\n  breakfast and prepare for a thrilling jeep ride towards Elneer Falls.</p>\r\n\r\n<p><strong>12:00 PM\r\n    :&nbsp;</strong>Enjoy the refreshing waterfalls and proceed to an off-road ride to Kyathanmakki View Point.</p>\r\n\r\n\r\n<p><strong>Afternoon :&nbsp;</strong>Have lunch on the way, capturing the essence of the journey.</p>\r\n\r\n<p>\r\n  <strong>Evening :&nbsp;</strong>Head back to Bangalore, concluding an unforgettable adventure.\r\n</p>\r\n', '1', '2024-06-22 17:07:48', 1, NULL, NULL, '0', NULL, NULL),
+(48, 15, 0, 'Overnight Journey from Bangalore to TB Beach', '<p><strong>7:00 PM :&nbsp;</strong>Depart from Bangalore for TB Beach.\r\n</p>\r\n\r\n<p>Enjoy a road trip filled with lively music and cool breeze.</p>\r\n', '1', '2024-06-22 17:07:48', 1, NULL, NULL, '0', NULL, NULL),
+(49, 15, 1, ' TB Beach - Amusement Park - Malvanthige Estate', '<p><strong>6:00 AM\r\n    :</strong>&nbsp;Arrive at TB Beach. Coffee or tea with tasty bites while enjoying the sunrise.</p>\r\n\r\n<p>\r\n  <strong>8:00 AM :</strong>&nbsp;Freshen up and have a hearty breakfast.\r\n</p>\r\n\r\n<p><strong>9:00 AM\r\n    :</strong>&nbsp;Head to the Amusement Park for a day of water activities and fun.</p>\r\n\r\n<p><strong>1:00 PM\r\n    :</strong>&nbsp;Lunch at the amusement park.</p>\r\n\r\n<p><strong>2:30 PM :</strong>&nbsp;Depart for Malvanthige\r\n  Estate, a 3-hour journey through scenic ghat roads. Enjoy old songs and stunning views of the Western Ghats.</p>\r\n\r\n\r\n<p><strong>6:00 PM :</strong>&nbsp;Arrival at the campsite. Welcome with a refreshing drink and time to refresh.\r\n</p>\r\n\r\n<p><strong>7:00 PM :</strong>&nbsp;B.B.Q. session with a choice of marinations. Bonfire, music, dance, and\r\n  unlimited fun. Local cuisine dinner under the stars</p>\r\n\r\n<p><strong>10:00 PM :</strong>&nbsp;Sign off for the\r\n  day in the cozy tents.</p>\r\n', '1', '2024-06-22 17:07:48', 1, NULL, NULL, '0', NULL, NULL),
+(50, 15, 2, 'Tea\r\nEstate Walk - Elneer Falls - Kyathanmakki View Point', '<p><strong>Early Morning :&nbsp;</strong>Wake up to the dawn,\r\n  freshen up, and energize with a coffee shot.</p>\r\n\r\n<p><strong>7:00 AM :&nbsp;</strong>Embark on a tea estate walk\r\n  to absorb the fantastic views of the tea estate mountains.</p>\r\n\r\n<p><strong>9:00 AM :&nbsp;</strong>Return for\r\n  breakfast and prepare for a thrilling jeep ride towards Elneer Falls.</p>\r\n\r\n<p><strong>12:00 PM\r\n    :&nbsp;</strong>Enjoy the refreshing waterfalls and proceed to an off-road ride to Kyathanmakki View Point.</p>\r\n\r\n\r\n<p><strong>Afternoon :&nbsp;</strong>Have lunch on the way, capturing the essence of the journey.</p>\r\n\r\n<p>\r\n  <strong>Evening :&nbsp;</strong>Head back to Bangalore, concluding an unforgettable adventure.\r\n</p>\r\n', '1', '2024-06-22 17:07:48', 1, NULL, NULL, '0', NULL, NULL),
+(51, 16, 0, 'Overnight Journey from Bangalore to TB Beach', '<p><strong>7:00 PM :&nbsp;</strong>Depart from Bangalore for TB Beach.\r\n</p>\r\n\r\n<p>Enjoy a road trip filled with lively music and cool breeze.</p>\r\n', '1', '2024-06-22 17:07:48', 1, NULL, NULL, '0', NULL, NULL),
+(52, 16, 1, ' TB Beach - Amusement Park - Malvanthige Estate', '<p><strong>6:00 AM\r\n    :</strong>&nbsp;Arrive at TB Beach. Coffee or tea with tasty bites while enjoying the sunrise.</p>\r\n\r\n<p>\r\n  <strong>8:00 AM :</strong>&nbsp;Freshen up and have a hearty breakfast.\r\n</p>\r\n\r\n<p><strong>9:00 AM\r\n    :</strong>&nbsp;Head to the Amusement Park for a day of water activities and fun.</p>\r\n\r\n<p><strong>1:00 PM\r\n    :</strong>&nbsp;Lunch at the amusement park.</p>\r\n\r\n<p><strong>2:30 PM :</strong>&nbsp;Depart for Malvanthige\r\n  Estate, a 3-hour journey through scenic ghat roads. Enjoy old songs and stunning views of the Western Ghats.</p>\r\n\r\n\r\n<p><strong>6:00 PM :</strong>&nbsp;Arrival at the campsite. Welcome with a refreshing drink and time to refresh.\r\n</p>\r\n\r\n<p><strong>7:00 PM :</strong>&nbsp;B.B.Q. session with a choice of marinations. Bonfire, music, dance, and\r\n  unlimited fun. Local cuisine dinner under the stars</p>\r\n\r\n<p><strong>10:00 PM :</strong>&nbsp;Sign off for the\r\n  day in the cozy tents.</p>\r\n', '1', '2024-06-22 17:07:48', 1, NULL, NULL, '0', NULL, NULL),
+(53, 16, 2, 'Tea\r\nEstate Walk - Elneer Falls - Kyathanmakki View Point', '<p><strong>Early Morning :&nbsp;</strong>Wake up to the dawn,\r\n  freshen up, and energize with a coffee shot.</p>\r\n\r\n<p><strong>7:00 AM :&nbsp;</strong>Embark on a tea estate walk\r\n  to absorb the fantastic views of the tea estate mountains.</p>\r\n\r\n<p><strong>9:00 AM :&nbsp;</strong>Return for\r\n  breakfast and prepare for a thrilling jeep ride towards Elneer Falls.</p>\r\n\r\n<p><strong>12:00 PM\r\n    :&nbsp;</strong>Enjoy the refreshing waterfalls and proceed to an off-road ride to Kyathanmakki View Point.</p>\r\n\r\n\r\n<p><strong>Afternoon :&nbsp;</strong>Have lunch on the way, capturing the essence of the journey.</p>\r\n\r\n<p>\r\n  <strong>Evening :&nbsp;</strong>Head back to Bangalore, concluding an unforgettable adventure.\r\n</p>\r\n', '1', '2024-06-22 17:07:48', 1, NULL, NULL, '0', NULL, NULL),
+(54, 17, 0, 'Overnight Journey from Bangalore to TB Beach', '<p><strong>7:00 PM :&nbsp;</strong>Depart from Bangalore for TB Beach.\r\n</p>\r\n\r\n<p>Enjoy a road trip filled with lively music and cool breeze.</p>\r\n', '1', '2024-06-22 17:07:48', 1, NULL, NULL, '0', NULL, NULL),
+(55, 17, 1, ' TB Beach - Amusement Park - Malvanthige Estate', '<p><strong>6:00 AM\r\n    :</strong>&nbsp;Arrive at TB Beach. Coffee or tea with tasty bites while enjoying the sunrise.</p>\r\n\r\n<p>\r\n  <strong>8:00 AM :</strong>&nbsp;Freshen up and have a hearty breakfast.\r\n</p>\r\n\r\n<p><strong>9:00 AM\r\n    :</strong>&nbsp;Head to the Amusement Park for a day of water activities and fun.</p>\r\n\r\n<p><strong>1:00 PM\r\n    :</strong>&nbsp;Lunch at the amusement park.</p>\r\n\r\n<p><strong>2:30 PM :</strong>&nbsp;Depart for Malvanthige\r\n  Estate, a 3-hour journey through scenic ghat roads. Enjoy old songs and stunning views of the Western Ghats.</p>\r\n\r\n\r\n<p><strong>6:00 PM :</strong>&nbsp;Arrival at the campsite. Welcome with a refreshing drink and time to refresh.\r\n</p>\r\n\r\n<p><strong>7:00 PM :</strong>&nbsp;B.B.Q. session with a choice of marinations. Bonfire, music, dance, and\r\n  unlimited fun. Local cuisine dinner under the stars</p>\r\n\r\n<p><strong>10:00 PM :</strong>&nbsp;Sign off for the\r\n  day in the cozy tents.</p>\r\n', '1', '2024-06-22 17:07:48', 1, NULL, NULL, '0', NULL, NULL),
+(56, 17, 2, 'Tea\r\nEstate Walk - Elneer Falls - Kyathanmakki View Point', '<p><strong>Early Morning :&nbsp;</strong>Wake up to the dawn,\r\n  freshen up, and energize with a coffee shot.</p>\r\n\r\n<p><strong>7:00 AM :&nbsp;</strong>Embark on a tea estate walk\r\n  to absorb the fantastic views of the tea estate mountains.</p>\r\n\r\n<p><strong>9:00 AM :&nbsp;</strong>Return for\r\n  breakfast and prepare for a thrilling jeep ride towards Elneer Falls.</p>\r\n\r\n<p><strong>12:00 PM\r\n    :&nbsp;</strong>Enjoy the refreshing waterfalls and proceed to an off-road ride to Kyathanmakki View Point.</p>\r\n\r\n\r\n<p><strong>Afternoon :&nbsp;</strong>Have lunch on the way, capturing the essence of the journey.</p>\r\n\r\n<p>\r\n  <strong>Evening :&nbsp;</strong>Head back to Bangalore, concluding an unforgettable adventure.\r\n</p>\r\n', '1', '2024-06-22 17:07:48', 1, NULL, NULL, '0', NULL, NULL),
+(57, 18, 0, 'Overnight Journey from Bangalore to TB Beach', '<p><strong>7:00 PM :&nbsp;</strong>Depart from Bangalore for TB Beach.\r\n</p>\r\n\r\n<p>Enjoy a road trip filled with lively music and cool breeze.</p>\r\n', '1', '2024-06-22 17:07:48', 1, NULL, NULL, '0', NULL, NULL),
+(58, 18, 1, ' TB Beach - Amusement Park - Malvanthige Estate', '<p><strong>6:00 AM\r\n    :</strong>&nbsp;Arrive at TB Beach. Coffee or tea with tasty bites while enjoying the sunrise.</p>\r\n\r\n<p>\r\n  <strong>8:00 AM :</strong>&nbsp;Freshen up and have a hearty breakfast.\r\n</p>\r\n\r\n<p><strong>9:00 AM\r\n    :</strong>&nbsp;Head to the Amusement Park for a day of water activities and fun.</p>\r\n\r\n<p><strong>1:00 PM\r\n    :</strong>&nbsp;Lunch at the amusement park.</p>\r\n\r\n<p><strong>2:30 PM :</strong>&nbsp;Depart for Malvanthige\r\n  Estate, a 3-hour journey through scenic ghat roads. Enjoy old songs and stunning views of the Western Ghats.</p>\r\n\r\n\r\n<p><strong>6:00 PM :</strong>&nbsp;Arrival at the campsite. Welcome with a refreshing drink and time to refresh.\r\n</p>\r\n\r\n<p><strong>7:00 PM :</strong>&nbsp;B.B.Q. session with a choice of marinations. Bonfire, music, dance, and\r\n  unlimited fun. Local cuisine dinner under the stars</p>\r\n\r\n<p><strong>10:00 PM :</strong>&nbsp;Sign off for the\r\n  day in the cozy tents.</p>\r\n', '1', '2024-06-22 17:07:48', 1, NULL, NULL, '0', NULL, NULL),
+(59, 18, 2, 'Tea\r\nEstate Walk - Elneer Falls - Kyathanmakki View Point', '<p><strong>Early Morning :&nbsp;</strong>Wake up to the dawn,\r\n  freshen up, and energize with a coffee shot.</p>\r\n\r\n<p><strong>7:00 AM :&nbsp;</strong>Embark on a tea estate walk\r\n  to absorb the fantastic views of the tea estate mountains.</p>\r\n\r\n<p><strong>9:00 AM :&nbsp;</strong>Return for\r\n  breakfast and prepare for a thrilling jeep ride towards Elneer Falls.</p>\r\n\r\n<p><strong>12:00 PM\r\n    :&nbsp;</strong>Enjoy the refreshing waterfalls and proceed to an off-road ride to Kyathanmakki View Point.</p>\r\n\r\n\r\n<p><strong>Afternoon :&nbsp;</strong>Have lunch on the way, capturing the essence of the journey.</p>\r\n\r\n<p>\r\n  <strong>Evening :&nbsp;</strong>Head back to Bangalore, concluding an unforgettable adventure.\r\n</p>\r\n', '1', '2024-06-22 17:07:48', 1, NULL, NULL, '0', NULL, NULL),
+(60, 19, 0, 'Overnight Journey from Bangalore to TB Beach', '<p><strong>7:00 PM :&nbsp;</strong>Depart from Bangalore for TB Beach.\r\n</p>\r\n\r\n<p>Enjoy a road trip filled with lively music and cool breeze.</p>\r\n', '1', '2024-06-22 17:07:48', 1, NULL, NULL, '0', NULL, NULL),
+(61, 19, 1, ' TB Beach - Amusement Park - Malvanthige Estate', '<p><strong>6:00 AM\r\n    :</strong>&nbsp;Arrive at TB Beach. Coffee or tea with tasty bites while enjoying the sunrise.</p>\r\n\r\n<p>\r\n  <strong>8:00 AM :</strong>&nbsp;Freshen up and have a hearty breakfast.\r\n</p>\r\n\r\n<p><strong>9:00 AM\r\n    :</strong>&nbsp;Head to the Amusement Park for a day of water activities and fun.</p>\r\n\r\n<p><strong>1:00 PM\r\n    :</strong>&nbsp;Lunch at the amusement park.</p>\r\n\r\n<p><strong>2:30 PM :</strong>&nbsp;Depart for Malvanthige\r\n  Estate, a 3-hour journey through scenic ghat roads. Enjoy old songs and stunning views of the Western Ghats.</p>\r\n\r\n\r\n<p><strong>6:00 PM :</strong>&nbsp;Arrival at the campsite. Welcome with a refreshing drink and time to refresh.\r\n</p>\r\n\r\n<p><strong>7:00 PM :</strong>&nbsp;B.B.Q. session with a choice of marinations. Bonfire, music, dance, and\r\n  unlimited fun. Local cuisine dinner under the stars</p>\r\n\r\n<p><strong>10:00 PM :</strong>&nbsp;Sign off for the\r\n  day in the cozy tents.</p>\r\n', '1', '2024-06-22 17:07:48', 1, NULL, NULL, '0', NULL, NULL),
+(62, 19, 2, 'Tea\r\nEstate Walk - Elneer Falls - Kyathanmakki View Point', '<p><strong>Early Morning :&nbsp;</strong>Wake up to the dawn,\r\n  freshen up, and energize with a coffee shot.</p>\r\n\r\n<p><strong>7:00 AM :&nbsp;</strong>Embark on a tea estate walk\r\n  to absorb the fantastic views of the tea estate mountains.</p>\r\n\r\n<p><strong>9:00 AM :&nbsp;</strong>Return for\r\n  breakfast and prepare for a thrilling jeep ride towards Elneer Falls.</p>\r\n\r\n<p><strong>12:00 PM\r\n    :&nbsp;</strong>Enjoy the refreshing waterfalls and proceed to an off-road ride to Kyathanmakki View Point.</p>\r\n\r\n\r\n<p><strong>Afternoon :&nbsp;</strong>Have lunch on the way, capturing the essence of the journey.</p>\r\n\r\n<p>\r\n  <strong>Evening :&nbsp;</strong>Head back to Bangalore, concluding an unforgettable adventure.\r\n</p>\r\n', '1', '2024-06-22 17:07:48', 1, NULL, NULL, '0', NULL, NULL),
+(63, 20, 0, 'Overnight Journey from Bangalore to TB Beach', '<p><strong>7:00 PM :&nbsp;</strong>Depart from Bangalore for TB Beach.\r\n</p>\r\n\r\n<p>Enjoy a road trip filled with lively music and cool breeze.</p>\r\n', '1', '2024-06-22 17:07:48', 1, NULL, NULL, '0', NULL, NULL),
+(64, 20, 1, ' TB Beach - Amusement Park - Malvanthige Estate', '<p><strong>6:00 AM\r\n    :</strong>&nbsp;Arrive at TB Beach. Coffee or tea with tasty bites while enjoying the sunrise.</p>\r\n\r\n<p>\r\n  <strong>8:00 AM :</strong>&nbsp;Freshen up and have a hearty breakfast.\r\n</p>\r\n\r\n<p><strong>9:00 AM\r\n    :</strong>&nbsp;Head to the Amusement Park for a day of water activities and fun.</p>\r\n\r\n<p><strong>1:00 PM\r\n    :</strong>&nbsp;Lunch at the amusement park.</p>\r\n\r\n<p><strong>2:30 PM :</strong>&nbsp;Depart for Malvanthige\r\n  Estate, a 3-hour journey through scenic ghat roads. Enjoy old songs and stunning views of the Western Ghats.</p>\r\n\r\n\r\n<p><strong>6:00 PM :</strong>&nbsp;Arrival at the campsite. Welcome with a refreshing drink and time to refresh.\r\n</p>\r\n\r\n<p><strong>7:00 PM :</strong>&nbsp;B.B.Q. session with a choice of marinations. Bonfire, music, dance, and\r\n  unlimited fun. Local cuisine dinner under the stars</p>\r\n\r\n<p><strong>10:00 PM :</strong>&nbsp;Sign off for the\r\n  day in the cozy tents.</p>\r\n', '1', '2024-06-22 17:07:48', 1, NULL, NULL, '0', NULL, NULL),
+(65, 20, 2, 'Tea\r\nEstate Walk - Elneer Falls - Kyathanmakki View Point', '<p><strong>Early Morning :&nbsp;</strong>Wake up to the dawn,\r\n  freshen up, and energize with a coffee shot.</p>\r\n\r\n<p><strong>7:00 AM :&nbsp;</strong>Embark on a tea estate walk\r\n  to absorb the fantastic views of the tea estate mountains.</p>\r\n\r\n<p><strong>9:00 AM :&nbsp;</strong>Return for\r\n  breakfast and prepare for a thrilling jeep ride towards Elneer Falls.</p>\r\n\r\n<p><strong>12:00 PM\r\n    :&nbsp;</strong>Enjoy the refreshing waterfalls and proceed to an off-road ride to Kyathanmakki View Point.</p>\r\n\r\n\r\n<p><strong>Afternoon :&nbsp;</strong>Have lunch on the way, capturing the essence of the journey.</p>\r\n\r\n<p>\r\n  <strong>Evening :&nbsp;</strong>Head back to Bangalore, concluding an unforgettable adventure.\r\n</p>\r\n', '1', '2024-06-22 17:07:48', 1, NULL, NULL, '0', NULL, NULL),
+(66, 21, 0, 'Overnight Journey from Bangalore to TB Beach', '<p><strong>7:00 PM :&nbsp;</strong>Depart from Bangalore for TB Beach.\r\n</p>\r\n\r\n<p>Enjoy a road trip filled with lively music and cool breeze.</p>\r\n', '1', '2024-06-22 17:07:48', 1, NULL, NULL, '0', NULL, NULL),
+(67, 21, 1, ' TB Beach - Amusement Park - Malvanthige Estate', '<p><strong>6:00 AM\r\n    :</strong>&nbsp;Arrive at TB Beach. Coffee or tea with tasty bites while enjoying the sunrise.</p>\r\n\r\n<p>\r\n  <strong>8:00 AM :</strong>&nbsp;Freshen up and have a hearty breakfast.\r\n</p>\r\n\r\n<p><strong>9:00 AM\r\n    :</strong>&nbsp;Head to the Amusement Park for a day of water activities and fun.</p>\r\n\r\n<p><strong>1:00 PM\r\n    :</strong>&nbsp;Lunch at the amusement park.</p>\r\n\r\n<p><strong>2:30 PM :</strong>&nbsp;Depart for Malvanthige\r\n  Estate, a 3-hour journey through scenic ghat roads. Enjoy old songs and stunning views of the Western Ghats.</p>\r\n\r\n\r\n<p><strong>6:00 PM :</strong>&nbsp;Arrival at the campsite. Welcome with a refreshing drink and time to refresh.\r\n</p>\r\n\r\n<p><strong>7:00 PM :</strong>&nbsp;B.B.Q. session with a choice of marinations. Bonfire, music, dance, and\r\n  unlimited fun. Local cuisine dinner under the stars</p>\r\n\r\n<p><strong>10:00 PM :</strong>&nbsp;Sign off for the\r\n  day in the cozy tents.</p>\r\n', '1', '2024-06-22 17:07:48', 1, NULL, NULL, '0', NULL, NULL),
+(68, 21, 2, 'Tea\r\nEstate Walk - Elneer Falls - Kyathanmakki View Point', '<p><strong>Early Morning :&nbsp;</strong>Wake up to the dawn,\r\n  freshen up, and energize with a coffee shot.</p>\r\n\r\n<p><strong>7:00 AM :&nbsp;</strong>Embark on a tea estate walk\r\n  to absorb the fantastic views of the tea estate mountains.</p>\r\n\r\n<p><strong>9:00 AM :&nbsp;</strong>Return for\r\n  breakfast and prepare for a thrilling jeep ride towards Elneer Falls.</p>\r\n\r\n<p><strong>12:00 PM\r\n    :&nbsp;</strong>Enjoy the refreshing waterfalls and proceed to an off-road ride to Kyathanmakki View Point.</p>\r\n\r\n\r\n<p><strong>Afternoon :&nbsp;</strong>Have lunch on the way, capturing the essence of the journey.</p>\r\n\r\n<p>\r\n  <strong>Evening :&nbsp;</strong>Head back to Bangalore, concluding an unforgettable adventure.\r\n</p>\r\n', '1', '2024-06-22 17:07:48', 1, NULL, NULL, '0', NULL, NULL),
+(69, 22, 0, 'Overnight Journey from Bangalore to TB Beach', '<p><strong>7:00 PM :&nbsp;</strong>Depart from Bangalore for TB Beach.\r\n</p>\r\n\r\n<p>Enjoy a road trip filled with lively music and cool breeze.</p>\r\n', '1', '2024-06-22 17:07:48', 1, NULL, NULL, '0', NULL, NULL),
+(70, 22, 1, ' TB Beach - Amusement Park - Malvanthige Estate', '<p><strong>6:00 AM\r\n    :</strong>&nbsp;Arrive at TB Beach. Coffee or tea with tasty bites while enjoying the sunrise.</p>\r\n\r\n<p>\r\n  <strong>8:00 AM :</strong>&nbsp;Freshen up and have a hearty breakfast.\r\n</p>\r\n\r\n<p><strong>9:00 AM\r\n    :</strong>&nbsp;Head to the Amusement Park for a day of water activities and fun.</p>\r\n\r\n<p><strong>1:00 PM\r\n    :</strong>&nbsp;Lunch at the amusement park.</p>\r\n\r\n<p><strong>2:30 PM :</strong>&nbsp;Depart for Malvanthige\r\n  Estate, a 3-hour journey through scenic ghat roads. Enjoy old songs and stunning views of the Western Ghats.</p>\r\n\r\n\r\n<p><strong>6:00 PM :</strong>&nbsp;Arrival at the campsite. Welcome with a refreshing drink and time to refresh.\r\n</p>\r\n\r\n<p><strong>7:00 PM :</strong>&nbsp;B.B.Q. session with a choice of marinations. Bonfire, music, dance, and\r\n  unlimited fun. Local cuisine dinner under the stars</p>\r\n\r\n<p><strong>10:00 PM :</strong>&nbsp;Sign off for the\r\n  day in the cozy tents.</p>\r\n', '1', '2024-06-22 17:07:48', 1, NULL, NULL, '0', NULL, NULL),
+(71, 22, 2, 'Tea\r\nEstate Walk - Elneer Falls - Kyathanmakki View Point', '<p><strong>Early Morning :&nbsp;</strong>Wake up to the dawn,\r\n  freshen up, and energize with a coffee shot.</p>\r\n\r\n<p><strong>7:00 AM :&nbsp;</strong>Embark on a tea estate walk\r\n  to absorb the fantastic views of the tea estate mountains.</p>\r\n\r\n<p><strong>9:00 AM :&nbsp;</strong>Return for\r\n  breakfast and prepare for a thrilling jeep ride towards Elneer Falls.</p>\r\n\r\n<p><strong>12:00 PM\r\n    :&nbsp;</strong>Enjoy the refreshing waterfalls and proceed to an off-road ride to Kyathanmakki View Point.</p>\r\n\r\n\r\n<p><strong>Afternoon :&nbsp;</strong>Have lunch on the way, capturing the essence of the journey.</p>\r\n\r\n<p>\r\n  <strong>Evening :&nbsp;</strong>Head back to Bangalore, concluding an unforgettable adventure.\r\n</p>\r\n', '1', '2024-06-22 17:07:48', 1, NULL, NULL, '0', NULL, NULL),
+(72, 23, 0, 'Overnight Journey from Bangalore to TB Beach', '<p><strong>7:00 PM :&nbsp;</strong>Depart from Bangalore for TB Beach.\r\n</p>\r\n\r\n<p>Enjoy a road trip filled with lively music and cool breeze.</p>\r\n', '1', '2024-06-22 17:07:48', 1, NULL, NULL, '0', NULL, NULL),
+(73, 23, 1, ' TB Beach - Amusement Park - Malvanthige Estate', '<p><strong>6:00 AM\r\n    :</strong>&nbsp;Arrive at TB Beach. Coffee or tea with tasty bites while enjoying the sunrise.</p>\r\n\r\n<p>\r\n  <strong>8:00 AM :</strong>&nbsp;Freshen up and have a hearty breakfast.\r\n</p>\r\n\r\n<p><strong>9:00 AM\r\n    :</strong>&nbsp;Head to the Amusement Park for a day of water activities and fun.</p>\r\n\r\n<p><strong>1:00 PM\r\n    :</strong>&nbsp;Lunch at the amusement park.</p>\r\n\r\n<p><strong>2:30 PM :</strong>&nbsp;Depart for Malvanthige\r\n  Estate, a 3-hour journey through scenic ghat roads. Enjoy old songs and stunning views of the Western Ghats.</p>\r\n\r\n\r\n<p><strong>6:00 PM :</strong>&nbsp;Arrival at the campsite. Welcome with a refreshing drink and time to refresh.\r\n</p>\r\n\r\n<p><strong>7:00 PM :</strong>&nbsp;B.B.Q. session with a choice of marinations. Bonfire, music, dance, and\r\n  unlimited fun. Local cuisine dinner under the stars</p>\r\n\r\n<p><strong>10:00 PM :</strong>&nbsp;Sign off for the\r\n  day in the cozy tents.</p>\r\n', '1', '2024-06-22 17:07:48', 1, NULL, NULL, '0', NULL, NULL),
+(74, 23, 2, 'Tea\r\nEstate Walk - Elneer Falls - Kyathanmakki View Point', '<p><strong>Early Morning :&nbsp;</strong>Wake up to the dawn,\r\n  freshen up, and energize with a coffee shot.</p>\r\n\r\n<p><strong>7:00 AM :&nbsp;</strong>Embark on a tea estate walk\r\n  to absorb the fantastic views of the tea estate mountains.</p>\r\n\r\n<p><strong>9:00 AM :&nbsp;</strong>Return for\r\n  breakfast and prepare for a thrilling jeep ride towards Elneer Falls.</p>\r\n\r\n<p><strong>12:00 PM\r\n    :&nbsp;</strong>Enjoy the refreshing waterfalls and proceed to an off-road ride to Kyathanmakki View Point.</p>\r\n\r\n\r\n<p><strong>Afternoon :&nbsp;</strong>Have lunch on the way, capturing the essence of the journey.</p>\r\n\r\n<p>\r\n  <strong>Evening :&nbsp;</strong>Head back to Bangalore, concluding an unforgettable adventure.\r\n</p>\r\n', '1', '2024-06-22 17:07:48', 1, NULL, NULL, '0', NULL, NULL),
+(75, 24, 0, 'Overnight Journey from Bangalore to TB Beach', '<p><strong>7:00 PM :&nbsp;</strong>Depart from Bangalore for TB Beach.\r\n</p>\r\n\r\n<p>Enjoy a road trip filled with lively music and cool breeze.</p>\r\n', '1', '2024-06-22 17:07:48', 1, NULL, NULL, '0', NULL, NULL),
+(76, 24, 1, ' TB Beach - Amusement Park - Malvanthige Estate', '<p><strong>6:00 AM\r\n    :</strong>&nbsp;Arrive at TB Beach. Coffee or tea with tasty bites while enjoying the sunrise.</p>\r\n\r\n<p>\r\n  <strong>8:00 AM :</strong>&nbsp;Freshen up and have a hearty breakfast.\r\n</p>\r\n\r\n<p><strong>9:00 AM\r\n    :</strong>&nbsp;Head to the Amusement Park for a day of water activities and fun.</p>\r\n\r\n<p><strong>1:00 PM\r\n    :</strong>&nbsp;Lunch at the amusement park.</p>\r\n\r\n<p><strong>2:30 PM :</strong>&nbsp;Depart for Malvanthige\r\n  Estate, a 3-hour journey through scenic ghat roads. Enjoy old songs and stunning views of the Western Ghats.</p>\r\n\r\n\r\n<p><strong>6:00 PM :</strong>&nbsp;Arrival at the campsite. Welcome with a refreshing drink and time to refresh.\r\n</p>\r\n\r\n<p><strong>7:00 PM :</strong>&nbsp;B.B.Q. session with a choice of marinations. Bonfire, music, dance, and\r\n  unlimited fun. Local cuisine dinner under the stars</p>\r\n\r\n<p><strong>10:00 PM :</strong>&nbsp;Sign off for the\r\n  day in the cozy tents.</p>\r\n', '1', '2024-06-22 17:07:48', 1, NULL, NULL, '0', NULL, NULL),
+(77, 24, 2, 'Tea\r\nEstate Walk - Elneer Falls - Kyathanmakki View Point', '<p><strong>Early Morning :&nbsp;</strong>Wake up to the dawn,\r\n  freshen up, and energize with a coffee shot.</p>\r\n\r\n<p><strong>7:00 AM :&nbsp;</strong>Embark on a tea estate walk\r\n  to absorb the fantastic views of the tea estate mountains.</p>\r\n\r\n<p><strong>9:00 AM :&nbsp;</strong>Return for\r\n  breakfast and prepare for a thrilling jeep ride towards Elneer Falls.</p>\r\n\r\n<p><strong>12:00 PM\r\n    :&nbsp;</strong>Enjoy the refreshing waterfalls and proceed to an off-road ride to Kyathanmakki View Point.</p>\r\n\r\n\r\n<p><strong>Afternoon :&nbsp;</strong>Have lunch on the way, capturing the essence of the journey.</p>\r\n\r\n<p>\r\n  <strong>Evening :&nbsp;</strong>Head back to Bangalore, concluding an unforgettable adventure.\r\n</p>\r\n', '1', '2024-06-22 17:07:48', 1, NULL, NULL, '0', NULL, NULL),
+(78, 25, 1, 'Overnight Journey from Bangalore to TB Beach', '', '1', '2024-06-24 15:34:37', 1, NULL, NULL, '0', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1828,7 +2377,29 @@ CREATE TABLE `users_role_master` (
 INSERT INTO `users_role_master` (`user_role_id`, `user_role_name`, `added_on`, `added_by`, `updated_on`, `updated_by`, `status`) VALUES
 (1, 'Super User', '2020-04-20 13:02:15', 1, '2023-11-22 19:27:00', 1, 1),
 (3, 'Product Data Entry', '2022-11-26 18:14:31', 1, NULL, NULL, 1),
-(4, 'products manager', '2023-12-21 18:18:17', 1, NULL, NULL, 1);
+(4, 'products manager', '2023-12-21 18:18:17', 1, NULL, NULL, 1),
+(5, 'Sale Executive', '2024-06-26 16:38:26', 1, NULL, NULL, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `video`
+--
+
+CREATE TABLE `video` (
+  `video_id` int(11) NOT NULL,
+  `position` int(10) DEFAULT 99999999,
+  `file_title` varchar(255) DEFAULT NULL,
+  `file` varchar(255) DEFAULT NULL,
+  `status` char(1) DEFAULT '1',
+  `added_on` datetime DEFAULT current_timestamp(),
+  `added_by` int(11) DEFAULT NULL,
+  `updated_on` datetime DEFAULT NULL ON UPDATE current_timestamp(),
+  `updated_by` int(11) DEFAULT NULL,
+  `is_deleted` char(1) DEFAULT '0',
+  `is_deleted_on` datetime DEFAULT NULL,
+  `is_deleted_by` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Indexes for dumped tables
@@ -1851,6 +2422,12 @@ ALTER TABLE `admin_user_file`
 --
 ALTER TABLE `admin_user_role`
   ADD PRIMARY KEY (`admin_user_role`);
+
+--
+-- Indexes for table `carousel_image`
+--
+ALTER TABLE `carousel_image`
+  ADD PRIMARY KEY (`carousel_image_id`);
 
 --
 -- Indexes for table `city`
@@ -1890,6 +2467,12 @@ ALTER TABLE `designation_master`
   ADD PRIMARY KEY (`designation_id`);
 
 --
+-- Indexes for table `enquiry`
+--
+ALTER TABLE `enquiry`
+  ADD PRIMARY KEY (`enquiry_id`);
+
+--
 -- Indexes for table `fiscal_year`
 --
 ALTER TABLE `fiscal_year`
@@ -1900,6 +2483,12 @@ ALTER TABLE `fiscal_year`
 --
 ALTER TABLE `gallery`
   ADD PRIMARY KEY (`gallery_id`);
+
+--
+-- Indexes for table `gallery_image`
+--
+ALTER TABLE `gallery_image`
+  ADD PRIMARY KEY (`gallery_image_id`);
 
 --
 -- Indexes for table `module_master`
@@ -1926,22 +2515,40 @@ ALTER TABLE `things_to_carry`
   ADD PRIMARY KEY (`things_to_carry_id`);
 
 --
--- Indexes for table `tour_plans`
+-- Indexes for table `tour`
 --
-ALTER TABLE `tour_plans`
-  ADD PRIMARY KEY (`tour_plan_id`);
+ALTER TABLE `tour`
+  ADD PRIMARY KEY (`tour_id`);
 
 --
--- Indexes for table `upcoming_tours`
+-- Indexes for table `tour_booking_enquiry`
 --
-ALTER TABLE `upcoming_tours`
-  ADD PRIMARY KEY (`upcoming_tour_id`);
+ALTER TABLE `tour_booking_enquiry`
+  ADD PRIMARY KEY (`tour_booking_enquiry_id`);
+
+--
+-- Indexes for table `tour_date`
+--
+ALTER TABLE `tour_date`
+  ADD PRIMARY KEY (`tour_date_id`);
+
+--
+-- Indexes for table `tour_plan`
+--
+ALTER TABLE `tour_plan`
+  ADD PRIMARY KEY (`tour_plan_id`);
 
 --
 -- Indexes for table `users_role_master`
 --
 ALTER TABLE `users_role_master`
   ADD PRIMARY KEY (`user_role_id`);
+
+--
+-- Indexes for table `video`
+--
+ALTER TABLE `video`
+  ADD PRIMARY KEY (`video_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -1951,7 +2558,7 @@ ALTER TABLE `users_role_master`
 -- AUTO_INCREMENT for table `admin_user`
 --
 ALTER TABLE `admin_user`
-  MODIFY `admin_user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `admin_user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `admin_user_file`
@@ -1963,7 +2570,13 @@ ALTER TABLE `admin_user_file`
 -- AUTO_INCREMENT for table `admin_user_role`
 --
 ALTER TABLE `admin_user_role`
-  MODIFY `admin_user_role` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `admin_user_role` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- AUTO_INCREMENT for table `carousel_image`
+--
+ALTER TABLE `carousel_image`
+  MODIFY `carousel_image_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
 
 --
 -- AUTO_INCREMENT for table `city`
@@ -1993,7 +2606,13 @@ ALTER TABLE `currency`
 -- AUTO_INCREMENT for table `designation_master`
 --
 ALTER TABLE `designation_master`
-  MODIFY `designation_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `designation_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `enquiry`
+--
+ALTER TABLE `enquiry`
+  MODIFY `enquiry_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT for table `fiscal_year`
@@ -2005,19 +2624,25 @@ ALTER TABLE `fiscal_year`
 -- AUTO_INCREMENT for table `gallery`
 --
 ALTER TABLE `gallery`
-  MODIFY `gallery_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `gallery_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `gallery_image`
+--
+ALTER TABLE `gallery_image`
+  MODIFY `gallery_image_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
 
 --
 -- AUTO_INCREMENT for table `module_master`
 --
 ALTER TABLE `module_master`
-  MODIFY `module_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=195;
+  MODIFY `module_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=201;
 
 --
 -- AUTO_INCREMENT for table `module_permissions`
 --
 ALTER TABLE `module_permissions`
-  MODIFY `permission_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=203;
+  MODIFY `permission_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=211;
 
 --
 -- AUTO_INCREMENT for table `state`
@@ -2029,25 +2654,43 @@ ALTER TABLE `state`
 -- AUTO_INCREMENT for table `things_to_carry`
 --
 ALTER TABLE `things_to_carry`
-  MODIFY `things_to_carry_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `things_to_carry_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=165;
 
 --
--- AUTO_INCREMENT for table `tour_plans`
+-- AUTO_INCREMENT for table `tour`
 --
-ALTER TABLE `tour_plans`
-  MODIFY `tour_plan_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+ALTER TABLE `tour`
+  MODIFY `tour_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
--- AUTO_INCREMENT for table `upcoming_tours`
+-- AUTO_INCREMENT for table `tour_booking_enquiry`
 --
-ALTER TABLE `upcoming_tours`
-  MODIFY `upcoming_tour_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+ALTER TABLE `tour_booking_enquiry`
+  MODIFY `tour_booking_enquiry_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `tour_date`
+--
+ALTER TABLE `tour_date`
+  MODIFY `tour_date_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
+
+--
+-- AUTO_INCREMENT for table `tour_plan`
+--
+ALTER TABLE `tour_plan`
+  MODIFY `tour_plan_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
 
 --
 -- AUTO_INCREMENT for table `users_role_master`
 --
 ALTER TABLE `users_role_master`
-  MODIFY `user_role_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `user_role_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `video`
+--
+ALTER TABLE `video`
+  MODIFY `video_id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

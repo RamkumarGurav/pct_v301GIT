@@ -9,13 +9,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="<? echo _lte_files_ ?>plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="<?php echo _lte_files_ ?>plugins/fontawesome-free/css/all.min.css">
   <!-- Ionicons -->
-  <link rel="stylesheet" href="<? echo _lte_files_ ?>dist/css/ionicons.min.css">
+  <link rel="stylesheet" href="<?php echo _lte_files_ ?>dist/css/ionicons.min.css">
   <!-- icheck bootstrap -->
-  <link rel="stylesheet" href="<? echo _lte_files_ ?>plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <link rel="stylesheet" href="<?php echo _lte_files_ ?>plugins/icheck-bootstrap/icheck-bootstrap.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="<? echo _lte_files_ ?>dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="<?php echo _lte_files_ ?>dist/css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
@@ -23,7 +23,7 @@
 <body class="hold-transition login-page">
   <div class="login-box">
     <div class="login-logo">
-      <!-- <a href="<? echo _lte_files_ ?>index2.html"><?php echo _project_complete_name_ ?></a> -->
+      <!-- <a href="<?php echo _lte_files_ ?>index2.html"><?php echo _project_complete_name_ ?></a> -->
       <img src="<?php echo MAINSITE . "assets/admin/images/logo.png" ?>" style="height:90px">
     </div>
     <!-- /.login-logo -->
@@ -93,7 +93,7 @@
           <!-- /.col -->
         </div>
         <?php echo form_close() ?>
-        <? /* ?>
+        <?php /* ?>
 <div class="social-auth-links text-center mb-3">
 <p>- OR -</p>
 <a href="#" class="btn btn-block btn-primary">
@@ -115,15 +115,15 @@
 <!-- /.login-card-body -->
 </div>
 </div>
-<? */ ?>
+<?php */ ?>
         <!-- /.login-box -->
 
         <!-- jQuery -->
-        <script src="<? echo _lte_files_ ?>plugins/jquery/jquery.min.js"></script>
+        <script src="<?php echo _lte_files_ ?>plugins/jquery/jquery.min.js"></script>
         <!-- Bootstrap 4 -->
-        <script src="<? echo _lte_files_ ?>plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="<?php echo _lte_files_ ?>plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
         <!-- AdminLTE App -->
-        <script src="<? echo _lte_files_ ?>dist/js/adminlte.min.js"></script>
+        <script src="<?php echo _lte_files_ ?>dist/js/adminlte.min.js"></script>
 
 </body>
 

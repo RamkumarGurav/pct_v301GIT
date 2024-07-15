@@ -1,7 +1,7 @@
 <?php
 $page_module_name = "Enquiry";
 ?>
-<?
+<?php
 $enquiry_date_input = date('d-m-Y');
 $enquiry_id = 0;
 // $tour_id = 0;
@@ -41,19 +41,19 @@ if (!empty($enquiry_data)) {
 		<div class="container-fluid">
 			<div class="row mb-2">
 				<div class="col-sm-6">
-					<h1 class="m-0 text-dark"><?= $page_module_name ?> </small></h1>
+					<h1 class="m-0 text-dark"><?php echo $page_module_name ?> </small></h1>
 				</div><!-- /.col -->
 				<div class="col-sm-6">
 					<ol class="breadcrumb float-sm-right">
-						<li class="breadcrumb-item"><a href="<?= MAINSITE_Admin . "wam" ?>">Home</a></li>
+						<li class="breadcrumb-item"><a href="<?php echo MAINSITE_Admin . "wam" ?>">Home</a></li>
 						<li class="breadcrumb-item"><a
-								href="<?= MAINSITE_Admin . $user_access->class_name . "/" . $user_access->function_name ?>"><?= $user_access->module_name ?>
+								href="<?php echo MAINSITE_Admin . $user_access->class_name . "/" . $user_access->function_name ?>"><?php echo $user_access->module_name ?>
 								List</a></li>
-						<? if (!empty($enquiry_data)) { ?>
+						<?php if (!empty($enquiry_data)) { ?>
 							<li class="breadcrumb-item"><a
-									href="<?= MAINSITE_Admin . $user_access->class_name . "/view/" . $enquiry_id ?>">View</a></li>
-						<? } ?>
-						<li class="breadcrumb-item"><?= $record_action ?></li>
+									href="<?php echo MAINSITE_Admin . $user_access->class_name . "/view/" . $enquiry_id ?>">View</a></li>
+						<?php } ?>
+						<li class="breadcrumb-item"><?php echo $record_action ?></li>
 					</ol>
 				</div><!-- /.col -->
 			</div><!-- /.row -->
@@ -62,7 +62,7 @@ if (!empty($enquiry_data)) {
 	<!-- /.content-header -->
 
 	<!-- Main content -->
-	<? ?>
+	<?php ?>
 	<section class="content">
 		<div class="row">
 			<div class="col-12">
@@ -70,19 +70,19 @@ if (!empty($enquiry_data)) {
 				<div class="card">
 
 					<div class="card-header">
-						<h3 class="card-title"> <small><?= $record_action ?></small></h3>
+						<h3 class="card-title"> <small><?php echo $record_action ?></small></h3>
 					</div>
 					<!-- /.card-header -->
 					<?php
 					if ($user_access->view_module == 1 || true) {
 						?>
-						<? echo $this->session->flashdata('alert_message'); ?>
+						<?php echo $this->session->flashdata('alert_message'); ?>
 						<div class="card-body">
 							<?php echo form_open(MAINSITE_Admin . "$user_access->class_name/doEdit", array('method' => 'post', 'id' => 'enquiry_form', "name" => "enquiry_form", 'style' => '', 'class' => 'form-horizontal', 'role' => 'form', 'enctype' => 'multipart/form-data', 'onsubmit' => 'return validateForm()')); ?>
 
-							<input type="hidden" name="enquiry_id" id="enquiry_id" value="<?= $enquiry_id ?>" />
-							<!-- <input type="hidden" name="tour_id" id="tour_id" value="<?= $tour_id ?>" /> -->
-							<!-- <input type="hidden" name="tour_date_id" id="tour_date_id" value="<?= $tour_date_id ?>" /> -->
+							<input type="hidden" name="enquiry_id" id="enquiry_id" value="<?php echo $enquiry_id ?>" />
+							<!-- <input type="hidden" name="tour_id" id="tour_id" value="<?php echo $tour_id ?>" /> -->
+							<!-- <input type="hidden" name="tour_date_id" id="tour_date_id" value="<?php echo $tour_date_id ?>" /> -->
 							<input type="hidden" name="redirect_type" id="redirect_type" value="" />
 							<input type="hidden" name="approval_access" value="0">
 
@@ -93,8 +93,8 @@ if (!empty($enquiry_data)) {
 											style="color:#f00;font-size: 22px;margin-top: 3px;">*</span></label>
 									<div class="col-sm-12">
 										<div class="input-group date enquiry_date_input" id="enquiry_date_input" data-target-input="nearest">
-											<input type="text" readonly="readonly" value="<?= $enquiry_date_input ?>" name="enquiry_date"
-												id="enquiry_date" placeholder="Joining Date" style="width: 100%;"
+											<input type="text" readonly="readonly" value="<?php echo $enquiry_date_input ?>"
+												name="enquiry_date" id="enquiry_date" placeholder="Joining Date" style="width: 100%;"
 												class="form-control datetimepicker-input width100 form-control-sm"
 												data-target="#enquiry_date_input" />
 											<div class="input-group-append" data-target="#enquiry_date_input" data-toggle="datetimepicker">
@@ -118,7 +118,7 @@ if (!empty($enquiry_data)) {
 											style="color:#f00;font-size: 22px;margin-top: 3px;">*</span></label>
 									<div class="col-sm-12">
 										<input type="text" class="form-control form-control-sm" required id="name" name="name"
-											value="<?= $name ?>" placeholder="Name">
+											value="<?php echo $name ?>" placeholder="Name">
 									</div>
 								</div>
 
@@ -127,7 +127,7 @@ if (!empty($enquiry_data)) {
 											style="color:#f00;font-size: 22px;margin-top: 3px;">*</span></label>
 									<div class="col-sm-12">
 										<input type="email" class="form-control form-control-sm" required id="email" name="email"
-											value="<?= $email ?>" placeholder="Email">
+											value="<?php echo $email ?>" placeholder="Email">
 									</div>
 								</div>
 
@@ -136,7 +136,7 @@ if (!empty($enquiry_data)) {
 											style="color:#f00;font-size: 22px;margin-top: 3px;">*</span></label>
 									<div class="col-sm-12">
 										<input type="number" class="form-control form-control-sm" pattern="[0-9]{8,15}" required
-											id="contactno" name="contactno" value="<?= $contactno ?>" placeholder="Mobile No.">
+											id="contactno" name="contactno" value="<?php echo $contactno ?>" placeholder="Mobile No.">
 									</div>
 								</div>
 
@@ -154,7 +154,7 @@ if (!empty($enquiry_data)) {
 											style="color:#f00;font-size: 22px;margin-top: 3px;">*</span></label>
 									<div class="col-sm-12">
 										<input type="text" class="form-control form-control-sm" required id="subject" name="subject"
-											value="<?= $subject ?>" placeholder="Subject">
+											value="<?php echo $subject ?>" placeholder="Subject">
 									</div>
 								</div>
 								<div class="col-lg-5 col-md-5 col-sm-6">
@@ -162,8 +162,8 @@ if (!empty($enquiry_data)) {
 											style="color:#f00;font-size: 22px;margin-top: 3px;">*</span></label>
 									<div class="col-sm-12">
 										<textarea type="text" cols="5" rows="5" class="form-control form-control-sm" required id="description"
-											name="description" value="<?= $description ?>"
-											placeholder="Description"> <?= $description ?></textarea>
+											name="description" value="<?php echo $description ?>"
+											placeholder="Description"> <?php echo $description ?></textarea>
 
 									</div>
 								</div>
@@ -172,7 +172,7 @@ if (!empty($enquiry_data)) {
 											style="color:#f00;font-size: 22px;margin-top: 3px;">*</span></label>
 									<div class="col-sm-12">
 										<input type="text" readonly class="form-control form-control-sm" required id="tour_id" name="tour_id"
-											value="<?= $tour_id ?>" placeholder="Tour_id">
+											value="<?php echo $tour_id ?>" placeholder="Tour_id">
 									</div>
 								</div>
 								<div class="col-lg-3 col-md-4 col-sm-6">
@@ -180,7 +180,7 @@ if (!empty($enquiry_data)) {
 											style="color:#f00;font-size: 22px;margin-top: 3px;">*</span></label>
 									<div class="col-sm-12">
 										<input type="text" readonly class="form-control form-control-sm" required id="tour_date_id"
-											name="tour_date_id" value="<?= $tour_date_id ?>" placeholder="Tour_date_id">
+											name="tour_date_id" value="<?php echo $tour_date_id ?>" placeholder="Tour_date_id">
 									</div>
 								</div> -->
 
@@ -203,7 +203,7 @@ if (!empty($enquiry_data)) {
 										<div class="form-check" style="margin-top:12px">
 											<div class="form-group clearfix">
 												<div class="icheck-success d-inline">
-													<input type="radio" name="status" <? if ($status == 1) {
+													<input type="radio" name="status" <?php if ($status == 1) {
 														echo "checked";
 													} ?> value="1"
 														id="radioSuccess1">
@@ -212,7 +212,7 @@ if (!empty($enquiry_data)) {
 												</div>
 												&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 												<div class="icheck-danger d-inline">
-													<input type="radio" name="status" <? if ($status != 1) {
+													<input type="radio" name="status" <?php if ($status != 1) {
 														echo "checked";
 													} ?> value="0"
 														id="radioSuccess2">
@@ -239,7 +239,7 @@ if (!empty($enquiry_data)) {
 							<?php echo form_close() ?>
 							</table>
 						</div>
-					<? } else {
+					<?php } else {
 						$this->data['no_access_flash_message'] = "You Dont Have Access To View " . $page_module_name;
 						$this->load->view('admin/template/access_denied', $this->data);
 					} ?>
@@ -250,7 +250,7 @@ if (!empty($enquiry_data)) {
 
 
 	</section>
-	<? ?>
+	<?php ?>
 </div>
 
 

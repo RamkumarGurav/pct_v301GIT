@@ -1,7 +1,7 @@
 <?php
 $page_module_name = "Role Master";
 ?>
-<?
+<?php
 $user_role_name = "";
 $user_role_id = 0;
 $status = 1;
@@ -26,20 +26,26 @@ if (!empty($users_role_master_data)) {
 		<div class="container-fluid">
 			<div class="row mb-2">
 				<div class="col-sm-6">
-					<h1 class="m-0 text-dark"><?= $page_module_name ?> </small></h1>
+					<h1 class="m-0 text-dark">
+						<?php echo $page_module_name ?> </small>
+					</h1>
 				</div><!-- /.col -->
 				<div class="col-sm-6">
 					<ol class="breadcrumb float-sm-right">
-						<li class="breadcrumb-item"><a href="<?= MAINSITE_Admin . "wam" ?>">Home</a></li>
+						<li class="breadcrumb-item"><a href="<?php echo MAINSITE_Admin . "wam" ?>">Home</a></li>
 						<li class="breadcrumb-item"><a
-								href="<?= MAINSITE_Admin . $user_access->class_name . "/" . $user_access->function_name ?>"><?= $user_access->module_name ?>
-								List</a></li>
-						<? if (!empty($users_role_master_data)) { ?>
+								href="<?php echo MAINSITE_Admin . $user_access->class_name . "/" . $user_access->function_name ?>">
+								<?php echo $user_access->module_name ?>
+								List
+							</a></li>
+						<?php if (!empty($users_role_master_data)) { ?>
 							<li class="breadcrumb-item"><a
-									href="<?= MAINSITE_Admin . $user_access->class_name . "/role_manager_view/" . $user_role_id ?>">View</a>
+									href="<?php echo MAINSITE_Admin . $user_access->class_name . "/role_manager_view/" . $user_role_id ?>">View</a>
 							</li>
-						<? } ?>
-						<li class="breadcrumb-item"><?= $record_action ?></li>
+						<?php } ?>
+						<li class="breadcrumb-item">
+							<?php echo $record_action ?>
+						</li>
 					</ol>
 				</div><!-- /.col -->
 			</div><!-- /.row -->
@@ -48,7 +54,8 @@ if (!empty($users_role_master_data)) {
 	<!-- /.content-header -->
 
 	<!-- Main content -->
-	<? ?>
+	<?php ?>
+
 	<section class="content">
 		<div class="row">
 			<div class="col-12">
@@ -56,18 +63,21 @@ if (!empty($users_role_master_data)) {
 				<div class="card">
 
 					<div class="card-header">
-						<h3 class="card-title"><?= $user_role_name ?> <small><?= $record_action ?></h3>
+						<h3 class="card-title">
+							<?php echo $user_role_name ?> <small>
+								<?php echo $record_action ?>
+						</h3>
 					</div>
 					<!-- /.card-header -->
 					<?php
 					if ($user_access->view_module == 1 || true) {
 						?>
-						<? echo $this->session->flashdata('alert_message'); ?>
+						<?php echo $this->session->flashdata('alert_message'); ?>
 						<div class="card-body">
 
 							<?php echo form_open(MAINSITE_Admin . "$user_access->class_name/userRoleDoEdit", array('method' => 'post', 'id' => 'ptype_list_form', "name" => "ptype_list_form", 'style' => '', 'class' => 'form-horizontal', 'role' => 'form', 'enctype' => 'multipart/form-data')); ?>
 
-							<input type="hidden" name="user_role_id" id="user_role_id" value="<?= $user_role_id ?>" />
+							<input type="hidden" name="user_role_id" id="user_role_id" value="<?php echo $user_role_id ?>" />
 							<input type="hidden" name="redirect_type" id="redirect_type" value="" />
 
 							<div class="card-body">
@@ -75,7 +85,7 @@ if (!empty($users_role_master_data)) {
 									<label for="inputEmail3" class="col-sm-2 col-form-label-lg">User Role Name </label>
 									<div class="col-sm-10">
 										<input type="text" class="form-control" required id="user_role_name" name="user_role_name"
-											value="<?= $user_role_name ?>" placeholder="User Role Name">
+											value="<?php echo $user_role_name ?>" placeholder="User Role Name">
 										<span style="color:#f00;font-size: 22px;margin-top: 3px;">*</span>
 									</div>
 								</div>
@@ -89,21 +99,21 @@ if (!empty($users_role_master_data)) {
 												<th>View</th>
 												<th>Add</th>
 												<th>Update</th>
-												<? /* ?><th>Delete</th>
-																							<th>Approval</th><? */ ?>
+												<?php   /* ?><th>Delete</th>
+																											<th>Approval</th><?php   */ ?>
 												<th>Import</th>
 												<th>Export</th>
 											</tr>
 										</thead>
 										<tbody>
-											<?
+											<?php
 											$count = 0;
 
 											foreach ($module_data as $md) {
 												$count++;
 												?>
 
-												<?
+												<?php
 												$all_checked = $view_checked = $add_checked = $update_checked = $delete_checked = $approval_checked = $import_checked = $export_checked = '';
 												if (!empty($module_permission_data)) {
 													foreach ($module_permission_data as $mpd) {
@@ -154,47 +164,58 @@ if (!empty($users_role_master_data)) {
 
 
 												<tr>
-													<td><?= $count ?>.</td>
-													<td><?= $md->module_name ?> [ <?= $master_name[$md->is_master] ?> ]</td>
 													<td>
-														<input type="checkbox" value="<?= $md->module_id ?>" name="module_ids[]"
-															class="module_all m_check_all_<?= $md->module_id ?>" data-module_id="<?= $md->module_id ?>"
-															<?= $all_checked ?> data-bootstrap-switch data-off-color="danger" data-on-color="success"
-															data-on-text="Yes" data-off-text="No">
+														<?php echo $count ?>.
 													</td>
 													<td>
-														<input type="checkbox" value="1" name="view_<?= $md->module_id ?>"
-															class="module_field m_check_field_<?= $md->module_id ?>"
-															data-module_id="<?= $md->module_id ?>" <?= $view_checked ?> data-bootstrap-switch
-															data-off-color="danger" data-on-color="success" data-on-text="Yes" data-off-text="No">
+														<?php echo $md->module_name ?> [
+														<?php echo $master_name[$md->is_master] ?> ]
 													</td>
 													<td>
-														<input type="checkbox" value="1" name="add_<?= $md->module_id ?>"
-															class="module_field m_check_field_<?= $md->module_id ?>"
-															data-module_id="<?= $md->module_id ?>" <?= $add_checked ?> data-bootstrap-switch
-															data-off-color="danger" data-on-color="success" data-on-text="Yes" data-off-text="No">
+														<input type="checkbox" value="<?php echo $md->module_id ?>" name="module_ids[]"
+															class="module_all m_check_all_<?php echo $md->module_id ?>"
+															data-module_id="<?php echo $md->module_id ?>" <?php echo $all_checked ?>
+															data-bootstrap-switch data-off-color="danger" data-on-color="success" data-on-text="Yes"
+															data-off-text="No">
 													</td>
 													<td>
-														<input type="checkbox" value="1" name="update_<?= $md->module_id ?>"
-															class="module_field m_check_field_<?= $md->module_id ?>"
-															data-module_id="<?= $md->module_id ?>" <?= $update_checked ?> data-bootstrap-switch
-															data-off-color="danger" data-on-color="success" data-on-text="Yes" data-off-text="No">
+														<input type="checkbox" value="1" name="view_<?php echo $md->module_id ?>"
+															class="module_field m_check_field_<?php echo $md->module_id ?>"
+															data-module_id="<?php echo $md->module_id ?>" <?php echo $view_checked ?>
+															data-bootstrap-switch data-off-color="danger" data-on-color="success" data-on-text="Yes"
+															data-off-text="No">
+													</td>
+													<td>
+														<input type="checkbox" value="1" name="add_<?php echo $md->module_id ?>"
+															class="module_field m_check_field_<?php echo $md->module_id ?>"
+															data-module_id="<?php echo $md->module_id ?>" <?php echo $add_checked ?>
+															data-bootstrap-switch data-off-color="danger" data-on-color="success" data-on-text="Yes"
+															data-off-text="No">
+													</td>
+													<td>
+														<input type="checkbox" value="1" name="update_<?php echo $md->module_id ?>"
+															class="module_field m_check_field_<?php echo $md->module_id ?>"
+															data-module_id="<?php echo $md->module_id ?>" <?php echo $update_checked ?>
+															data-bootstrap-switch data-off-color="danger" data-on-color="success" data-on-text="Yes"
+															data-off-text="No">
 													</td>
 
 													<td>
-														<input type="checkbox" value="1" name="import_<?= $md->module_id ?>"
-															class="module_field m_check_field_<?= $md->module_id ?>"
-															data-module_id="<?= $md->module_id ?>" <?= $import_checked ?> data-bootstrap-switch
-															data-off-color="danger" data-on-color="success" data-on-text="Yes" data-off-text="No">
+														<input type="checkbox" value="1" name="import_<?php echo $md->module_id ?>"
+															class="module_field m_check_field_<?php echo $md->module_id ?>"
+															data-module_id="<?php echo $md->module_id ?>" <?php echo $import_checked ?>
+															data-bootstrap-switch data-off-color="danger" data-on-color="success" data-on-text="Yes"
+															data-off-text="No">
 													</td>
 													<td>
-														<input type="checkbox" value="1" name="export_<?= $md->module_id ?>"
-															class="module_field m_check_field_<?= $md->module_id ?>"
-															data-module_id="<?= $md->module_id ?>" <?= $export_checked ?> data-bootstrap-switch
-															data-off-color="danger" data-on-color="success" data-on-text="Yes" data-off-text="No">
+														<input type="checkbox" value="1" name="export_<?php echo $md->module_id ?>"
+															class="module_field m_check_field_<?php echo $md->module_id ?>"
+															data-module_id="<?php echo $md->module_id ?>" <?php echo $export_checked ?>
+															data-bootstrap-switch data-off-color="danger" data-on-color="success" data-on-text="Yes"
+															data-off-text="No">
 													</td>
 												</tr>
-											<? } ?>
+											<?php } ?>
 										</tbody>
 									</table>
 								</div>
@@ -206,7 +227,7 @@ if (!empty($users_role_master_data)) {
 										<div class="form-check" style="margin-top:12px">
 											<div class="form-group clearfix">
 												<div class="icheck-success d-inline">
-													<input type="radio" name="status" <? if ($status == 1) {
+													<input type="radio" name="status" <?php if ($status == 1) {
 														echo "checked";
 													} ?> value="1"
 														id="radioSuccess1">
@@ -215,7 +236,7 @@ if (!empty($users_role_master_data)) {
 												</div>
 												&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 												<div class="icheck-danger d-inline">
-													<input type="radio" name="status" <? if ($status != 1) {
+													<input type="radio" name="status" <?php if ($status != 1) {
 														echo "checked";
 													} ?> value="0"
 														id="radioSuccess2">
@@ -242,7 +263,7 @@ if (!empty($users_role_master_data)) {
 							<?php echo form_close() ?>
 							</table>
 						</div>
-					<? } else {
+					<?php } else {
 						$this->data['no_access_flash_message'] = "You Dont Have Access To View " . $page_module_name;
 						$this->load->view('admin/template/access_denied', $this->data);
 					} ?>
@@ -253,7 +274,8 @@ if (!empty($users_role_master_data)) {
 
 
 	</section>
-	<? ?>
+	<?php ?>
+
 </div>
 
 <aside class="control-sidebar control-sidebar-dark">

@@ -16,12 +16,13 @@ if (!empty($append_id_tdate)) {
 
   <!-- Table cell for the name input -->
   <td>
-    <div class="input-group date joining_date_input" id="joining_date_input<?= $id_tdate ?>"
+    <div class="input-group date joining_date_input" id="joining_date_input<?php echo $id_tdate ?>"
       data-target-input="nearest">
-      <input type="text" name="start_date_tdate[]" id="start_date_tdate<?= $id_tdate ?>" placeholder="Start Date"
-        style="width: 100%;" class="form-control datetimepicker-input width100 form-control-sm"
-        data-target="#joining_date_input<?= $id_tdate ?>" />
-      <div class="input-group-append" data-target="#joining_date_input<?= $id_tdate ?>" data-toggle="datetimepicker">
+      <input type="text" name="start_date_tdate[]" id="start_date_tdate<?php echo $id_tdate ?>"
+        placeholder="Start Date" style="width: 100%;" class="form-control datetimepicker-input width100 form-control-sm"
+        data-target="#joining_date_input<?php echo $id_tdate ?>" />
+      <div class="input-group-append" data-target="#joining_date_input<?php echo $id_tdate ?>"
+        data-toggle="datetimepicker">
         <div class="input-group-text"><i class="fa fa-calendar"></i></div>
       </div>
 
@@ -30,11 +31,13 @@ if (!empty($append_id_tdate)) {
   </td>
 
   <td>
-    <div class="input-group date end_date_input" id="end_date_input<?= $id_tdate ?>" data-target-input="nearest">
-      <input type="text" name="end_date_tdate[]" id="end_date_tdate<?= $id_tdate ?>" placeholder="End Date"
+    <div class="input-group date end_date_input" id="end_date_input<?php echo $id_tdate ?>"
+      data-target-input="nearest">
+      <input type="text" name="end_date_tdate[]" id="end_date_tdate<?php echo $id_tdate ?>" placeholder="End Date"
         style="width: 100%;" class="form-control datetimepicker-input width100 form-control-sm"
-        data-target="#end_date_input<?= $id_tdate ?>" />
-      <div class="input-group-append" data-target="#end_date_input<?= $id_tdate ?>" data-toggle="datetimepicker">
+        data-target="#end_date_input<?php echo $id_tdate ?>" />
+      <div class="input-group-append" data-target="#end_date_input<?php echo $id_tdate ?>"
+        data-toggle="datetimepicker">
         <div class="input-group-text"><i class="fa fa-calendar"></i></div>
       </div>
 
@@ -42,7 +45,7 @@ if (!empty($append_id_tdate)) {
 
   </td>
   <td>
-    <input type="text" name="price_tdate[]" id="price_tdate_<?= $id_tdate ?>" placeholder="Price"
+    <input type="text" name="price_tdate[]" id="price_tdate_<?php echo $id_tdate ?>" placeholder="Price"
       class="form-control search-code form-control-sm" />
   </td>
 

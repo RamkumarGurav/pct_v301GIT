@@ -18,10 +18,10 @@ if (!empty($append_id_carousel)) {
   <td>
     <!-- Input field for the file title with a dynamic ID -->
     <input type="number" min="1" step="1" value="1" name="position_carousel[]"
-      id="position_carousel_<?= $id_carousel ?>" placeholder="Image Position"
+      id="position_carousel_<?php echo $id_carousel ?>" placeholder="Image Position"
       class="form-control search-code form-control-sm" />
     <!-- Hidden input field for the quotation enquiry detail ID with a dynamic ID -->
-    <!-- <input type="hidden" name="quotation_enquiry_detail_id[]" id="quotation_enquiry_detail_id<?= $id_carousel ?>" value="" /> -->
+    <!-- <input type="hidden" name="quotation_enquiry_detail_id[]" id="quotation_enquiry_detail_id<?php echo $id_carousel ?>" value="" /> -->
   </td>
 
   <!-- Table cell for the file input -->
@@ -32,12 +32,12 @@ if (!empty($append_id_carousel)) {
         <!-- <input type="hidden" name="file_name[]" value="" /> -->
         <!-- File input field for selecting a file -->
         <input type="file" accept="image/*" name="file_carousel[]" class="custom-file-input"
-          id="file_input_carousel_<?= $id_carousel ?>" onchange="previewImage(<?= $id_carousel ?>)">
+          id="file_input_carousel_<?php echo $id_carousel ?>" onchange="previewImage(<?php echo $id_carousel ?>)">
         <!-- Label for the file input, initially empty -->
         <label class="custom-file-label form-control-sm" for="files">Choose file</label>
       </div>
       <!-- Image preview -->
-      <img id="image_preview_carousel_<?= $id_carousel ?>" src="" alt="Image Preview" class="imageThumb"
+      <img id="image_preview_carousel_<?php echo $id_carousel ?>" src="" alt="Image Preview" class="imageThumb"
         style="display:none;">
     </div>
   </td>

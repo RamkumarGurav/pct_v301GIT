@@ -16,7 +16,7 @@ if (!empty($append_id_ttc)) {
 
   <!-- Table cell for the name input -->
   <td>
-    <input type="text" name="name_ttc[]" id="text_name_<?= $id_ttc ?>" placeholder="Name"
+    <input type="text" name="name_ttc[]" id="text_name_<?php echo $id_ttc ?>" placeholder="Name"
       class="form-control search-code form-control-sm" />
   </td>
 
